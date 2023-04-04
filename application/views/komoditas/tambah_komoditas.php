@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">    
-                    <form class="form form-horizontal" method="POST" action="<?php echo base_url('rekapitulasi/tambah_data_aksi')?>">
+                    <form class="form form-horizontal" method="POST" action="<?php echo base_url('komoditas/tambah_data_aksi')?>">
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">

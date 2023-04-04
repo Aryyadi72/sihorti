@@ -8,14 +8,14 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal">
+                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('rekapitulasi/tambah_data_aksi')?>">
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Kode</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="kode"
                                             placeholder="Kode" />
                                     </div>
                                     <div class="col-md-4">
@@ -36,77 +36,77 @@
                                         <label>Hasil Produksi</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="hasil_produksi"
                                             placeholder="Hasil Produksi" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Luas Tanaman</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="luas_tanaman"
                                             placeholder="Luas Tanaman" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Luas Panen Habis</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="luas_panen_habis"
                                             placeholder="Luas Panen Habis" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Luas Panen Sisa</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="luas_panen_sisa"
                                             placeholder="Luas Panen Sisa" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Luas Rusak</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="luas_rusak"
                                             placeholder="Luas Rusak" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Luas Tambah Tanam</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="luas_tambah_tanam"
                                             placeholder="Luas Tambah Tanam" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Luas Laporan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="luas_laporan"
                                             placeholder="Luas Laporan" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Produksi Habis</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="produksi_habis"
                                             placeholder="Produksi Habis" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Produksi Sisa</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="produksi_sisa"
                                             placeholder="Produksi Sisa" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Harga Jual</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="harga_jual"
                                             placeholder="Harga Jual" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Keterangan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="keterangan"
                                             placeholder="Keterangan" />
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">
