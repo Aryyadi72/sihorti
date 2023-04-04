@@ -20,9 +20,11 @@ class Kecamatan extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['kecamatan'] = $this->M_kecamatan->show_data()->result();
+		$data['kecamatan'] = $this->M_kecamatan->get_data('kecamatan')->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('kecamatan/tampil_kecamatan');
+        $this->load->view('kecamatan/tampil_kecamatan',$data);
         $this->load->view('templates/footer');
 	}
 

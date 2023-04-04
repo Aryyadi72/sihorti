@@ -37,15 +37,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                            <?php $no=1; foreach($komoditas as $k) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>0500 527693</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $k->id_kategori?></td>
+                            <td><?php echo $k->kode?></td>
+                            <td><?php echo $k->nama?></td>
                             <td>
-                                <a href="<?php echo base_url("komoditas/ubah"); ?>" class="btn icon btn-warning"><i
+                                <a href="<?php echo base_url('komoditas/ubah/'.$k-> id_komoditas)?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("komoditas/hapus"); ?>" class="btn icon btn-danger"><i
+                                <a href="<?php echo base_url('komoditas/hapus/'.$k-> id_komoditas)?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#komoditas"><i class="bi bi-info-circle"></i>
@@ -53,6 +54,7 @@
                             </td>
                         </tr>
                     </tbody>
+                      <?php endforeach; ?>
                 </table>
             </div>
         </div>

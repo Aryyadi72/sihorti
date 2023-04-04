@@ -37,20 +37,20 @@
                             <th>NIP</th>
                             <th>Foto</th>
                             <th>Username</th>
-                            <th>Password</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0100</td>
-                            <td>Dale</td>
-                            <td>fringilla.euismod.enim@quam.ca</td>
-                            <td>0500 527693</td>
-                            <td>New Quay</td>
-                            <td>New Quay</td>
+                           <?php $no=1; foreach($akun as $a) : ?>
+                        <tr>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $a->id_level?></td>
+                            <td><?php echo $a->id_pegawai?></td>
+                            <td><?php echo $a->nama?></td>
+                            <td><?php echo $a->nip?></td>
+                            <td><?php echo $a->foto?></td>
+                            <td><?php echo $a->username?></td>
                             <td>
                                 <a href="<?php echo base_url("akun/ubah"); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
@@ -62,6 +62,7 @@
                             </td>
                         </tr>
                     </tbody>
+                     <?php endforeach; ?>
                 </table>
             </div>
         </div>

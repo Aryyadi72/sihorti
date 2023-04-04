@@ -40,14 +40,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                         <?php $no=1; foreach($pegawai as $p) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>076 4820 8838</td>
-                            <td>vehicula.aliquet@semconsequat.co.uk</td>
-                            <td>Offenburg</td>
-                            <td>Graiden</td>
-                            <td>vehicula.aliquet@semconsequat.co.uk</td>
-                            <td>076 4820 8838</td>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $p->nip_pegawai?></td>
+                            <td><?php echo $p->nama_pegawai?></td>
+                            <td><?php echo $p->tempat_lahir?></td>
+                            <td><?php echo $p->tanggal_lahir?></td>
+                            <td><?php echo $p->foto?></td>
+                            <td><?php echo $p->jenis_kelamin?></td>
                             <td>
                                 <a href="<?php echo base_url("pegawai/ubah"); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
@@ -59,6 +60,7 @@
                             </td>
                         </tr>
                     </tbody>
+                     <?php endforeach; ?>
                 </table>
             </div>
         </div>

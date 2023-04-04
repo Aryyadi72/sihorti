@@ -10,7 +10,7 @@ class Login extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = "SIHORTI - LOGIN";
-			$this->load->view('templates_admin/header', $data);
+			$this->load->view('templates/header', $data);
 			$this->load->view('login', $data);
 		} else {
 			$username = $this->input->post('username');
@@ -34,13 +34,13 @@ class Login extends CI_Controller
 				$this->session->set_userdata('id_akun', $cek->id_akun);
 				switch ($cek->id_level) {
 					case 1:
-						redirect('admin/dashboard');
+						redirect('login');
 						break;
 					case 2:
-						redirect('petugas/dashboard');
+						redirect('login');
 						break;
 					case 3:
-						redirect('user/dashboard');
+						redirect('login');
 						break;
 					default:
 						break;

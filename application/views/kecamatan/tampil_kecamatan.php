@@ -37,11 +37,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                         <?php $no=1; foreach($kecamatan as $k) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>vehicula.aliquet@semconsequat.co.uk</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $k->id_kecamatan?></td>
+                            <td><?php echo $k->nama?></td>
+                            <td><?php echo $k->latitude?></td>
+                            <td><?php echo $k->longitude?></td>
                             <td>
                                 <a href="<?php echo base_url("kecamatan/ubah"); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
@@ -53,6 +55,7 @@
                             </td>
                         </tr>
                     </tbody>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>

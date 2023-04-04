@@ -12,6 +12,11 @@ class M_akun extends CI_Model
         return  $this->db->query("SELECT * FROM `level`");
     }
 
+    public function tampil_pegawai()
+    {
+        return  $this->db->query("SELECT * FROM pegawai");
+    }
+
     public function get_data($table)
     {
         return $this->db->get($table);
@@ -19,15 +24,15 @@ class M_akun extends CI_Model
 
     public function cek_data($username)
     {
-   $this->db->select('username');
-   $this->db->where('username',$username);		
-   $query =$this->db->get('akun');
-   $row = $query->row();
-   if ($query->num_rows > 0){
+    $this->db->select('username');
+    $this->db->where('username',$username);		
+    $query =$this->db->get('akun');
+    $row = $query->row();
+    if ($query->num_rows > 0){
          return $row->username; 
-   }else{
+    }else{
          return "";
-  }
+    }
     }
 
     public function insert_data($data, $table)
