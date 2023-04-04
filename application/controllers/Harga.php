@@ -47,4 +47,12 @@ class Harga extends CI_Controller {
 		
 	}
 
+	public function harga_mingguan()
+	{
+		$this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('harga_mingguan/tampil_hrg_minggu');
+        $this->load->view('templates/footer');
+	}
+
 }

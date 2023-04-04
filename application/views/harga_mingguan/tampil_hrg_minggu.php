@@ -2,7 +2,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last" style="margin-bottom:20px;">
-                <h3>Data Akun Pengguna</h3>
+                <h3>Data Harga Mingguan</h3>
 
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -19,49 +19,42 @@
             </div>
         </div>
     </div>
-    <a href="<?php echo base_url("akun/tambah"); ?>" class="btn icon icon-left btn-primary"><i data-feather="edit"></i>
-        Tambah Akun</a>
-    <a href="<?php echo base_url("akun/tambah"); ?>" class="btn icon icon-left btn-success"><i data-feather="edit"></i>
-        Report</a>
+
+    <a href="<?php echo base_url("rekapitulasi/tambah"); ?>" class="btn icon icon-left btn-success"><i
+            data-feather="edit"></i>
+        Report Harga Mingguan</a>
+
     <section class="section" style="margin-top:20px;">
         <div class="card">
-            <div class="card-header">Tabel Data Akun Pengguna</div>
+            <div class="card-header">Tabel Data Harga Mingguan</div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID Level</th>
-                            <th>ID Pegawai</th>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>Foto</th>
-                            <th>Username</th>
+                            <th>Harga Produsen</th>
+                            <th>Harga Grosir</th>
+                            <th>Harga Eceran</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no=1; foreach($akun as $a) : ?>
                         <tr>
-                            <td><?php echo $no++ ?></td>
-                            <td><?php echo $a->id_level?></td>
-                            <td><?php echo $a->id_pegawai?></td>
-                            <td><?php echo $a->nama?></td>
-                            <td><?php echo $a->nip?></td>
-                            <td><?php echo $a->foto?></td>
-                            <td><?php echo $a->username?></td>
+                            <td>1</td>
+                            <td>Rp. 6.000</td>
+                            <td>Rp. 8.000</td>
+                            <td>Rp. 10.000</td>
                             <td>
-                                <a href="<?php echo base_url("akun/ubah"); ?>" class="btn icon btn-warning"><i
+                                <a href="<?php echo base_url("harga/ubah"); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("akun/hapus"); ?>" class="btn icon btn-danger"><i
+                                <a href="<?php echo base_url("harga/hapus"); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#akun"><i class="bi bi-info-circle"></i>
+                                    data-bs-target="#harga"><i class="bi bi-info-circle"></i>
                                 </button>
                             </td>
                         </tr>
                     </tbody>
-                    <?php endforeach; ?>
                 </table>
             </div>
         </div>
@@ -71,7 +64,7 @@
 <div class="col-md-6 col-12">
     <div class="card">
         <!-- <div class="card-body"> -->
-        <div class="modal fade text-left" id="akun" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+        <div class="modal fade text-left" id="harga" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">

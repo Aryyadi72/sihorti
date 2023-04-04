@@ -46,48 +46,84 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
+                        <!-- Menu -->
                         <li class="sidebar-title">Menu</li>
 
+                        <!-- Dashboard -->
                         <li class="sidebar-item active">
                             <a href="<?php echo base_url("dashboard"); ?>" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
+                        <!-- Dashboard -->
+
+                        <!-- Data Rekapitulasi -->
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url("rekapitulasi"); ?>" class="sidebar-link">
+                                <i class="bi bi-journal-text"></i>
+                                <span>Rekapitulasi</span>
+                            </a>
+                        </li>
+                        <!-- Data Rekapitulasi -->
+
+                        <!-- Data Kecamatan -->
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url("kecamatan"); ?>" class="sidebar-link">
+                                <i class="bi bi-building-fill"></i>
+                                <span>Kecamatan</span>
+                            </a>
+                        </li>
+                        <!-- Data Kecamatan -->
+                        <!-- Menu -->
 
                         <!-- Komoditas -->
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class="sidebar-link">
+                        <li class="sidebar-title">Komoditas</li>
+
+                        <!-- Data Komoditas -->
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url("komoditas"); ?>" class="sidebar-link">
                                 <i class="bi bi-tree-fill"></i>
-                                <span>Komoditas</span>
+                                <span>Data Komoditas</span>
                             </a>
-                            <ul class="submenu">
-                                <li class="submenu-item">
-                                    <a href="<?php echo base_url("komoditas"); ?>">Data Komoditas</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="<?php echo base_url("komoditas/lokasi_komoditas"); ?>">Lokasi Komoditas</a>
-                                </li>
-                            </ul>
                         </li>
+                        <!-- Data Komoditas -->
+
+                        <!-- Lokasi Komoditas -->
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url("komoditas/lokasi_komoditas"); ?>" class="sidebar-link">
+                                <i class="bi bi-tree-fill"></i>
+                                <span>Lokasi Komoditas</span>
+                            </a>
+                        </li>
+                        <!-- Lokasi Komoditas -->
                         <!-- Komoditas -->
 
                         <!-- Harga -->
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class="sidebar-link">
+                        <li class="sidebar-title">Harga</li>
+
+                        <!-- Harga -->
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url("harga"); ?>" class="sidebar-link">
                                 <i class="bi bi-cash-coin"></i>
                                 <span>Harga</span>
                             </a>
-                            <ul class="submenu">
-                                <li class="submenu-item">
-                                    <a href="<?php echo base_url("harga"); ?>">Harga</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="<?php echo base_url("harga"); ?>">Harga Mingguan</a>
-                                </li>
-                            </ul>
                         </li>
                         <!-- Harga -->
+
+                        <!-- Harga Mingguan -->
+                        <li class="sidebar-item">
+                            <a href="<?php echo base_url("harga/harga_mingguan"); ?>" class="sidebar-link">
+                                <i class="bi bi-cash-coin"></i>
+                                <span>Harga Mingguan</span>
+                            </a>
+                        </li>
+                        <!-- Harga Mingguan -->
+                        <!-- Harga -->
+
+                        <!-- User -->
+                        <li class="sidebar-title">User</li>
+
 
                         <!-- Data Pegawai -->
                         <li class="sidebar-item">
@@ -106,24 +142,7 @@
                             </a>
                         </li>
                         <!-- Data Akun -->
-
-                        <!-- Data Kecamatan -->
-                        <li class="sidebar-item">
-                            <a href="<?php echo base_url("kecamatan"); ?>" class="sidebar-link">
-                                <i class="bi bi-building-fill"></i>
-                                <span>Kecamatan</span>
-                            </a>
-                        </li>
-                        <!-- Data Kecamatan -->
-
-                        <!-- Data Rekapitulasi -->
-                        <li class="sidebar-item">
-                            <a href="<?php echo base_url("rekapitulasi"); ?>" class="sidebar-link">
-                                <i class="bi bi-journal-text"></i>
-                                <span>Rekapitulasi</span>
-                            </a>
-                        </li>
-                        <!-- Data Rekapitulasi -->
+                        <!-- User -->
                     </ul>
                 </div>
             </div>
