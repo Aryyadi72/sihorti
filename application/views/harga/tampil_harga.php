@@ -36,11 +36,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                             <?php $no=1; foreach($harga as $h) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>Rp. 6.000</td>
-                            <td>Rp. 8.000</td>
-                            <td>Rp. 10.000</td>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $h->harga_produsen; ?></td>
+                            <td><?php echo $h->harga_grosir; ?></td>
+                            <td><?php echo $h->harga_eceran; ?></td>
                             <td>
                                 <a href="<?php echo base_url("harga/ubah"); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
@@ -52,6 +53,7 @@
                             </td>
                         </tr>
                     </tbody>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>

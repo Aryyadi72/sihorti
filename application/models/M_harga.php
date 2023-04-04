@@ -3,7 +3,12 @@
 
         public function show_data()
         {
-            return $this->db->query('SELECT * FROM komoditas JOIN kategori on komoditas.id_kategori=kategori.id_kategori');
+            return $this->db->query('SELECT * FROM harga');
+        }
+
+        public function show_data_mingguan()
+        {
+            return $this->db->query('SELECT * FROM harga_mingguan');
         }
 
         // public function tampil_ruangan()

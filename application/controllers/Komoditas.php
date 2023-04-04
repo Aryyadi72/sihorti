@@ -30,9 +30,10 @@ class Komoditas extends CI_Controller {
 
     public function tambah()
 	{
+		$data['kategori'] = $this->M_komoditas->tampil_kategori()->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('komoditas/tambah_komoditas');
+        $this->load->view('komoditas/tambah_komoditas',$data);
         $this->load->view('templates/footer');
 	}
 
@@ -41,7 +42,7 @@ class Komoditas extends CI_Controller {
 		$this->form_validation->set_rules('kode','kode','required');
 		$this->form_validation->set_rules('id_kategori','id_kategori','required');
 		$this->form_validation->set_rules('nama','nama','required');
-		// $this->form_validation->set_rules('keterangan','keterangan','required');
+		$this->form_validation->set_rules('id_komoditas','id_komoditas','required');
 	}
 
 	public function tambah_data_aksi()
@@ -90,30 +91,21 @@ class Komoditas extends CI_Controller {
 		if($this->form_validation->run() == FALSE){
 			$this->ubah();
 		}else{
-			$id_kategori  = $this->input->post('id_kategori');
-			$kode 		  = $this->input->post('kode');
-			$nama   	  = $this->input->post('nama');
-
-			$data = array(
-				'id_kategori'	=> $id_kategori,
-				'kode'			=> $kode,
-				'nama'			=> $nama,
-			);
-
-			$where = array(
-				'id_komoditas' => $id
-				
-			);
-
-			$this->M_komoditas->update_data('komoditas', $data, $where);
-			$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<strong>Data berhasil diupdate !</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
+  		$data = array(
+    		'id_kategori' => $this->input->post('id_kategori'),
+    		'kode' => $this->input->post('kode'),
+    		'nama' => $this->input->post('nama')
+  		);
+  		$this->M_komoditas->update_data($id, $data);
+		  $this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		  <strong>Data berhasil diupdate !</strong>
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		  </button>
 		  </div>');
 		  redirect('komoditas');
 		}
+		
 	}
 
     public function hapus()

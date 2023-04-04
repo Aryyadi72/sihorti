@@ -8,28 +8,28 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal">
+                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('harga/tambah_data_aksi')?>">
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Harga Produsen</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="harga_produsen"
                                             placeholder="Harga Produsen" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Harga Grosir</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="harga_grosir"
                                             placeholder="Harga Grosir" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Harga Eceran</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="harga_eceran"
                                             placeholder="Harga Eceran" />
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">

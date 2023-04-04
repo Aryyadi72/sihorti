@@ -20,18 +20,57 @@ class Harga extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['harga'] = $this->M_harga->get_data('harga')->result();
+		$data['harga'] = $this->M_harga->show_data()->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('harga/tampil_harga');
+        $this->load->view('harga/tampil_harga',$data);
         $this->load->view('templates/footer');
 	}
 
     public function tambah()
 	{
+		
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('harga/tambah_harga');
         $this->load->view('templates/footer');
+	}
+
+	public function _rules()
+	{
+		$this->form_validation->set_rules('harga_produsen','harga_produsen','required');
+		$this->form_validation->set_rules('harga_grosir','harga_grosir','required');
+		$this->form_validation->set_rules('harga_eceran','harga_eceran','required');
+		// $this->form_validation->set_rules('id_komoditas','id_komoditas','required');
+	}
+
+	public function tambah_data_aksi()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE){
+			$this->tambah();
+		}else{
+			$id_harga	  	      = $this->input->post('id_harga');
+			$harga_produsen  	  = $this->input->post('harga_produsen');
+			$harga_grosir 		  = $this->input->post('harga_grosir');
+			$harga_eceran   	  = $this->input->post('harga_eceran');
+
+			$data = array(
+				'harga_produsen'	=> $harga_produsen,
+				'harga_grosir'		=> $harga_grosir,
+				'harga_eceran'		=> $harga_eceran,
+			);
+
+			$this->M_harga->insert_data($data, 'harga');
+			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Data berhasil ditambahkan !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('harga');
+		}
 	}
 
     public function ubah()
@@ -49,9 +88,11 @@ class Harga extends CI_Controller {
 
 	public function harga_mingguan()
 	{
+		$data['harga'] = $this->M_harga->get_data('harga_mingguan')->result();
+		$data['harga'] = $this->M_harga->show_data_mingguan()->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('harga_mingguan/tampil_hrg_minggu');
+        $this->load->view('harga_mingguan/tampil_hrg_minggu',$data);
         $this->load->view('templates/footer');
 	}
 

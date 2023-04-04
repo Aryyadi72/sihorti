@@ -36,6 +36,44 @@ class Kecamatan extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
+	public function _rules()
+	{
+		$this->form_validation->set_rules('nama','nama','required');
+		$this->form_validation->set_rules('latitude','latitude','required');
+		$this->form_validation->set_rules('longitude','longitude','required');
+		// $this->form_validation->set_rules('id_komoditas','id_komoditas','required');
+	}
+
+	public function tambah_data_aksi()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE){
+			$this->tambah();
+		}else{
+			$id_kecamatan	  = $this->input->post('id_kecamatan');
+			$nama  			  = $this->input->post('nama');
+			$latitude 		  = $this->input->post('latitude');
+			$longitude   	  = $this->input->post('longitude');
+
+			$data = array(
+				'nama'			=> $nama,
+				'latitude'		=> $latitude,
+				'longitude'		=> $longitude,
+			);
+
+			$this->M_kecamatan->insert_data($data, 'kecamatan');
+			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Data berhasil ditambahkan !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('kecamatan');
+		}
+	}
+
+
+
     public function ubah()
 	{
 		$this->load->view('templates/header');

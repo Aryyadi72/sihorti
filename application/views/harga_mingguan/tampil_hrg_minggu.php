@@ -35,15 +35,18 @@
                             <th>Harga Produsen</th>
                             <th>Harga Grosir</th>
                             <th>Harga Eceran</th>
+                            <th>Minggu</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                       <?php $no=1; foreach($harga as $h) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>Rp. 6.000</td>
-                            <td>Rp. 8.000</td>
-                            <td>Rp. 10.000</td>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $h->id_kategori; ?></td>
+                            <td><?php echo $h->id_komoditas; ?></td>
+                            <td><?php echo $h->id_harga; ?></td>
+                            <td><?php echo $h->minggu; ?></td>
                             <td>
                                 <a href="<?php echo base_url("harga/ubah"); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
@@ -55,6 +58,7 @@
                             </td>
                         </tr>
                     </tbody>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>

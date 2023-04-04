@@ -1,15 +1,15 @@
 <?php
-class M_akun extends CI_Model
+class M_rekapitulasi extends CI_Model
 {
     public function show_data()
     {
-        return $this->db->query('SELECT * FROM akun');
+        return $this->db->query('SELECT * FROM rekapitulasi');
     }
 
     // menampilkan data level
-    public function tampil_level()
+    public function tampil_komoditas()
     {
-        return  $this->db->query("SELECT * FROM level");
+        return  $this->db->query("SELECT * FROM komoditas");
     }
 
     public function tampil_pegawai()

@@ -5,12 +5,6 @@
             return $this->db->query('SELECT * FROM kecamatan');
         }
 
-    // menampilkan data bidang
-        public function tampil_jabatan()
-        {
-          return  $this->db->query("SELECT * FROM tb_jabatan");
-        }
-
         public function get_data($table){
             return $this->db->get($table);
         }

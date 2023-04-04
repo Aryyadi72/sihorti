@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('akun/tambah_data_aksi')?>">
+                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('akun/tambah_data_aksi/')?>">
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -34,7 +34,7 @@
                                                 <option>-----Pilih Pegawai------</option>
                                                  <?php
                                                 foreach ($pegawai as $p) { ?>
-                                                        <option value="<?php echo $p->id_pegawai ?>"><?php echo $p->pegawai ?></option>
+                                                        <option value="<?php echo $p->id_pegawai ?>"><?php echo $p->nama_pegawai ?></option>
                                                 <?php } ?>        
                                             </select>
                                         </div>

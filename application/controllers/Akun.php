@@ -32,11 +32,22 @@ class Akun extends CI_Controller {
 	{
 		$data['level'] = $this->M_akun->tampil_level()->result();
 		$data['pegawai'] = $this->M_akun->tampil_pegawai()->result();
-		
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('akun/tambah_akun');
+        $this->load->view('akun/tambah_akun',$data);
         $this->load->view('templates/footer');
+	}
+
+	public function _rules()
+	{
+		$this->form_validation->set_rules('id_akun','id_akun','required');
+		$this->form_validation->set_rules('id_level','id_level','required');
+		$this->form_validation->set_rules('id_pegawai','id_pegawai','required');
+		$this->form_validation->set_rules('nip','nip','required');
+		$this->form_validation->set_rules('nama','nama','required');
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('password','password','required');
+		// $this->form_validation->set_rules('nip','nip','required');
 	}
 
 	public function tambah_data_aksi()
@@ -49,7 +60,7 @@ class Akun extends CI_Controller {
 			$id_level	 		= $this->input->post('id_level');
 			$id_pegawai	 		= $this->input->post('id_pegawai');
 			$nip			  	= $this->input->post('nip');
-			$nama			= $this->input->post('nama');
+			$nama				= $this->input->post('nama');
 			$username   		= $this->input->post('username');
 			$password   		= $this->input->post('password');
 			$foto		  		= $_FILES['foto']['name'];
@@ -66,7 +77,7 @@ class Akun extends CI_Controller {
 			}
 
 			$data = array(
-				'id_ruangan'	=> $id_level,
+				'id_level'	=> $id_level,
 				'id_pegawai'	=> $id_pegawai,
 				'nip'			=> $nip,
 				'nama'			=> $nama,

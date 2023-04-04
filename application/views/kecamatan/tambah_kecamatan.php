@@ -8,28 +8,31 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal">
+                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('kecamatan/tambah_data_aksi')?>">
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                <input type="hidden" id="first-name" class="form-control" name="id_kecamatan"
+                                            placeholder="Nama Kecamatan" />
+                                        
+                                <div class="col-md-4">
                                         <label>Nama Kecamatan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="nama"
                                             placeholder="Nama Kecamatan" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Latitude</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="latitude"
                                             placeholder="Latitude" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Longitude</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="longitude"
                                             placeholder="Nama Kecamatan" />
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">

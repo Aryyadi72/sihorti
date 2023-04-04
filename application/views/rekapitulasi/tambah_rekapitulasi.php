@@ -23,14 +23,12 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <select class="choices form-select">
-                                                <option value="square">Square</option>
-                                                <option value="rectangle">Rectangle</option>
-                                                <option value="rombo">Rombo</option>
-                                                <option value="romboid">Romboid</option>
-                                                <option value="trapeze">Trapeze</option>
-                                                <option value="traible">Triangle</option>
-
+                                            <select class="choices form-select" name="id_komoditas">
+                                                <option value="">--- Pilih Komoditas ---</option>
+                                                  <?php
+                                                foreach ($komoditas as $ko) { ?>
+                                                <option value="<?php echo $ko->id_komoditas ?>"><?php echo $ko->nama ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
