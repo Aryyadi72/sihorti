@@ -46,15 +46,31 @@ class M_akun extends CI_Model
        ($this->db->insert($table, $data));
     }
 
-    public function update_data($table, $data, $where)
+    // public function update_data($table, $data, $where)
+    public function update_data($id)
     {
-        $this->db->update($table, $data, $where);
+        // $this->db->update($table, $data, $where);
+        return $this->db->get_where('akun', ['id_akun' => $id])->row_array();
     }
 
-     public function update_data_akun($id_akun, $data)
+    public function update_data_akun()
     {
-        $this->db->where('id_akun', $id_akun);
+        $data = [
+            "id_level" 	    => $this->input->post('id_level'),
+            "id_pegawai" 	=> $this->input->post('id_pegawai'),
+            "nama" 		    => $this->input->post('nama'),
+            "nip" 	        => $this->input->post('nip'),
+            "foto" 	        => $this->input->post('foto'),
+            "username" 		=> $this->input->post('username'),
+            "password" 	    => $this->input->post('password'),
+        ];
+
+        $this->db->where('id_akun', $this->input->post('id_akun'));
         $this->db->update('akun', $data);
+        
+        // $this->db->where('id_akun', $id_akun);
+        // $this->db->update('akun', $data);
+        
     }
 
     public function delete_data($where, $table)

@@ -108,154 +108,157 @@ if ($cek->num_rows()>=1){
 		}
 	}
 
-    public function ubah()
+    public function ubah($id)
 	{
-		$data['level'] = $this->M_akun->tampil_level()->result();
-		$data['pegawai'] = $this->M_akun->tampil_pegawai()->result();
+		// $data['level'] = $this->M_akun->tampil_level()->result();
+		// $data['pegawai'] = $this->M_akun->tampil_pegawai()->result();
+		$this->load->model('m_akun');
+		$data['akun'] = $this->m_akun->update_data($id);
+		
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('akun/ubah_akun', $data);
         $this->load->view('templates/footer');
 	}
 
-	public function update_data_aksi()
-	{
-			$this->_rules();
-	  		$id   	= $this->input->post('id_akun');
-			$id_level    	= $this->input->post('id_level');
-        	$id_pegawai   	= $this->input->post('id_pegawai');
-        	$nip            = $this->input->post('nip');
-        	$nama           = $this->input->post('nama');
-        	$username       = $this->input->post('username');
-        	$password       = $this->input->post('password');
-			$foto		  		= $_FILES['foto']['name'];
-			if($password == NULL){
-				if ($foto = '') {
-				} else {
-					$config['upload_path']		= './assets/foto';
-					$config['allowed_types']		= 'jpg|jpeg|png|tiff';
-					$this->load->library('upload', $config);
+	// public function update_data_aksi()
+	// {
+	// 		$this->_rules();
+	//   		$id   			= $this->input->post('id_akun');
+	// 		$id_level    	= $this->input->post('id_level');
+    //     	$id_pegawai   	= $this->input->post('id_pegawai');
+    //     	$nip            = $this->input->post('nip');
+    //     	$nama           = $this->input->post('nama');
+    //     	$username       = $this->input->post('username');
+    //     	$password       = $this->input->post('password');
+	// 		$foto		  		= $_FILES['foto']['name'];
+	// 		if($password == NULL){
+	// 			if ($foto = '') {
+	// 			} else {
+	// 				$config['upload_path']			= './assets/foto';
+	// 				$config['allowed_types']		= 'jpg|jpeg|png|tiff';
+	// 				$this->load->library('upload', $config);
 	
-					if (!$this->upload->do_upload('foto')) {
-						 $data = array(
-        				    'id_level'  => $id_level,
-        				    'id_pegawai'  => $id_pegawai,
-        				    'nip'           => $nip,
-        				    'nama'          => $nama,
-        				    'username'      => $username,
-        				    'password'      => md5($password),
-        				    'foto'          => $foto,
-        				);
+	// 				if (!$this->upload->do_upload('foto')) {
+	// 					 $data = array(
+    //     				    'id_level'  	=> $id_level,
+    //     				    'id_pegawai'  	=> $id_pegawai,
+    //     				    'nip'           => $nip,
+    //     				    'nama'          => $nama,
+    //     				    'username'      => $username,
+    //     				    'password'      => md5($password),
+    //     				    'foto'          => $foto,
+    //     				);
 
-						$where = array(
-							'id_akun' => $id
-						);
+	// 					$where = array(
+	// 						'id_akun' => $id
+	// 					);
 
-						$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<strong>Data berhasil diupdate !</strong>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-					</div>');
-						redirect('akun');
-					} else {
-						$foto = $this->upload->data('file_name');
-						 $data = array(
-        				    'id_level'  => $id_level,
-        				    'id_pegawai'  => $id_pegawai,
-        				    'nip'           => $nip,
-        				    'nama'          => $nama,
-        				    'username'      => $username,
-        				    'password'      => md5($password),
-        				    'foto'          => $foto,
-        				);
+	// 					$this->M_akun->update_data('akun', $data, $where);
+	// 					$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+	// 					<strong>Data berhasil diupdate !</strong>
+	// 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	// 					<span aria-hidden="true">&times;</span>
+	// 					</button>
+	// 					</div>');
+	// 					redirect('akun');
+	// 				} else {
+	// 					 $foto = $this->upload->data('file_name');
+	// 					 $data = array(
+    //     				    'id_level'  	=> $id_level,
+    //     				    'id_pegawai'  	=> $id_pegawai,
+    //     				    'nip'           => $nip,
+    //     				    'nama'          => $nama,
+    //     				    'username'      => $username,
+    //     				    'password'      => md5($password),
+    //     				    'foto'          => $foto,
+    //     				);
 	
-						$where = array(
-							'id_akun' => $id
-						);
+	// 					$where = array(
+	// 						'id_akun' => $id
+	// 					);
 
 	
-						$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-							<strong>Data berhasil diupdate !</strong>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>');
-						redirect('akun');
-					}
-				}
-			}else{
-				if ($foto = '') {
-				} else {
-					$config['upload_path']		= './assets/foto';
-					$config['allowed_types']		= 'jpg|jpeg|png|tiff';
-					$this->load->library('upload', $config);
+	// 					$this->M_akun->update_data('akun', $data, $where);
+	// 					$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+	// 						<strong>Data berhasil diupdate !</strong>
+	// 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	// 						<span aria-hidden="true">&times;</span>
+	// 						</button>
+	// 					</div>');
+	// 					redirect('akun');
+	// 				}
+	// 			}
+	// 		}else{
+	// 			if ($foto = '') {
+	// 			} else {
+	// 				$config['upload_path']		= './assets/foto';
+	// 				$config['allowed_types']		= 'jpg|jpeg|png|tiff';
+	// 				$this->load->library('upload', $config);
 
-					if (!$this->upload->do_upload('foto')) {
-						 $data = array(
-        				    'id_level'  => $id_level,
-        				    'id_pegawai'  => $id_pegawai,
-        				    'nip'           => $nip,
-        				    'nama'          => $nama,
-        				    'username'      => $username,
-        				    'password'      => md5($password),
-        				    'foto'          => $foto,
-        				);
+	// 				if (!$this->upload->do_upload('foto')) {
+	// 					 $data = array(
+    //     				    'id_level'  	=> $id_level,
+    //     				    'id_pegawai'  	=> $id_pegawai,
+    //     				    'nip'           => $nip,
+    //     				    'nama'          => $nama,
+    //     				    'username'      => $username,
+    //     				    'password'      => md5($password),
+    //     				    'foto'          => $foto,
+    //     				);
 
-						$where = array(
-							'id_akun' => $id
-						);
+	// 					$where = array(
+	// 						'id_akun' => $id
+	// 					);
 
 
-						$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<strong>Data berhasil diupdate !</strong>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-					</div>');
-						redirect('akun');
-					} else {
-						$foto = $this->upload->data('file_name');
-						 $data = array(
-       						'id_level' 		=> $id_level,
-       						'id_pegawai'  	=> $id_pegawai,
-       						'nip'           => $nip,
-       						'nama'          => $nama,
-       						'username'      => $username,
-       						'password'      => md5($password),
-       						'foto'          => $foto,
-       					 );
-						$where = array(
-							'id_akun' => $id
-						);
+	// 					$this->M_akun->update_data('akun', $data, $where);
+	// 					$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+	// 					<strong>Data berhasil diupdate !</strong>
+	// 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	// 					<span aria-hidden="true">&times;</span>
+	// 					</button>
+	// 				</div>');
+	// 					redirect('akun');
+	// 				} else {
+	// 					$foto = $this->upload->data('file_name');
+	// 					 $data = array(
+    //    						'id_level' 		=> $id_level,
+    //    						'id_pegawai'  	=> $id_pegawai,
+    //    						'nip'           => $nip,
+    //    						'nama'          => $nama,
+    //    						'username'      => $username,
+    //    						'password'      => md5($password),
+    //    						'foto'          => $foto,
+    //    					 );
+	// 					$where = array(
+	// 						'id_akun' => $id
+	// 					);
 
-						$cek = $this->db->query("SELECT * FROM akun where username='".$this->input->post('username')."'");
-				if ($cek->num_rows()>=1){
-				  $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Data gagal ditambahkan !</strong>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-				</button>
-				</div>');
-				redirect('akun');
-				}else{
-					$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-							<strong>Data berhasil diupdate !</strong>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>');
-						redirect('akun');
-				}
-			}
-			}
+	// 					$cek = $this->db->query("SELECT * FROM akun where username='".$this->input->post('username')."'");
+	// 			if ($cek->num_rows()>=1){
+	// 			  $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	// 			<strong>Data gagal ditambahkan !</strong>
+	// 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	// 			<span aria-hidden="true">&times;</span>
+	// 			</button>
+	// 			</div>');
+	// 			redirect('akun');
+	// 			}else{
+	// 				$this->M_akun->update_data('akun', $data, $where);
+	// 					$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+	// 						<strong>Data berhasil diupdate !</strong>
+	// 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	// 						<span aria-hidden="true">&times;</span>
+	// 						</button>
+	// 					</div>');
+	// 					redirect('akun');
+	// 			}
+	// 		}
+	// 		}
 			
-		}
-	}
+	// 	}
+	// }
 
 	public function hapus($id = null)
 	{
@@ -272,5 +275,64 @@ if ($cek->num_rows()>=1){
       </div>');
     redirect('akun');
 }
+
+	public function update_data_aksi($id)
+	{
+		$this->_rules();
+	  	$id   							= $this->input->post('id_akun');
+		$config['upload_path']			= './assets/foto';
+		$config['allowed_types']		= 'jpg|jpeg|png|tiff';
+		
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('foto')) {
+
+		$id_level    	= $this->input->post('id_level');
+        $id_pegawai   	= $this->input->post('id_pegawai');
+        $nip            = $this->input->post('nip');
+        $nama           = $this->input->post('nama');
+        $username       = $this->input->post('username');
+        $password       = $this->input->post('password');
+		
+		$data = array(
+        	'id_level'  	=> $id_level,
+        	'id_pegawai'  	=> $id_pegawai,
+        	'nip'           => $nip,
+        	'nama'          => $nama,
+        	'username'      => $username,
+        	'password'      => md5($password),
+        );
+
+		$this->db->where('id_akun', $id);
+		$this->db->update('akun', $data);
+        redirect('akun');
+
+		} else {
+		
+		$foto 			= $this->upload->data();
+        $foto 			= $foto['file_name'];
+		$id_level    	= $this->input->post('id_level');
+        $id_pegawai   	= $this->input->post('id_pegawai');
+        $nip            = $this->input->post('nip');
+        $nama           = $this->input->post('nama');
+        $username       = $this->input->post('username');
+        $password       = $this->input->post('password');
+
+		$data = array(
+        	'id_level'  	=> $id_level,
+        	'id_pegawai'  	=> $id_pegawai,
+        	'nip'           => $nip,
+        	'nama'          => $nama,
+			'foto'			=> $foto,
+        	'username'      => $username,
+        	'password'      => md5($password),
+        );
+
+		$this->db->where('id_akun', $id);
+		$this->db->update('akun', $data);
+        redirect('akun');
+
+		}
+	}
 
 }
