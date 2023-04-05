@@ -28,15 +28,18 @@
             </div>
             <div class="card-body">
                 <?php foreach ($komoditas as $k) : ?>
-                <form class="form form-horizontal" method="POST" action="<?php echo base_url('komoditas/ubah_data_aksi/')?>">
+                <form class="form form-horizontal" method="POST"
+                    action="<?php echo base_url('komoditas/update_data_aksi/')?>">
                     <div class="form-body">
                         <div class="row">
+                            <input type="hidden" id="first-name" class="form-control" name="id_komoditas"
+                                value="<?php echo $k->id_komoditas; ?>" />
                             <div class="col-md-4">
                                 <label>Nama Komoditas</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="nama"
-                                    placeholder="Nama Komoditas" value="<?php echo $k->nama ?>"/>
+                                    placeholder="Nama Komoditas" value="<?php echo $k->nama ?>" />
                             </div>
                             <div class="col-md-4">
                                 <label>Kode Komoditas</label>
@@ -50,8 +53,9 @@
                             </div>
                             <div class="col-md-8 mb-4">
                                 <div class="form-group">
-                                    <select class="choices form-select" name="id_kategori" value="<?php echo $k->id_kategori?>">
-                                    <option value="">----Pilih Kategori----</option>
+                                    <select class="choices form-select" name="id_kategori"
+                                        value="<?php echo $k->id_kategori?>">
+                                        <option value="">----Pilih Kategori----</option>
                                         <?php
                                                 foreach ($kategori as $k) { ?>
                                         <option value="<?php echo $k->id_kategori ?>"><?php echo $k->kategori ?>

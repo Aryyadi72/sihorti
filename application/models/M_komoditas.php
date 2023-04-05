@@ -19,14 +19,15 @@
              return  $this->db->query("SELECT * FROM kategori");
         }
 
-        // public function update_data($table, $data, $where){
-        //     $this->db->update($table,$data, $where);
-        // }
-
-        public function update_data($id, $data){
-        $this->db->where('id_komoditas', $id);
-        $this->db->update('komoditas', $data);
+        public function update_data($table, $data, $where)
+        {
+           $this->db->update($table,$data, $where);
         }
+
+        // public function update_data($id, $data){
+        // $this->db->where('id_komoditas', $id);
+        // $this->db->update('komoditas', $data);
+        // }
 
         public function delete_data($where,$table){
             $this->db->where($where);

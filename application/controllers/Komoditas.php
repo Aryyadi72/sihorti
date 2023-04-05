@@ -86,16 +86,13 @@ class Komoditas extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-	public function ubah_data_aksi()
+	public function update_data_aksi()
 	{
 		$this->_rules();
-		if($this->form_validation->run() == FALSE){
-			$this->ubah($id);
-		}else{
-			    $id			      = $this->input->post('id_komoditas');
-                $id_kategori      = $this->input->post('id_kategori');
-                $kode   		  = $this->input->post('kode');
-                $nama 	          = $this->input->post('nama');
+	  	$id			      = $this->input->post('id_komoditas');
+        $id_kategori      = $this->input->post('id_kategori');
+        $kode   		  = $this->input->post('kode');
+        $nama 	          = $this->input->post('nama');
 
 			$data = array(
 				'id_komoditas' 	=> $id,
@@ -115,9 +112,40 @@ class Komoditas extends CI_Controller {
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>');
-		  redirect('komoitas');
-		}
+		  redirect('komoditas');
 	}
+	// public function ubah_data_aksi()
+	// {
+	// 	$this->_rules();
+	// 	// if($this->form_validation->run() == FALSE){
+	// 	// 	// $this->ubah($id);
+	// 	// }else{
+	// 		    $id			      = $this->input->post('id_komoditas');
+    //             $id_kategori      = $this->input->post('id_kategori');
+    //             $kode   		  = $this->input->post('kode');
+    //             $nama 	          = $this->input->post('nama');
+
+	// 		$data = array(
+	// 			'id_komoditas' 	=> $id,
+	// 			'id_kategori'	=> $id_kategori,
+	// 			'kode'			=> $kode,
+	// 			'nama'			=> $nama,
+	// 		);
+			
+	// 		$where = array(
+	// 			'id_komoditas' => $id
+	// 		);
+
+	// 		$this->M_komoditas->update_data('komoditas', $data, $where);
+	// 		$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+	// 		<strong>Data berhasil diupdate !</strong>
+	// 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	// 		  <span aria-hidden="true">&times;</span>
+	// 		</button>
+	// 	  </div>');
+	// 	  redirect('komoditas');
+	// 	// }
+	// }
 
     public function hapus($id = null)
 	{
