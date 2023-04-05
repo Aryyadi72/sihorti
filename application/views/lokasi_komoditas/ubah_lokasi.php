@@ -13,8 +13,8 @@
 
 <nav class="navbar navbar-light">
     <div class="container d-block">
-        <a href="<?php echo base_url("komoditas") ?>"><i class="bi bi-chevron-left"></i></a>
-        <a class="navbar-brand ms-4" href="<?php echo base_url("komoditas") ?>">
+        <a href="<?php echo base_url("lokasi_komoditas") ?>"><i class="bi bi-chevron-left"></i></a>
+        <a class="navbar-brand ms-4" href="<?php echo base_url("lokasi_komoditas") ?>">
             <img src="<?php echo base_url("") ?>assets/images/logo/logo.svg" />
         </a>
     </div>
@@ -24,13 +24,23 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title">Tambah Data Komoditas</h4>
+                <h4 class="card-title">Ubah Data Kecamatan</h4>
             </div>
             <div class="card-body">
                 <form class="form form-horizontal" method="POST"
-                    action="<?php echo base_url('komoditas/tambah_data_aksi')?>">
+                    action="<?php echo base_url('lokasi_komoditas/ubah')?>">
                     <div class="form-body">
                         <div class="row">
+                            <input type="hidden" id="first-name" class="form-control" name="id_lokasi"
+                                placeholder="ID Lokasi" />
+
+                            <div class="col-md-4">
+                                <label>Nama Kecamatan</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="first-name" class="form-control" name="nama"
+                                    placeholder="Nama Kecamatan" />
+                            </div>
                             <div class="col-md-4">
                                 <label>Nama Komoditas</label>
                             </div>
@@ -39,26 +49,18 @@
                                     placeholder="Nama Komoditas" />
                             </div>
                             <div class="col-md-4">
-                                <label>Kode Komoditas</label>
+                                <label>Latitude</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="kode"
-                                    placeholder="Kode Komoditas" />
+                                <input type="text" id="first-name" class="form-control" name="latitude"
+                                    placeholder="Latitude" />
                             </div>
                             <div class="col-md-4">
-                                <label>Kode Kategori</label>
+                                <label>Longitude</label>
                             </div>
-                            <div class="col-md-8 mb-4">
-                                <div class="form-group">
-                                    <select class="choices form-select" name="id_kategori">
-                                        <option value="">----Pilih Kategori----</option>
-                                        <?php
-                                                foreach ($kategori as $k) { ?>
-                                        <option value="<?php echo $k->id_kategori ?>"><?php echo $k->kategori ?>
-                                        </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="first-name" class="form-control" name="longitude"
+                                    placeholder="Nama Kecamatan" />
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">

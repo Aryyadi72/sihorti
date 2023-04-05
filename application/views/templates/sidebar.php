@@ -91,7 +91,7 @@
 
                         <!-- Lokasi Komoditas -->
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url("komoditas/lokasi_komoditas"); ?>" class="sidebar-link">
+                            <a href="<?php echo base_url("lokasi_komoditas"); ?>" class="sidebar-link">
                                 <i class="bi bi-tree-fill"></i>
                                 <span>Lokasi Komoditas</span>
                             </a>

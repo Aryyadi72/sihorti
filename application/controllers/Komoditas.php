@@ -134,12 +134,4 @@ class Komoditas extends CI_Controller {
       </div>');
     redirect('komoditas');
 }
-
-
-	public function lokasi_komoditas()
-	{
-		$this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('komoditas/lokasi_komoditas');
-	}
 }

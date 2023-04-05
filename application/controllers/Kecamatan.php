@@ -30,10 +30,10 @@ class Kecamatan extends CI_Controller {
 
     public function tambah()
 	{
-		$this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+		// $this->load->view('templates/header');
+        // $this->load->view('templates/sidebar');
         $this->load->view('kecamatan/tambah_kecamatan');
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/footer');
 	}
 
 	public function _rules()
@@ -76,10 +76,10 @@ class Kecamatan extends CI_Controller {
 
     public function ubah()
 	{
-		$this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+		// $this->load->view('templates/header');
+        // $this->load->view('templates/sidebar');
         $this->load->view('kecamatan/ubah_kecamatan');
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/footer');
 	}
 
 	public function hapus($id = null)

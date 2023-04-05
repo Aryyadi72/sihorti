@@ -10,7 +10,7 @@ class Login extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = "SIHORTI - LOGIN";
-			$this->load->view('templates/header', $data);
+			// $this->load->view('templates/header', $data);
 			$this->load->view('login', $data);
 		} else {
 			$username = $this->input->post('username');

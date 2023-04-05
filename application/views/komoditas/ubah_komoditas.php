@@ -8,7 +8,6 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <?php foreach ($komoditas as $k) :?>
                         <form class="form form-horizontal" method="POST" action="<?php echo base_url('komoditas/ubah_data_aksi/')?>">
                             <div class="form-body">
                                 <div class="row">
@@ -16,16 +15,15 @@
                                         <label>Nama Komoditas</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="hidden" name="id_komoditas" class="form-control" value="<?php echo $k->id_komoditas ?>">
                                         <input type="text" id="first-name" class="form-control" name="nama"
-                                            placeholder="Nama Komoditas" value="<?php echo $k->nama; ?>"/>
+                                            placeholder="Nama Komoditas"/>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Kode Komoditas</label>
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" id="first-name" class="form-control" name="kode"
-                                            placeholder="Kode Komoditas" value="<?php echo $k->kode ?>"/>
+                                            placeholder="Kode Komoditas"/>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Kode Kategori</label>
@@ -33,11 +31,8 @@
                                     <div class="col-md-8 mb-4">
                                         <div class="form-group">
                                             <select class="choices form-select" name="id_kategori">
-                                                <option value="">---- Pilih Kategori ----</option>
-                                                  <?php
-                                                foreach ($kategori as $k) { ?>
-                                                    <option value="<?php echo $k->id_kategori ?>"><?php echo $k->kategori ?></option>
-                                                <?php } ?>
+                                                <option value="1">Buah</option>
+                                                <option value="2">Sayur</option>
                                             </select>
                                         </div>
                                     </div>
@@ -51,8 +46,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                        <?php endforeach; ?> 
+                        </form> 
                     </div>
                 </div>
             </div>
