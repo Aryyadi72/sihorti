@@ -21,8 +21,8 @@ class Lokasi_Komoditas extends CI_Controller {
 	
     public function index()
 	{
-		$data['lokasi'] = $this->M_kecamatan->show_data()->result();
-		$data['lokasi'] = $this->M_kecamatan->get_data('lokasi_komoditas')->result();
+		$data['lokasi'] = $this->M_lokasi->show_data()->result();
+		$data['lokasi'] = $this->M_lokasi->get_data('lokasi_komoditas')->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('lokasi_komoditas/tampil_lokasi',$data);
@@ -77,11 +77,13 @@ class Lokasi_Komoditas extends CI_Controller {
 		}
 	}
 
-    public function ubah()
+    public function ubah($id)
 	{
+		$where = array('id_lokasi' => $id);
+		$data['lokasi_komoditas'] = $this->db->query("SELECT * FROM lokasi_komoditas WHERE id_lokasi= '$id'")->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('lokasi_komoditas/ubah_lokasi');
+        $this->load->view('lokasi_komoditas/ubah_lokasi', $data);
 		$this->load->view('templates/footer');
 	}
 

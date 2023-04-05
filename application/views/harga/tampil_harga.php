@@ -43,9 +43,9 @@
                             <td><?php echo $h->harga_grosir; ?></td>
                             <td><?php echo $h->harga_eceran; ?></td>
                             <td>
-                                <a href="<?php echo base_url("harga/ubah"); ?>" class="btn icon btn-warning"><i
+                                <a href="<?php echo base_url("harga/ubah/".$h->id_harga); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("harga/hapus"); ?>" class="btn icon btn-danger"><i
+                                <a href="<?php echo base_url("harga/hapus/".$h->id_harga); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#harga"><i class="bi bi-info-circle"></i>

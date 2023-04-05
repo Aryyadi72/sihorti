@@ -36,11 +36,13 @@ class Pegawai extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-    public function ubah()
+    public function ubah($id)
 	{
+		$where = array('id_pegawai' => $id);
+		$data['pegawai'] = $this->db->query("SELECT * FROM pegawai WHERE id_pegawai= '$id'")->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('pegawai/ubah_pegawai');
+        $this->load->view('pegawai/ubah_pegawai',$data);
         $this->load->view('templates/footer');
 	}
 

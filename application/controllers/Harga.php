@@ -73,11 +73,13 @@ class Harga extends CI_Controller {
 		}
 	}
 
-    public function ubah()
+    public function ubah($id)
 	{
+		$where = array('id_harga' => $id);
+		$data['harga'] = $this->db->query("SELECT * FROM harga WHERE id_harga= '$id'")->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('harga/ubah_harga');
+        $this->load->view('harga/ubah_harga', $data);
         $this->load->view('templates/footer');
 	}
 

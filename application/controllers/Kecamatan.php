@@ -75,11 +75,13 @@ class Kecamatan extends CI_Controller {
 
 
 
-    public function ubah()
+    public function ubah($id)
 	{
+		$where = array('id_kecamatan' => $id);
+		$data['kecamatan'] = $this->db->query("SELECT * FROM kecamatan WHERE id_kecamatan = '$id'")->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('kecamatan/ubah_kecamatan');
+        $this->load->view('kecamatan/ubah_kecamatan', $data);
         $this->load->view('templates/footer');
 	}
 

@@ -27,6 +27,7 @@
                 <h4 class="card-title">Ubah Data Akun</h4>
             </div>
             <div class="card-body">
+                <?php foreach ($akun as $a):?>
                 <form class="form form-horizontal" method="POST"
                     action="<?php echo base_url('akun/update_data_aksi/')?>" enctype="multipart/form-data">
                     <div class="form-body">
@@ -36,7 +37,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <select class="choices form-select" name="id_level">
+                                    <select class="choices form-select" name="id_level" value="<?php echo $a->id_level?>">
                                         <option>-----Pilih Level------</option>
                                         <?php
                                                 foreach ($level as $l) { ?>
@@ -51,7 +52,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <select class="choices form-select" name="id_pegawai">
+                                    <select class="choices form-select" name="id_pegawai" value="<?php echo $a->id_pegawai?>">
                                         <option>-----Pilih Pegawai------</option>
                                         <?php
                                                 foreach ($pegawai as $p) { ?>
@@ -66,33 +67,33 @@
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="nama"
-                                    placeholder="Nama" />
+                                    placeholder="Nama" value="<?php echo $a->nama?>"/>
                             </div>
                             <div class="col-md-4">
                                 <label>NIP</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="nip" placeholder="NIP" />
+                                <input type="text" id="first-name" class="form-control" name="nip" placeholder="NIP" value="<?php echo $a->nip?>"/>
                             </div>
                             <div class="col-md-4">
                                 <label for="formFile" class="form-label">File Foto</label>
                             </div>
                             <div class="col-md-8 mb-3">
-                                <input class="form-control" type="file" id="formFile" name="foto" />
+                                <input class="form-control" type="file" id="formFile" name="foto" value="<?php echo $a->foto?>"/>
                             </div>
                             <div class="col-md-4">
                                 <label>Username</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="username"
-                                    placeholder="Username" />
+                                    placeholder="Username" value="<?php echo $a->username?>"/>
                             </div>
                             <div class="col-md-4">
                                 <label>Password</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="password"
-                                    placeholder="Password" />
+                                <input type="password" id="first-name" class="form-control" name="password"
+                                    placeholder="Password" value="<?php echo $a->password?>"/>
                             </div>
                         </div>
                         <div class="col-sm-12 d-flex justify-content-end">
@@ -106,6 +107,7 @@
                     </div>
             </div>
             </form>
+            <?php endforeach; ?>
         </div>
     </div>
     </div>
