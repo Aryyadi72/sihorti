@@ -19,7 +19,7 @@
                                     <h6 class="text-muted font-semibold">
                                         Komoditas
                                     </h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo $total_komoditas ?></div>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Kecamatan</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo $total_kecamatan ?></div>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Akun</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo $total_akun ?></div>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Pegawai</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo $total_pegawai ?></div>
                                 </div>
                             </div>
                         </div>
