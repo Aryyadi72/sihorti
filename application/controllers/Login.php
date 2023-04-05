@@ -11,7 +11,7 @@ class Login extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = "SIHORTI - LOGIN";
 			$this->load->view('templates/header', $data);
-			$this->load->view('dashboard', $data);
+			$this->load->view('login', $data);
 		} else {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
@@ -27,27 +27,14 @@ class Login extends CI_Controller
 		  		</div>');
 				redirect('login');
 			} else {
-				$this->session->set_userdata('id_level', $cek->id_level);
-				$this->session->set_userdata('nama', $cek->nama);
-				$this->session->set_userdata('nip', $cek->nip);
-				$this->session->set_userdata('foto', $cek->foto);
-				$this->session->set_userdata('id_akun', $cek->id_akun);
-				switch ($cek->id_level) {
-					case 1:
-						redirect('dashboard');
-						break;
-					case 2:
-						redirect('dashboard');
-						break;
-					case 3:
-						redirect('dashboard');
-						break;
-					default:
-						break;
+				$this->session->set_userdata('username', $cek->username);
+				$this->session->set_userdata('password', $cek->password);
+				$this->session->set_userdata('level', $cek->level);
+				redirect('dashboard');
 				}
 			}
 		}
-	}
+	
 
 	public function _rules()
 	{

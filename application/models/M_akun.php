@@ -77,6 +77,7 @@ class M_akun extends CI_Model
 
         $result     = $this->db->where('username', $username)
             ->where('password', md5($password))
+            // ->join('tb_ruangan', 'tb_ruangan.id_ruangan=tb_akun.id_ruangan')
             ->limit(1)
             ->get('akun');
 

@@ -14,7 +14,7 @@
 </head>
 
 <body class="d-flex text-center">
-    <form class="form-login">
+    <form class="form-login user" method="POST" action="<?php echo base_url('login') ?> ">
         <svg width="72" height="72" viewBox="0 0 16 16" class="mb-4" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
@@ -25,12 +25,13 @@
 
         <h1 class="h3 mb-3 font-weight-normal">Bootstrap5 Login</h1>
         <!-- 'sr-only' will hide the text : 'Email Address'. So, 'Email Address' will be invisible -->
+
         <label for="inputEmail" class="sr-only">Email Address</label>
         <!-- 'autofocus' will highlight the input column initially -->
-        <input type="email" id="inputEmail" class="form-control mb-2" placeholder="Email Address" required autofocus>
+        <input type="text" id="inputEmail" class="form-control mb-2" placeholder="Username" name="username" required autofocus>
         <!-- 'sr-only' will hide the text : 'Password'. So, 'Password' will be invisible -->
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control mb-2" placeholder="Password" required>
+        <input type="password" id="inputPassword" class="form-control mb-2" placeholder="Password" name="password" required>
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
@@ -40,7 +41,7 @@
         <!-- <button class="btn btn-lg btn-primary btn-block" type="submit" href="">
             Login
         </button> -->
-        <a class="btn btn-lg btn-primary btn-block" href="<?php echo site_url("login"); ?>">Login</a>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" href="<?php echo site_url("login"); ?>">Login</button> 
     </form>
 
     <!-- Optional JavaScript -->
