@@ -12,7 +12,7 @@
                             <a href="index.html">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            DataTable
+                            Harga Mingguan
                         </li>
                     </ol>
                 </nav>
@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                       <?php $no=1; foreach($harga as $h) : ?>
+                        <?php $no=1; foreach($harga as $h) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
                             <td><?php echo $h->id_kategori; ?></td>

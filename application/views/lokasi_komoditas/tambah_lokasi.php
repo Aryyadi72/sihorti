@@ -27,7 +27,8 @@
                 <h4 class="card-title">Tambah Data Kecamatan</h4>
             </div>
             <div class="card-body">
-                <form class="form form-horizontal" method="POST" action="<?php echo base_url('lokasi_komoditas/tambah_data_aksi')?>" enctype="multipart/form-data">
+                <form class="form form-horizontal" method="POST"
+                    action="<?php echo base_url('lokasi_komoditas/tambah_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
                             <input type="hidden" id="first-name" class="form-control" name="id_lokasi"
@@ -37,7 +38,7 @@
                             </div>
                             <div class="col-md-8 form-group">
                                 <select class="choices form-select" name="id_kecamatan">
-                                <option value="">----Pilih Kecamatan----</option>
+                                    <option value="">----Pilih Kecamatan----</option>
                                     <?php
                                             foreach ($kecamatan as $k) { ?>
                                     <option value="<?php echo $k->id_kecamatan ?>"><?php echo $k->nama ?>
@@ -50,7 +51,7 @@
                             </div>
                             <div class="col-md-8 form-group">
                                 <select class="choices form-select" name="id_komoditas">
-                                <option value="">----Pilih Komoditas----</option>
+                                    <option value="">----Pilih Komoditas----</option>
                                     <?php
                                             foreach ($komoditas as $ko) { ?>
                                     <option value="<?php echo $ko->id_komoditas ?>"><?php echo $ko->nama ?>

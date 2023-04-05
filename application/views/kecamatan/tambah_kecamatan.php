@@ -31,9 +31,13 @@
                     action="<?php echo base_url('kecamatan/tambah_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
-                            <input type="hidden" id="first-name" class="form-control" name="id_kecamatan"
-                                placeholder="Nama Kecamatan" />
-
+                            <div class="col-md-4">
+                                <label>ID Kecamatan</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="first-name" class="form-control" name="id_kecamatan"
+                                    placeholder="ID Kecamatan" />
+                            </div>
                             <div class="col-md-4">
                                 <label>Nama Kecamatan</label>
                             </div>
@@ -53,7 +57,7 @@
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="longitude"
-                                    placeholder="Nama Kecamatan" />
+                                    placeholder="Longitude" />
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">

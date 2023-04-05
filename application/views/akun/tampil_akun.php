@@ -12,7 +12,7 @@
                             <a href="index.html">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            DataTable
+                            Akun
                         </li>
                     </ol>
                 </nav>
@@ -51,11 +51,11 @@
                             <td><?php echo $a->foto?></td>
                             <td><?php echo $a->username?></td>
                             <td>
-                                
-                            <a href="<?php echo base_url('akun/ubah/'.$a->id_akun)?>" class="btn icon btn-warning"><i
-                                        class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("akun/hapus/".$a->id_akun); ?>" class="btn icon btn-danger"><i
-                                        class="bi bi-x"></i></a>
+
+                                <a href="<?php echo base_url('akun/ubah/'.$a->id_akun)?>"
+                                    class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
+                                <a href="<?php echo base_url("akun/hapus/".$a->id_akun); ?>"
+                                    class="btn icon btn-danger"><i class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#akun"><i class="bi bi-info-circle"></i>
                                 </button>

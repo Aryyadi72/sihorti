@@ -6,8 +6,10 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html"><img src="<?php echo base_url(""); ?>assets/images/logo/logo.svg"
-                                    alt="Logo" srcset="" /></a>
+                            <h5 style="margin-top:18px;"><img
+                                    src="<?php echo base_url(""); ?>assets/images/logo/logo_holti.svg"
+                                    style="float:left;margin-right:6px;margin-top:3px;" />SIHORTI</h5>
+
                         </div>
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

@@ -83,6 +83,35 @@ class Harga extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
+	public function update_data_aksi()
+	{
+		$this->_rules();
+	  	$id	  	      = $this->input->post('id_harga');
+		$harga_produsen  	  = $this->input->post('harga_produsen');
+		$harga_grosir 		  = $this->input->post('harga_grosir');
+		$harga_eceran   	  = $this->input->post('harga_eceran');
+
+			$data = array(
+				'id_harga'			=> $id,
+				'harga_produsen'	=> $harga_produsen,
+				'harga_grosir'		=> $harga_grosir,
+				'harga_eceran'		=> $harga_eceran,
+			);
+			
+			$where = array(
+				'id_harga' => $id
+			);
+
+			$this->M_harga->update_data('harga', $data, $where);
+			$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Data berhasil diupdate !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('harga');
+	}
+
 public function hapus($id = null)
 	{
     if($id == null){

@@ -78,6 +78,7 @@
                 </div>
             </div>
 
+            <!-- Leaflet Map -->
             <style>
             #map {
                 height: 670px;
@@ -91,17 +92,50 @@
             <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
                 integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
+            <!-- Fullscreen Map -->
+            <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'>
+            </script>
+            <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+                rel='stylesheet' />
+
+            <!-- Legend -->
+            <link rel="stylesheet" href="<?php echo base_url("") ?>assets/legend/leaflet.legend.css">
+            <script src="<?php echo base_url("") ?>assets/legend/leaflet.legend.js"></script>
+
             <div id="map"></div>
 
-
             <script>
-            var map = L.map('map').setView([51.505, -0.09], 13);
+            var map = L.map('map', {
+                fullscreenControl: true,
+            }).setView([-3.1150193736068035, 115.05569967955239], 13);
+
+            <?php foreach($kecamatan as $k) { ?>
+            L.marker([<?= $k->latitude ?>, <?= $k->longitude ?>]).addTo(map)
+                .bindPopup('Kecamatan')
+                .openPopup();
+            <?php } ?>
+
+            <?php foreach($lokasi as $l) { ?>
+            L.marker([<?= $l->latitude ?>, <?= $l->longitude ?>]).addTo(map)
+                .bindPopup('Komoditas')
+                .openPopup();
+            <?php } ?>
+
+            L.control.Legend({
+                position: "bottomleft",
+                legends: [{
+                    label: "Marker1",
+                    type: "image",
+                    url: "<?php echo base_url("") ?>assets/legend/marker/marker-red.png",
+                }]
+            }).addTo(map);
 
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href=" http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
             </script>
+            <!-- Leaflet Map -->
 
             <!-- <div class="row">
                 <div class="col-12">

@@ -9,8 +9,11 @@
                 <div class="card-content">
                     <div class="card-body">
                         <?php foreach ($rekapitulasi as $r) : ?>
-                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('rekapitulasi/ubah_data_aksi')?>">
+                        <form class="form form-horizontal" method="POST"
+                            action="<?php echo base_url('rekapitulasi/ubah_data_aksi')?>">
                             <div class="row">
+                                <input type="hidden" id="first-name-column" class="form-control" name="id_rekapitulasi"
+                                    value="<?php echo $r->id_rekapitulasi; ?>" />
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="first-name-column">Kode</label>
@@ -24,7 +27,8 @@
                                         <!-- <input type="text" id="last-name-column" class="form-control"
                                             placeholder="ID Komoditas" name="id_komoditas" /> -->
                                         <div class="form-group">
-                                            <select class="choices form-select" name="id_komoditas" value="<?php echo $r->id_komoditas; ?>">
+                                            <select class="choices form-select" name="id_komoditas"
+                                                value="<?php echo $r->id_komoditas; ?>">
                                                 <option value="">--- Pilih Komoditas ---</option>
                                                 <?php
                                                 foreach ($komoditas as $ko) { ?>
@@ -37,79 +41,104 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
+                                        <label for="last-name-column">ID Kategori</label>
+                                        <!-- <input type="text" id="last-name-column" class="form-control"
+                                            placeholder="ID Komoditas" name="id_komoditas" /> -->
+                                        <div class="form-group">
+                                            <select class="choices form-select" name="id_kategori">
+                                                <option value="">--- Pilih Kategori ---</option>
+                                                <?php
+                                                foreach ($kategori as $ka) { ?>
+                                                <option value="<?php echo $ka->id_kategori ?>">
+                                                    <?php echo $ka->kategori ?>
+                                                </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
                                         <label for="city-column">Hasil Produksi</label>
                                         <input type="text" id="city-column" class="form-control"
-                                            placeholder="Hasil Produksi" name="hasil_produksi" value="<?php echo $r->hasil_produksi; ?>"/>
+                                            placeholder="Hasil Produksi" name="hasil_produksi"
+                                            value="<?php echo $r->hasil_produksi; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="country-floating">Luas Tanaman</label>
                                         <input type="text" id="country-floating" class="form-control"
-                                            name="luas_tanaman" placeholder="Luas Tanaman" value="<?php echo $r->luas_tanaman; ?>" />
+                                            name="luas_tanaman" placeholder="Luas Tanaman"
+                                            value="<?php echo $r->luas_tanaman; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="company-column">Luas Panen Habis</label>
                                         <input type="text" id="company-column" class="form-control"
-                                            name="luas_panen_habis" placeholder="Luas Panen Habis" value="<?php echo $r->luas_panen_habis;?>" />
+                                            name="luas_panen_habis" placeholder="Luas Panen Habis"
+                                            value="<?php echo $r->luas_panen_habis;?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Luas Panen Sisa</label>
                                         <input type="text" id="email-id-column" class="form-control"
-                                            name="luas_panen_sisa" placeholder="Luas Panen Sisa" value="<?php echo $r->luas_panen_sisa; ?>"/>
+                                            name="luas_panen_sisa" placeholder="Luas Panen Sisa"
+                                            value="<?php echo $r->luas_panen_sisa; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Luas Rusak</label>
                                         <input type="text" id="email-id-column" class="form-control" name="luas_rusak"
-                                            placeholder="Luas Rusak" value="<?php echo $r->luas_rusak; ?>"/>
+                                            placeholder="Luas Rusak" value="<?php echo $r->luas_rusak; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Luas Tambah Tanam</label>
                                         <input type="text" id="email-id-column" class="form-control"
-                                            name="luas_tambah_tanam" placeholder="Luas Tambah Tanam" value="<?php echo $r->luas_tambah_tanam;?>"/>
+                                            name="luas_tambah_tanam" placeholder="Luas Tambah Tanam"
+                                            value="<?php echo $r->luas_tambah_tanam;?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Luas Laporan</label>
                                         <input type="text" id="email-id-column" class="form-control" name="luas_laporan"
-                                            placeholder="Luas Laporan" value="<?php echo $r->luas_laporan; ?>"/>
+                                            placeholder="Luas Laporan" value="<?php echo $r->luas_laporan; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Produksi Habis</label>
                                         <input type="text" id="email-id-column" class="form-control"
-                                            name="produksi_habis" placeholder="Produksi Habis" value="<?php echo $r->produksi_habis; ?>"/>
+                                            name="produksi_habis" placeholder="Produksi Habis"
+                                            value="<?php echo $r->produksi_habis; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Produksi Sisa</label>
                                         <input type="text" id="email-id-column" class="form-control"
-                                            name="produksi_sisa" placeholder="Produksi Sisa" value="<?php echo $r->produksi_sisa; ?>"/>
+                                            name="produksi_sisa" placeholder="Produksi Sisa"
+                                            value="<?php echo $r->produksi_sisa; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Harga Jual</label>
                                         <input type="text" id="email-id-column" class="form-control" name="harga_jual"
-                                            placeholder="Harga Jual" value="<?php echo $r->harga_jual; ?>"/>
+                                            placeholder="Harga Jual" value="<?php echo $r->harga_jual; ?>" />
                                     </div>
                                 </div>
                                 <div class="">
                                     <div class="form-group">
                                         <label for="email-id-column">Keterangan</label>
                                         <input type="text" id="email-id-column" class="form-control" name="keterangan"
-                                            placeholder="Keterangan" value="<?php echo $r->keterangan; ?>"/>
+                                            placeholder="Keterangan" value="<?php echo $r->keterangan; ?>" />
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end">

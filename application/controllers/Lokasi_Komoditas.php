@@ -40,7 +40,7 @@ class Lokasi_Komoditas extends CI_Controller {
 	}
 		public function _rules()
 	{
-		$this->form_validation->set_rules('nama','nama','required');
+		// $this->form_validation->set_rules('nama','nama','required');
 		$this->form_validation->set_rules('latitude','latitude','required');
 		$this->form_validation->set_rules('longitude','longitude','required');
 		// $this->form_validation->set_rules('id_komoditas','id_komoditas','required');
@@ -59,11 +59,11 @@ class Lokasi_Komoditas extends CI_Controller {
 			$longitude   	  = $this->input->post('longitude');
 
 			$data = array(
-				'id_lokasi'	=> $id_lokasi,
+				'id_lokasi'				=> $id_lokasi,
 				'id_kecamatan'			=> $id_kecamatan,
 				'id_komoditas'			=> $id_komoditas,
-				'latitude'		=> $latitude,
-				'longitude'		=> $longitude,
+				'latitude'				=> $latitude,
+				'longitude'				=> $longitude,
 			);
 
 			$this->M_lokasi->insert_data($data, 'lokasi_komoditas');
@@ -81,14 +81,58 @@ class Lokasi_Komoditas extends CI_Controller {
 	{
 		$where = array('id_lokasi' => $id);
 		$data['lokasi_komoditas'] = $this->db->query("SELECT * FROM lokasi_komoditas WHERE id_lokasi= '$id'")->result();
+		$data['komoditas'] = $this->M_lokasi->tampil_komoditas()->result();
+		$data['kecamatan'] = $this->M_lokasi->tampil_kecamatan()->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('lokasi_komoditas/ubah_lokasi', $data);
 		$this->load->view('templates/footer');
 	}
 
-    public function hapus()
+	public function update_data_aksi()
 	{
-		
+		$this->_rules();
+	  	$id_lokasi	  		= $this->input->post('id_lokasi');
+		$id_kecamatan	  = $this->input->post('id_kecamatan');
+		$id_komoditas	  = $this->input->post('id_komoditas');
+		$latitude 		  = $this->input->post('latitude');
+		$longitude   	  = $this->input->post('longitude');
+
+			$data = array(
+				'id_lokasi'				=> $id_lokasi,
+				'id_kecamatan'			=> $id_kecamatan,
+				'id_komoditas'			=> $id_komoditas,
+				'latitude'				=> $latitude,
+				'longitude'				=> $longitude,
+			);
+			
+			$where = array(
+				'id_lokasi' => $id_lokasi
+			);
+
+			$this->M_lokasi->update_data('lokasi_komoditas', $data, $where);
+			$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Data berhasil diupdate !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('lokasi_komoditas');
+	}
+
+    public function hapus($id = NULL)
+	{
+	if($id == null){
+    redirect('lokasi_komoditas');
+    }
+    $where = array('id_lokasi' => $id);
+    $this->M_lokasi->delete_data($where, 'lokasi_komoditas');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('lokasi_komoditas');
 	}
 }

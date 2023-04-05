@@ -65,6 +65,7 @@ class Rekapitulasi extends CI_Controller {
 			$id			  = $this->input->post('id_rekapitulasi');
 			$kode 		  = $this->input->post('kode');
 			$id_komoditas  = $this->input->post('id_komoditas');
+			$id_kategori  = $this->input->post('id_kategori');
 			$hasil_produksi   	  = $this->input->post('hasil_produksi');
 			$luas_tanaman   	  = $this->input->post('luas_tanaman');
 			$luas_panen_habis   	  = $this->input->post('luas_panen_habis');
@@ -80,6 +81,7 @@ class Rekapitulasi extends CI_Controller {
 			$data = array(
 				'kode' => $kode,
     			'id_komoditas' => $id_komoditas,
+				'id_kategori' => $id_kategori,
     			'hasil_produksi' => $hasil_produksi,
     			'luas_tanaman' => $luas_tanaman,
     			'luas_panen_habis' => $luas_panen_habis,
@@ -126,6 +128,7 @@ class Rekapitulasi extends CI_Controller {
 			$id			  		= $this->input->post('id_rekapitulasi');
 			$kode 		  		= $this->input->post('kode');
 			$id_komoditas  		= $this->input->post('id_komoditas');
+			$id_kategori  		= $this->input->post('id_kategori');
 			$hasil_produksi     = $this->input->post('hasil_produksi');
 			$luas_tanaman  	  	= $this->input->post('luas_tanaman');
 			$luas_panen_habis	= $this->input->post('luas_panen_habis');
@@ -141,6 +144,7 @@ class Rekapitulasi extends CI_Controller {
 			$data = array(
 				'kode' => $kode,
     			'id_komoditas' => $id_komoditas,
+				'id_kategori' => $id_kategori,
     			'hasil_produksi' => $hasil_produksi,
     			'luas_tanaman' => $luas_tanaman,
     			'luas_panen_habis' => $luas_panen_habis,

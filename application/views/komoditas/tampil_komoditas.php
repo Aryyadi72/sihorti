@@ -12,7 +12,7 @@
                             <a href="index.html">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            DataTable
+                            Komoditas
                         </li>
                     </ol>
                 </nav>

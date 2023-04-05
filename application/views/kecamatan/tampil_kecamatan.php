@@ -12,7 +12,7 @@
                             <a href="index.html">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            DataTable
+                            Kecamatan
                         </li>
                     </ol>
                 </nav>
@@ -30,7 +30,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
+                            <th>ID Kecamatan</th>
+                            <th>Nama</th>
                             <th>Latitude</th>
                             <th>Longitude</th>
                             <th>Aksi</th>
@@ -40,15 +41,15 @@
                         <?php $no=1; foreach($kecamatan as $k) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
-                            <td><?php echo $k->id_kecamatan?></td>
+                            <td>0<?php echo $k->id_kecamatan?></td>
                             <td><?php echo $k->nama?></td>
                             <td><?php echo $k->latitude?></td>
                             <td><?php echo $k->longitude?></td>
                             <td>
-                                <a href="<?php echo base_url("kecamatan/ubah/".$k->id_kecamatan); ?>" class="btn icon btn-warning"><i
-                                        class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("kecamatan/hapus/".$k->id_kecamatan); ?>" class="btn icon btn-danger"><i
-                                        class="bi bi-x"></i></a>
+                                <a href="<?php echo base_url("kecamatan/ubah/".$k->id_kecamatan); ?>"
+                                    class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
+                                <a href="<?php echo base_url("kecamatan/hapus/".$k->id_kecamatan); ?>"
+                                    class="btn icon btn-danger"><i class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#kecamatan"><i class="bi bi-info-circle"></i>
                                 </button>

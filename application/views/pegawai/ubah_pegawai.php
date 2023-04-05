@@ -27,45 +27,48 @@
                 <h4 class="card-title">Ubah Data Pegawai</h4>
             </div>
             <div class="card-body">
-                    <?php foreach ($pegawai as $p) : ?>
-                    <form class="form form-horizontal" method="POST" action="<?php echo base_url('pegawai/ubah_data_aksi')?>">
+                <?php foreach ($pegawai as $p) : ?>
+                <form class="form form-horizontal" method="POST"
+                    action="<?php echo base_url('pegawai/update_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <label>Nama Pegawai</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="hidden" id="first-name" class="form-control" name="id_pegawai"/>
+                                <input type="hidden" id="first-name" class="form-control" name="id_pegawai"
+                                    value="<?php echo $p->id_pegawai?>" />
                                 <input type="text" id="first-name" class="form-control" name="nama_pegawai"
-                                    placeholder="Nama Pegawai" value="<?php echo $p->nama_pegawai?>"/>
+                                    placeholder="Nama Pegawai" value="<?php echo $p->nama_pegawai?>" />
                             </div>
                             <div class="col-md-4">
                                 <label>NIP Pegawai</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="nip_pegawai"
-                                    placeholder="NIP Pegawai" value="<?php echo $p->nip_pegawai?>"/>
+                                    placeholder="NIP Pegawai" value="<?php echo $p->nip_pegawai?>" />
                             </div>
                             <div class="col-md-4">
                                 <label>Tempat Lahir</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="tempat_lahir"
-                                    placeholder="Tempat Lahir" value="<?php echo $p->tempat_lahir?>"/>
+                                    placeholder="Tempat Lahir" value="<?php echo $p->tempat_lahir?>" />
                             </div>
                             <div class="col-md-4">
                                 <label>Tanggal Lahir</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="date" id="first-name" class="form-control" name="tanggal_lahir"
-                                    placeholder="Tanggal Lahir" value="<?php echo $p->tanggal_lahir?>"/>
+                                    placeholder="Tanggal Lahir" value="<?php echo $p->tanggal_lahir?>" />
                             </div>
                             <div class="col-md-4">
                                 <label>Jenis Kelamin</label>
                             </div>
                             <div class="col-md-8 mb-4">
                                 <div class="form-group">
-                                    <select class="choices form-select" name="jenis_kelamin" value="<?php echo $p->jenis_kelamin?>">
+                                    <select class="choices form-select" name="jenis_kelamin"
+                                        value="<?php echo $p->jenis_kelamin?>">
                                         <option value="pria">Pria</option>
                                         <option value="wanita">Wanita</option>
                                     </select>
@@ -75,7 +78,8 @@
                                 <label for="formFile" class="form-label">File Foto</label>
                             </div>
                             <div class="col-md-8 mb-4">
-                                <input class="form-control" type="file" id="formFile" name="foto" value="<?php echo $p->foto?>"/>
+                                <input class="form-control" type="file" id="formFile" name="foto"
+                                    value="<?php echo $p->foto?>" />
                             </div>
                         </div>
                         <div class="col-sm-12 d-flex justify-content-end">
