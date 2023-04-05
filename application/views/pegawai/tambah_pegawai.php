@@ -27,35 +27,37 @@
                 <h4 class="card-title">Tambah Data Pegawai</h4>
             </div>
             <div class="card-body">
-                <form class="form form-horizontal">
+                <form class="form form-horizontal" method="POST"
+                    action="<?php echo base_url('pegawai/tambah_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <label>Nama Pegawai</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="fname"
+                            <input type="hidden" id="first-name" class="form-control" name="id_pegawai"/>    
+                            <input type="text" id="first-name" class="form-control" name="nama_pegawai"
                                     placeholder="Nama Pegawai" />
                             </div>
                             <div class="col-md-4">
                                 <label>NIP Pegawai</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="fname"
+                                <input type="text" id="first-name" class="form-control" name="nip_pegawai"
                                     placeholder="NIP Pegawai" />
                             </div>
                             <div class="col-md-4">
                                 <label>Tempat Lahir</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="fname"
+                                <input type="text" id="first-name" class="form-control" name="tempat_lahir"
                                     placeholder="Tempat Lahir" />
                             </div>
                             <div class="col-md-4">
                                 <label>Tanggal Lahir</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="date" id="first-name" class="form-control" name="fname"
+                                <input type="date" id="first-name" class="form-control" name="tanggal_lahir"
                                     placeholder="Tanggal Lahir" />
                             </div>
                             <div class="col-md-4">
@@ -63,9 +65,9 @@
                             </div>
                             <div class="col-md-8 mb-4">
                                 <div class="form-group">
-                                    <select class="choices form-select">
-                                        <option value="pria">Pria</option>
-                                        <option value="wanita">Wanita</option>
+                                    <select class="choices form-select" name="jenis_kelamin">
+                                        <option value="Pria">Pria</option>
+                                        <option value="Wanita">Wanita</option>
                                     </select>
                                 </div>
                             </div>
@@ -73,7 +75,7 @@
                                 <label for="formFile" class="form-label">File Foto</label>
                             </div>
                             <div class="col-md-8 mb-4">
-                                <input class="form-control" type="file" id="formFile" />
+                                <input class="form-control" type="file" id="formFile" name="foto" />
                             </div>
                         </div>
                         <div class="col-sm-12 d-flex justify-content-end">

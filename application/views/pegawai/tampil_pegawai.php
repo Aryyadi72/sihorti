@@ -52,7 +52,7 @@
                             <td>
                                 <a href="<?php echo base_url("pegawai/ubah/".$p->id_pegawai)?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("pegawai/hapus"); ?>" class="btn icon btn-danger"><i
+                                <a href="<?php echo base_url("pegawai/hapus/".$p->id_pegawai); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#pegawai"><i class="bi bi-info-circle"></i>

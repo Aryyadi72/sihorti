@@ -28,14 +28,14 @@
             </div>
             <div class="card-body">
                     <?php foreach ($pegawai as $p) : ?>
-                    <form class="form form-horizontal" method="POST" action="<?php echo base_url('pegawai/ubah_data_aksi')?>">
+                    <form class="form form-horizontal" method="POST" action="<?php echo base_url('pegawai/update_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <label>Nama Pegawai</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="hidden" id="first-name" class="form-control" name="id_pegawai"/>
+                                <input type="hidden" id="first-name" class="form-control" name="id_pegawai" value="<?php echo $p->id_pegawai?>"/>
                                 <input type="text" id="first-name" class="form-control" name="nama_pegawai"
                                     placeholder="Nama Pegawai" value="<?php echo $p->nama_pegawai?>"/>
                             </div>
