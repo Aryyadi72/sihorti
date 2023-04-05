@@ -50,7 +50,7 @@
                             <td><?php echo $p->foto?></td>
                             <td><?php echo $p->jenis_kelamin?></td>
                             <td>
-                                <a href="<?php echo base_url("pegawai/ubah"); ?>" class="btn icon btn-warning"><i
+                                <a href="<?php echo base_url("pegawai/ubah/".$p->id_pegawai)?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
                                 <a href="<?php echo base_url("pegawai/hapus"); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>

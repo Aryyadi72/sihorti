@@ -45,9 +45,9 @@
                             <td><?php echo $k->latitude?></td>
                             <td><?php echo $k->longitude?></td>
                             <td>
-                                <a href="<?php echo base_url("kecamatan/ubah"); ?>" class="btn icon btn-warning"><i
+                                <a href="<?php echo base_url("kecamatan/ubah/".$k->id_kecamatan); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("kecamatan/hapus"); ?>" class="btn icon btn-danger"><i
+                                <a href="<?php echo base_url("kecamatan/hapus/".$k->id_kecamatan); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#kecamatan"><i class="bi bi-info-circle"></i>

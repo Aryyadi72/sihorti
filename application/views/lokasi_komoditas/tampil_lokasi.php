@@ -38,16 +38,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no=1; foreach($lokasi as $l) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>Tapin</td>
-                            <td>Buncis Goreng</td>
-                            <td>39.41691</td>
-                            <td>32.187849</td>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $l->id_kategori?></td>
+                            <td><?php echo $l->kode?></td>
+                            <td><?php echo $l->nama?></td>
                             <td>
-                                <a href="<?php echo base_url("lokasi_komoditas/ubah"); ?>"
+                                <a href="<?php echo base_url("lokasi_komoditas/ubah/".$l->id_lokasi); ?>"
                                     class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("lokasi_komoditas/hapus"); ?>"
+                                <a href="<?php echo base_url("lokasi_komoditas/hapus/".$l->id_lokasi); ?>"
                                     class="btn icon btn-danger"><i class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#lokakomo"><i class="bi bi-info-circle"></i>
@@ -56,6 +56,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

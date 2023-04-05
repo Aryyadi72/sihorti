@@ -39,12 +39,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no=1; foreach($rekapitulasi as $r) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>076 4820 8838</td>
-                            <td>0500 527693</td>
+                            <td><?php echo $no++ ?></td>
+                            <td><?php echo $r->kode?></td>
+                            <td><?php echo $r->id_komoditas?></td>
                             <td>
-                                <a href="<?php echo base_url("rekapitulasi/ubah"); ?>" class="btn icon btn-warning"><i
+                                <a href="<?php echo base_url("rekapitulasi/ubah/".$r->id_rekapitulasi); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
                                 <a href="<?php echo base_url("rekapitulasi/hapus"); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
@@ -54,6 +55,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

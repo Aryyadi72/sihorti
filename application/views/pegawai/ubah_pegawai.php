@@ -27,7 +27,8 @@
                 <h4 class="card-title">Ubah Data Pegawai</h4>
             </div>
             <div class="card-body">
-                <form class="form form-horizontal">
+                    <?php foreach ($rekapitulasi as $r) : ?>
+                    <form class="form form-horizontal" method="POST" action="<?php echo base_url('rekapitulasi/ubah_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -35,7 +36,7 @@
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="fname"
-                                    placeholder="Nama Pegawai" />
+                                    placeholder="Nama Pegawai" value="<?php echo $r->nama?>"/>
                             </div>
                             <div class="col-md-4">
                                 <label>NIP Pegawai</label>

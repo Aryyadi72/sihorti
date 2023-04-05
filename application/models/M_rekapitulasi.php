@@ -12,9 +12,9 @@ class M_rekapitulasi extends CI_Model
         return  $this->db->query("SELECT * FROM komoditas");
     }
 
-    public function tampil_pegawai()
+    public function tampil_kategori()
     {
-        return  $this->db->query("SELECT * FROM pegawai");
+        return  $this->db->query("SELECT * FROM kategori");
     }
 
     public function get_data($table)
