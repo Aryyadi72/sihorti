@@ -28,6 +28,15 @@ class Pegawai extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
+	public function _rules()
+	{
+		$this->form_validation->set_rules('nama_pegawai','nama_pegawai','required');
+		$this->form_validation->set_rules('nip_pegawai','nip_pegawai','required');
+		$this->form_validation->set_rules('tanggal_lahir','tanggal_lahir','required');
+		$this->form_validation->set_rules('tempat_lahir','tempat_lahir','required');
+		$this->form_validation->set_rules('jenis_kelamin','jenis_kelamin','required');
+	}
+
     public function tambah()
 	{
 		$this->load->view('templates/header');
@@ -36,7 +45,42 @@ class Pegawai extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-    public function ubah($id)
+	public function tambah_data_aksi()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE){
+			$this->tambah();
+		}else{
+		$id			      = $this->input->post('id_pegawai');
+        $nama_pegawai      = $this->input->post('nama_pegawai');
+        $nip_pegawai   		  = $this->input->post('nip_pegawai');
+        $tanggal_lahir 	          = $this->input->post('tanggal_lahir');
+        $tempat_lahir 	          = $this->input->post('tempat_lahir');
+        $foto 	          = $this->input->post('foto');
+        $jenis_kelamin 	          = $this->input->post('jenis_kelamin');
+
+			$data = array(
+				'id_pegawai' => $id,
+				'nama_pegawai' => $nama_pegawai,
+				'nip_pegawai' => $nip_pegawai,
+				'tanggal_lahir' => $tanggal_lahir,
+				'tempat_lahir' => $tempat_lahir,
+				'foto' => $foto,
+				'jenis_kelamin' => $jenis_kelamin
+			);
+
+			$this->M_pegawai->insert_data($data, 'pegawai');
+			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Data berhasil ditambahkan !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('pegawai');
+		}
+	}
+
+	  public function ubah($id)
 	{
 		$where = array('id_pegawai' => $id);
 		$data['pegawai'] = $this->db->query("SELECT * FROM pegawai WHERE id_pegawai= '$id'")->result();
@@ -48,8 +92,8 @@ class Pegawai extends CI_Controller {
 
 	public function _rules()
 	{
-		$this->form_validation->set_rules('nama_pegawai','harga_produsen','required');
-		$this->form_validation->set_rules('nip_pegawai','harga_grosir','required');
+		$this->form_validation->set_rules('nama_pegawai','nama_pegawai','required');
+		$this->form_validation->set_rules('nip_pegawai','nip_pegawai','required');
 		// $this->form_validation->set_rules('','harga_eceran','required');
 		// $this->form_validation->set_rules('id_komoditas','id_komoditas','required');
 	}
@@ -140,6 +184,6 @@ class Pegawai extends CI_Controller {
         </button>
       </div>');
     redirect('pegawai');
-}	
+	}	
 
 }

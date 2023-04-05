@@ -66,8 +66,12 @@
                             <div class="col-md-8 mb-4">
                                 <div class="form-group">
                                     <select class="choices form-select" name="jenis_kelamin">
-                                        <option value="pria">Pria</option>
-                                        <option value="wanita">Wanita</option>
+                                        <<<<<<< HEAD <option value="pria">Pria</option>
+                                            <option value="wanita">Wanita</option>
+                                            =======
+                                            <option value="Pria">Pria</option>
+                                            <option value="Wanita">Wanita</option>
+                                            >>>>>>> f009c2e448f861646d586d62a7dbf79e6b72b38e
                                     </select>
                                 </div>
                             </div>
