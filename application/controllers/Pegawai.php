@@ -44,9 +44,20 @@ class Pegawai extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-    public function hapus()
+	public function hapus($id = null)
 	{
-		
-	}
+    if($id == null){
+        redirect('pegawai');
+    }
+    $where = array('id_pegawai' => $id);
+    $this->M_pegawai->delete_data($where, 'pegawai');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('pegawai');
+}	
 
 }

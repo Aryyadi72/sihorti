@@ -6,9 +6,9 @@
                 <div class=" card-header">
                     <h4 class="card-title">Ubah Data Akun</h4>
                 </div>
-                <div class="card-content">
+               <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal">
+                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('akun/update_data_aksi/')?>" enctype="multipart/form-data">
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -16,13 +16,12 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <select class="choices form-select">
-                                                <option value="square">Square</option>
-                                                <option value="rectangle">Rectangle</option>
-                                                <option value="rombo">Rombo</option>
-                                                <option value="romboid">Romboid</option>
-                                                <option value="trapeze">Trapeze</option>
-                                                <option value="traible">Triangle</option>
+                                            <select class="choices form-select" name="id_level">
+                                                <option>-----Pilih Level------</option>
+                                                 <?php
+                                                foreach ($level as $l) { ?>
+                                                        <option value="<?php echo $l->id_level ?>"><?php echo $l->level ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -31,13 +30,12 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <select class="choices form-select">
-                                                <option value="square">Square</option>
-                                                <option value="rectangle">Rectangle</option>
-                                                <option value="rombo">Rombo</option>
-                                                <option value="romboid">Romboid</option>
-                                                <option value="trapeze">Trapeze</option>
-                                                <option value="traible">Triangle</option>
+                                            <select class="choices form-select" name="id_pegawai">
+                                                <option>-----Pilih Pegawai------</option>
+                                                 <?php
+                                                foreach ($pegawai as $p) { ?>
+                                                        <option value="<?php echo $p->id_pegawai ?>"><?php echo $p->nama_pegawai ?></option>
+                                                <?php } ?>        
                                             </select>
                                         </div>
                                     </div>
@@ -45,34 +43,34 @@
                                         <label>Nama</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="nama"
                                             placeholder="Nama" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>NIP</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="nip"
                                             placeholder="NIP" />
                                     </div>
                                     <div class="col-md-4">
                                         <label for="formFile" class="form-label">File Foto</label>
                                     </div>
                                     <div class="col-md-8 mb-3">
-                                        <input class="form-control" type="file" id="formFile" />
+                                        <input class="form-control" type="file" id="formFile" name="foto"/>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Username</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="username"
                                             placeholder="Username" />
                                     </div>
                                     <div class="col-md-4">
                                         <label>Password</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname"
+                                        <input type="text" id="first-name" class="form-control" name="password"
                                             placeholder="Password" />
                                     </div>
                                 </div>

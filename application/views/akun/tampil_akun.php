@@ -51,7 +51,8 @@
                             <td><?php echo $a->foto?></td>
                             <td><?php echo $a->username?></td>
                             <td>
-                                <a href="<?php echo base_url("akun/ubah"); ?>" class="btn icon btn-warning"><i
+                                
+                            <a href="<?php echo base_url('akun/ubah/'.$a->id_akun)?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>
                                 <a href="<?php echo base_url("akun/hapus"); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>

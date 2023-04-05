@@ -108,18 +108,22 @@ class Komoditas extends CI_Controller {
 		
 	}
 
-    public function hapus()
+    public function hapus($id = null)
 	{
-		$where = array('id_komoditas' => $id);
-		$this->M_komoditas->delete_data($where, 'komoditas');
-		$this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			<strong>Data berhasil dihapus !</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>');
-		redirect('komoditas');
-	}
+    if($id == null){
+        redirect('komoditas');
+    }
+    $where = array('id_komoditas' => $id);
+    $this->M_komoditas->delete_data($where, 'komoditas');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('komoditas');
+}
+
 
 	public function lokasi_komoditas()
 	{

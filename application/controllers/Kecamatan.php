@@ -82,9 +82,20 @@ class Kecamatan extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-    public function hapus()
+	public function hapus($id = null)
 	{
-		
-	}
+    if($id == null){
+        redirect('kecamatan');
+    }
+    $where = array('id_kecamatan' => $id);
+    $this->M_kecamatan->delete_data($where, 'kecamatan');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('kecamatan');
+}
 
 }

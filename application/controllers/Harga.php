@@ -81,10 +81,21 @@ class Harga extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-    public function hapus()
+public function hapus($id = null)
 	{
-		
-	}
+    if($id == null){
+        redirect('harga');
+    }
+    $where = array('id_harga' => $id);
+    $this->M_harga->delete_data($where, 'harga');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('harga');
+}
 
 	public function harga_mingguan()
 	{

@@ -40,7 +40,7 @@
         <!-- <button class="btn btn-lg btn-primary btn-block" type="submit" href="">
             Login
         </button> -->
-        <a class="btn btn-lg btn-primary btn-block" href="<?php echo base_url("dashboard"); ?>">Login</a>
+        <a class="btn btn-lg btn-primary btn-block" href="<?php echo site_url("login"); ?>">Login</a>
     </form>
 
     <!-- Optional JavaScript -->

@@ -22,6 +22,12 @@ class M_akun extends CI_Model
         return $this->db->get($table);
     }
 
+    public function get_data_by_id($id_akun)
+    {
+        $query = $this->db->query("SELECT * FROM akun WHERE id_akun = '$id_akun'");
+        return $query->row();
+    }
+
     public function cek_data($username)
     {
     $this->db->select('username');
@@ -43,6 +49,12 @@ class M_akun extends CI_Model
     public function update_data($table, $data, $where)
     {
         $this->db->update($table, $data, $where);
+    }
+
+     public function update_data_akun($id_akun, $data)
+    {
+        $this->db->where('id_akun', $id_akun);
+        $this->db->update('akun', $data);
     }
 
     public function delete_data($where, $table)
