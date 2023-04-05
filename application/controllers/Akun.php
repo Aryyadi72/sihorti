@@ -110,11 +110,18 @@ if ($cek->num_rows()>=1){
 
     public function ubah($id)
 	{
+<<<<<<< HEAD
 		// $data['level'] = $this->M_akun->tampil_level()->result();
 		// $data['pegawai'] = $this->M_akun->tampil_pegawai()->result();
 		$this->load->model('m_akun');
 		$data['akun'] = $this->m_akun->update_data($id);
 		
+=======
+		$where = array('id_akun' => $id);
+		$data['akun'] = $this->db->query("SELECT * FROM akun WHERE id_akun= '$id'")->result();
+		$data['pegawai'] = $this->M_akun->tampil_pegawai()->result();
+		$data['level'] = $this->M_akun->tampil_level()->result();
+>>>>>>> f92842326c212b494ee327ef5d4fe924beb8170b
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('akun/ubah_akun', $data);

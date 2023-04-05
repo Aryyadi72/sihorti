@@ -27,33 +27,33 @@
                 <h4 class="card-title">Tambah Data Kecamatan</h4>
             </div>
             <div class="card-body">
+                <?php foreach ($kecamatan as $k) : ?>
                 <form class="form form-horizontal" method="POST"
-                    action="<?php echo base_url('kecamatan/tambah_data_aksi')?>">
+                    action="<?php echo base_url('kecamatan/ubah_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
                             <input type="hidden" id="first-name" class="form-control" name="id_kecamatan"
-                                placeholder="Nama Kecamatan" />
-
+                                placeholder="Nama Kecamatan" value="<?php echo $k->id_kecamatan; ?>"/>
                             <div class="col-md-4">
                                 <label>Nama Kecamatan</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="nama"
-                                    placeholder="Nama Kecamatan" />
+                                    placeholder="Nama Kecamatan" value="<?php echo $k->id_kecamatan; ?>"/>
                             </div>
                             <div class="col-md-4">
                                 <label>Latitude</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="latitude"
-                                    placeholder="Latitude" />
+                                    placeholder="Latitude" value="<?php echo $k->latitude; ?>"/>
                             </div>
                             <div class="col-md-4">
                                 <label>Longitude</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="longitude"
-                                    placeholder="Nama Kecamatan" />
+                                    placeholder="Nama Kecamatan" value="<?php echo $k->longitude; ?>"/>
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">
@@ -66,6 +66,7 @@
                         </div>
                     </div>
                 </form>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
