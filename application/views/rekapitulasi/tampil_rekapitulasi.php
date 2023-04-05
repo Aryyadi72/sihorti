@@ -12,7 +12,7 @@
                             <a href="index.html">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            DataTable
+                            Rekapitulasi
                         </li>
                     </ol>
                 </nav>
@@ -28,25 +28,49 @@
     <section class="section" style="margin-top:20px;">
         <div class="card">
             <div class="card-header">Tabel Data Rekapitulasi</div>
-            <div class="card-body">
+            <div class="card-body" style="overflow-x:auto;">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Kode</th>
-                            <th>ID Komoditas</th>
+                            <th colspan="3">ID Komoditas</th>
+                            <th>ID Kategori</th>
+                            <th>Hasil Produksi</th>
+                            <th>Luas Tanaman</th>
+                            <th>Luas Panen Habis</th>
+                            <th>Luas Panen Sisa</th>
+                            <th>Luas Rusak</th>
+                            <th>Luas Tambah Tanam</th>
+                            <th>Luas Laporan</th>
+                            <th>Produksi Habis</th>
+                            <th>Produksi Sisa</th>
+                            <th>Harga Jual</th>
+                            <th>Keterangan</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no=1; foreach($rekapitulasi as $r) : ?>
                         <tr>
-                            <td><?php echo $no++ ?></td>
-                            <td><?php echo $r->kode?></td>
-                            <td><?php echo $r->id_komoditas?></td>
+                            <th><?php echo $no++ ?></td>
+                            <th><?php echo $r->kode?></td>
+                            <th colspan="3"><?php echo $r->id_komoditas?></td>
+                            <th><?php echo $r->id_kategori?></td>
+                            <th><?php echo $r->hasil_produksi?></td>
+                            <th><?php echo $r->luas_tanaman?></td>
+                            <th><?php echo $r->luas_panen_habis?></td>
+                            <th><?php echo $r->luas_panen_sisa?></td>
+                            <th><?php echo $r->luas_rusak?></td>
+                            <th><?php echo $r->luas_tambah_tanam?></td>
+                            <th><?php echo $r->luas_laporan?></td>
+                            <th><?php echo $r->produksi_habis?></td>
+                            <th><?php echo $r->produksi_sisa?></td>
+                            <th><?php echo $r->harga_jual?></td>
+                            <th><?php echo $r->keterangan?></td>
                             <td>
-                                <a href="<?php echo base_url("rekapitulasi/ubah/".$r->id_rekapitulasi); ?>" class="btn icon btn-warning"><i
-                                        class="bi bi-pencil"></i></a>
+                                <a href="<?php echo base_url("rekapitulasi/ubah/".$r->id_rekapitulasi); ?>"
+                                    class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
                                 <a href="<?php echo base_url("rekapitulasi/hapus"); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
                                 <a href="<?php echo base_url("rekapitulasi/detail"); ?>" class="btn icon btn-light"><i

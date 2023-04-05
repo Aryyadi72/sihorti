@@ -12,7 +12,7 @@
                             <a href="index.html">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            DataTable
+                            Pegawai
                         </li>
                     </ol>
                 </nav>
@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                         <?php $no=1; foreach($pegawai as $p) : ?>
+                        <?php $no=1; foreach($pegawai as $p) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
                             <td><?php echo $p->nip_pegawai?></td>
@@ -50,17 +50,17 @@
                             <td><?php echo $p->foto?></td>
                             <td><?php echo $p->jenis_kelamin?></td>
                             <td>
-                                <a href="<?php echo base_url("pegawai/ubah/".$p->id_pegawai)?>" class="btn icon btn-warning"><i
-                                        class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("pegawai/hapus/".$p->id_pegawai); ?>" class="btn icon btn-danger"><i
-                                        class="bi bi-x"></i></a>
+                                <a href="<?php echo base_url("pegawai/ubah/".$p->id_pegawai)?>"
+                                    class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
+                                <a href="<?php echo base_url("pegawai/hapus/".$p->id_pegawai); ?>"
+                                    class="btn icon btn-danger"><i class="bi bi-x"></i></a>
                                 <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#pegawai"><i class="bi bi-info-circle"></i>
                                 </button>
                             </td>
                         </tr>
                     </tbody>
-                     <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>

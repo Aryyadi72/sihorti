@@ -29,30 +29,33 @@
             <div class="card-body">
                 <?php foreach ($harga as $h):?>
                 <form class="form form-horizontal" method="POST"
-                    action="<?php echo base_url('harga/ubah_data_aksi')?>">
+                    action="<?php echo base_url('harga/update_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
+                            <input type="hidden" id="first-name" class="form-control" name="id_harga"
+                                value="<?php echo $h->id_harga; ?>" />
                             <div class="col-md-4">
                                 <label>Harga Produsen</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="hidden" id="first-name" class="form-control" name="id_harga"/>
+                                <input type="hidden" id="first-name" class="form-control" name="id_harga"
+                                    value="<?php echo $h->id_harga ?>" />
                                 <input type="text" id="first-name" class="form-control" name="harga_produsen"
-                                    placeholder="Harga Produsen" value="<?php echo $h->harga_produsen ?>"/>
+                                    placeholder="Harga Produsen" value="<?php echo $h->harga_produsen ?>" />
                             </div>
                             <div class="col-md-4">
                                 <label>Harga Grosir</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="harga_grosir"
-                                    placeholder="Harga Grosir" value="<?php echo $h->harga_grosir ?>"/>
+                                    placeholder="Harga Grosir" value="<?php echo $h->harga_grosir ?>" />
                             </div>
                             <div class="col-md-4">
                                 <label>Harga Eceran</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" id="first-name" class="form-control" name="harga_eceran"
-                                    placeholder="Harga Eceran" value="<?php echo $h->harga_eceran ?>"/>
+                                    placeholder="Harga Eceran" value="<?php echo $h->harga_eceran ?>" />
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">

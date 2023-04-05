@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="<?php echo base_url(""); ?>assets/css/main/app.css" />
     <link rel="stylesheet" href="<?php echo base_url(""); ?>assets/css/main/app-dark.css" />
-    <link rel="shortcut icon" href="<?php echo base_url(""); ?>assets/images/logo/favicon.svg" type="image/x-icon" />
-    <link rel="shortcut icon" href="<?php echo base_url(""); ?>assets/images/logo/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="<?php echo base_url(""); ?>assets/images/logo/logo_holti.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo base_url(""); ?>assets/images/logo/logo_holti.png" type="image/png" />
 
     <link rel="stylesheet" href="<?php echo base_url(""); ?>assets/css/shared/iconly.css" />
 

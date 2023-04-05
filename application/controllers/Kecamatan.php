@@ -30,10 +30,10 @@ class Kecamatan extends CI_Controller {
 
     public function tambah()
 	{
-		// $this->load->view('templates/header');
-        // $this->load->view('templates/sidebar');
+		$this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
         $this->load->view('kecamatan/tambah_kecamatan');
-        // $this->load->view('templates/footer');
+        $this->load->view('templates/footer');
 	}
 
 	public function _rules()
@@ -50,13 +50,13 @@ class Kecamatan extends CI_Controller {
 		if($this->form_validation->run() == FALSE){
 			$this->tambah();
 		}else{
-			$id_kecamatan	  = $this->input->post('id_kecamatan');
+			$id	  = $this->input->post('id_kecamatan');
 			$nama  			  = $this->input->post('nama');
 			$latitude 		  = $this->input->post('latitude');
 			$longitude   	  = $this->input->post('longitude');
 
 			$data = array(
-				'id_kecamatan'	=> $id_kecamatan,
+				'id_kecamatan'	=> $id,
 				'nama'			=> $nama,
 				'latitude'		=> $latitude,
 				'longitude'		=> $longitude,
@@ -73,8 +73,6 @@ class Kecamatan extends CI_Controller {
 		}
 	}
 
-
-
     public function ubah($id)
 	{
 		$where = array('id_kecamatan' => $id);
@@ -83,6 +81,35 @@ class Kecamatan extends CI_Controller {
         $this->load->view('templates/sidebar');
         $this->load->view('kecamatan/ubah_kecamatan', $data);
         $this->load->view('templates/footer');
+	}
+
+	public function update_data_aksi()
+	{
+			$this->_rules();
+	  		$id	  = $this->input->post('id_kecamatan');
+			$nama  			  = $this->input->post('nama');
+			$latitude 		  = $this->input->post('latitude');
+			$longitude   	  = $this->input->post('longitude');
+
+			$data = array(
+				'id_kecamatan'	=> $id,
+				'nama'			=> $nama,
+				'latitude'		=> $latitude,
+				'longitude'		=> $longitude,
+			);
+			
+			$where = array(
+				'id_kecamatan' => $id
+			);
+
+			$this->M_kecamatan->update_data('kecamatan', $data, $where);
+			$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Data berhasil diupdate !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('kecamatan');
 	}
 
 	public function hapus($id = null)

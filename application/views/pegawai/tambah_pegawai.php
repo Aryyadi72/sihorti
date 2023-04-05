@@ -35,8 +35,8 @@
                                 <label>Nama Pegawai</label>
                             </div>
                             <div class="col-md-8 form-group">
-                            <input type="hidden" id="first-name" class="form-control" name="id_pegawai"/>    
-                            <input type="text" id="first-name" class="form-control" name="nama_pegawai"
+                                <input type="hidden" name="id_pegawai">
+                                <input type="text" id="first-name" class="form-control" name="nama_pegawai"
                                     placeholder="Nama Pegawai" />
                             </div>
                             <div class="col-md-4">
@@ -66,8 +66,12 @@
                             <div class="col-md-8 mb-4">
                                 <div class="form-group">
                                     <select class="choices form-select" name="jenis_kelamin">
-                                        <option value="Pria">Pria</option>
-                                        <option value="Wanita">Wanita</option>
+                                        <<<<<<< HEAD <option value="pria">Pria</option>
+                                            <option value="wanita">Wanita</option>
+                                            =======
+                                            <option value="Pria">Pria</option>
+                                            <option value="Wanita">Wanita</option>
+                                            >>>>>>> f009c2e448f861646d586d62a7dbf79e6b72b38e
                                     </select>
                                 </div>
                             </div>

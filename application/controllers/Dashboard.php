@@ -40,6 +40,13 @@ class Dashboard extends CI_Controller {
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('dashboard', $data);
+		$data['kecamatan'] = $this->M_kecamatan->show_data()->result();
+		$data['kecamatan'] = $this->M_kecamatan->get_data('kecamatan')->result();
+		$data['lokasi'] = $this->M_lokasi->show_data()->result();
+		$data['lokasi'] = $this->M_lokasi->get_data('lokasi_komoditas')->result();
+		$this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('dashboard',$data);
         $this->load->view('templates/footer');
 	}
 }
