@@ -1,122 +1,124 @@
-<!-- Basic Horizontal form layout section start -->
-<section id="basic-horizontal-layouts">
+<!-- // Basic multiple Column Form section start -->
+<section id="multiple-column-form">
     <div class="row match-height">
-        <div class="col-md-6 col-12">
+        <div class="col-12">
             <div class="card">
-                <div class=" card-header">
+                <div class="card-header">
                     <h4 class="card-title">Tambah Data Rekapitulasi</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" method="POST" action="<?php echo base_url('rekapitulasi/tambah_data_aksi')?>">
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Kode</label>
+                        <form class="form form-horizontal" method="POST"
+                            action="<?php echo base_url('rekapitulasi/tambah_data_aksi')?>">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="first-name-column">Kode</label>
+                                        <input type="text" id="first-name-column" class="form-control"
+                                            placeholder="Kode" name="kode" />
                                     </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="kode"
-                                            placeholder="Kode" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>ID Komoditas</label>
-                                    </div>
-                                    <div class="col-md-8">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="last-name-column">ID Komoditas</label>
+                                        <!-- <input type="text" id="last-name-column" class="form-control"
+                                            placeholder="ID Komoditas" name="id_komoditas" /> -->
                                         <div class="form-group">
                                             <select class="choices form-select" name="id_komoditas">
                                                 <option value="">--- Pilih Komoditas ---</option>
-                                                  <?php
+                                                <?php
                                                 foreach ($komoditas as $ko) { ?>
-                                                <option value="<?php echo $ko->id_komoditas ?>"><?php echo $ko->nama ?></option>
+                                                <option value="<?php echo $ko->id_komoditas ?>"><?php echo $ko->nama ?>
+                                                </option>
                                                 <?php } ?>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Hasil Produksi</label>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="city-column">Hasil Produksi</label>
+                                        <input type="text" id="city-column" class="form-control"
+                                            placeholder="Hasil Produksi" name="hasil_produksi" />
                                     </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="hasil_produksi"
-                                            placeholder="Hasil Produksi" />
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="country-floating">Luas Tanaman</label>
+                                        <input type="text" id="country-floating" class="form-control"
+                                            name="luas_tanaman" placeholder="Luas Tanaman" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Luas Tanaman</label>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="company-column">Luas Panen Habis</label>
+                                        <input type="text" id="company-column" class="form-control"
+                                            name="luas_panen_habis" placeholder="Luas Panen Habis" />
                                     </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="luas_tanaman"
-                                            placeholder="Luas Tanaman" />
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Luas Panen Sisa</label>
+                                        <input type="text" id="email-id-column" class="form-control"
+                                            name="luas_panen_sisa" placeholder="Luas Panen Sisa" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Luas Panen Habis</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="luas_panen_habis"
-                                            placeholder="Luas Panen Habis" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Luas Panen Sisa</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="luas_panen_sisa"
-                                            placeholder="Luas Panen Sisa" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Luas Rusak</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="luas_rusak"
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Luas Rusak</label>
+                                        <input type="text" id="email-id-column" class="form-control" name="luas_rusak"
                                             placeholder="Luas Rusak" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Luas Tambah Tanam</label>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Luas Tambah Tanam</label>
+                                        <input type="text" id="email-id-column" class="form-control"
+                                            name="luas_tambah_tanam" placeholder="Luas Tambah Tanam" />
                                     </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="luas_tambah_tanam"
-                                            placeholder="Luas Tambah Tanam" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Luas Laporan</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="luas_laporan"
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Luas Laporan</label>
+                                        <input type="text" id="email-id-column" class="form-control" name="luas_laporan"
                                             placeholder="Luas Laporan" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Produksi Habis</label>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Produksi Habis</label>
+                                        <input type="text" id="email-id-column" class="form-control"
+                                            name="produksi_habis" placeholder="Produksi Habis" />
                                     </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="produksi_habis"
-                                            placeholder="Produksi Habis" />
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Produksi Sisa</label>
+                                        <input type="text" id="email-id-column" class="form-control"
+                                            name="produksi_sisa" placeholder="Produksi Sisa" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Produksi Sisa</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="produksi_sisa"
-                                            placeholder="Produksi Sisa" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Harga Jual</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="harga_jual"
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Harga Jual</label>
+                                        <input type="text" id="email-id-column" class="form-control" name="harga_jual"
                                             placeholder="Harga Jual" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Keterangan</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="keterangan"
+                                </div>
+                                <div class="">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Keterangan</label>
+                                        <input type="text" id="email-id-column" class="form-control" name="keterangan"
                                             placeholder="Keterangan" />
                                     </div>
-                                    <div class="col-sm-12 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary me-1 mb-1">
-                                            Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">
-                                            Reset
-                                        </button>
-                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary me-1 mb-1">
+                                        Submit
+                                    </button>
+                                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+                                        Reset
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -126,4 +128,4 @@
         </div>
     </div>
 </section>
-<!-- // Basic Horizontal form layout section end -->
+<!-- // Basic multiple Column Form section end -->

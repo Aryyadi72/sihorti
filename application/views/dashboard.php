@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">
-                                        Profile Views
+                                        Komoditas
                                     </h6>
                                     <h6 class="font-extrabold mb-0">112.000</h6>
                                 </div>
@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
+                                    <h6 class="text-muted font-semibold">Kecamatan</h6>
                                     <h6 class="font-extrabold mb-0">183.000</h6>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Following</h6>
+                                    <h6 class="text-muted font-semibold">Akun</h6>
                                     <h6 class="font-extrabold mb-0">80.000</h6>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
+                                    <h6 class="text-muted font-semibold">Pegawai</h6>
                                     <h6 class="font-extrabold mb-0">112</h6>
                                 </div>
                             </div>
@@ -77,7 +77,33 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+
+            <style>
+            #map {
+                height: 670px;
+                border-radius: 20px;
+            }
+            </style>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+                integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+            <!-- Make sure you put this AFTER Leaflet's CSS -->
+            <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+                integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+            <div id="map"></div>
+
+
+            <script>
+            var map = L.map('map').setView([51.505, -0.09], 13);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href=" http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+            </script>
+
+            <!-- <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -88,8 +114,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+            </div> -->
+            <!-- <div class="row">
                 <div class="col-12 col-xl-4">
                     <div class="card">
                         <div class="card-header">
@@ -202,10 +228,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col-12 col-lg-3">
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-body py-4 px-4">
                     <div class="d-flex align-items-center">
                         <div class="avatar avatar-xl">
@@ -217,7 +243,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="card">
                 <div class="card-header">
                     <h4>Recent Messages</h4>
@@ -251,9 +277,8 @@
                         </div>
                     </div>
                     <div class="px-4">
-                        <button class="btn btn-block btn-xl btn-outline-primary font-bold mt-3">
-                            Start Conversation
-                        </button>
+                        <a class="btn btn-block btn-xl btn-outline-primary font-bold mt-3"
+                            href="<?= base_url("") ?>">Logout</a>
                     </div>
                 </div>
             </div>
