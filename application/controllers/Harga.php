@@ -22,7 +22,8 @@ class Harga extends CI_Controller {
 	{
 		$data['harga'] = $this->M_harga->get_data('harga')->result();
 		$data['harga'] = $this->M_harga->show_data()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Harga";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('harga/tampil_harga',$data);
         $this->load->view('templates/footer');
@@ -132,7 +133,8 @@ public function hapus($id = null)
 	{
 		$data['harga'] = $this->M_harga->get_data('harga_mingguan')->result();
 		$data['harga'] = $this->M_harga->show_data_mingguan()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Harga Mingguan";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('harga_mingguan/tampil_hrg_minggu',$data);
         $this->load->view('templates/footer');

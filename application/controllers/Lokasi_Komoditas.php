@@ -23,7 +23,8 @@ class Lokasi_Komoditas extends CI_Controller {
 	{
 		$data['lokasi'] = $this->M_lokasi->show_data()->result();
 		$data['lokasi'] = $this->M_lokasi->get_data('lokasi_komoditas')->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Lokasi Komoditas";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('lokasi_komoditas/tampil_lokasi',$data);
 		$this->load->view('templates/footer');

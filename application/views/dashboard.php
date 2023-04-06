@@ -139,7 +139,7 @@
             L.marker([<?= $l->latitude ?>, <?= $l->longitude ?>], {
                     icon: komoditasIcon
                 }).bindPopup(
-                    "<h5></h5>")
+                    "<h5><?= $l->nama ?></h5>")
                 .addTo(map);
             <?php } ?>
 

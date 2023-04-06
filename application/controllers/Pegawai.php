@@ -22,7 +22,8 @@ class Pegawai extends CI_Controller {
 	{
 		$data['pegawai'] = $this->M_pegawai->get_data('pegawai')->result();
 		$data['pegawai'] = $this->M_pegawai->show_data()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Pegawai";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('pegawai/tampil_pegawai',$data);
         $this->load->view('templates/footer');

@@ -22,7 +22,8 @@ class Akun extends CI_Controller {
 	{
 		$data['akun'] = $this->M_akun->get_data('akun')->result();
 		$data['akun'] = $this->M_akun->show_data()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Akun";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('akun/tampil_akun',$data);
         $this->load->view('templates/footer');

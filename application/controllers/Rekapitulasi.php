@@ -22,7 +22,8 @@ class Rekapitulasi extends CI_Controller {
 	{
 		$data['rekapitulasi'] = $this->M_rekapitulasi->get_data('rekapitulasi')->result();
 		$data['rekapitulasi'] = $this->M_rekapitulasi->show_data()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Rekapitulasi";
+		$this->load->view('templates/header',$title);
         $this->load->view('templates/sidebar');
         $this->load->view('rekapitulasi/tampil_rekapitulasi',$data);
         $this->load->view('templates/footer');

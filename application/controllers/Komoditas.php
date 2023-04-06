@@ -22,7 +22,8 @@ class Komoditas extends CI_Controller {
 	{
 		$data['komoditas'] = $this->M_komoditas->get_data('komoditas')->result();
 		$data['komoditas'] = $this->M_komoditas->show_data()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Komoditas";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('komoditas/tampil_komoditas',$data);
         $this->load->view('templates/footer');

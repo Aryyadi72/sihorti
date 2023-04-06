@@ -22,7 +22,8 @@ class Kecamatan extends CI_Controller {
 	{
 		$data['kecamatan'] = $this->M_kecamatan->show_data()->result();
 		$data['kecamatan'] = $this->M_kecamatan->get_data('kecamatan')->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Kecamatan";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('kecamatan/tampil_kecamatan',$data);
         $this->load->view('templates/footer');
