@@ -81,7 +81,7 @@
             <!-- Leaflet Map -->
             <style>
             #map {
-                height: 670px;
+                height: 720px;
                 border-radius: 20px;
             }
             </style>
