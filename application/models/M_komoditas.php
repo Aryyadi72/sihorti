@@ -57,5 +57,10 @@
             $this->db->or_like('kerusakan', $keyword);
             return $this->db->get()->result();
         }
+
+        public function tampil_lokasi_komoditas()
+        {
+            return $this->db->query('SELECT * FROM lokasi_komoditas JOIN komoditas on lokasi_komoditas.id_komoditas=komoditas.id_komoditas JOIN kategori on komoditas.id_kategori=kategori.id_kategori');
+        }
     } 
 ?>
