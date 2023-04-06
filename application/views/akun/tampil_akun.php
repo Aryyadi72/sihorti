@@ -21,8 +21,6 @@
     </div>
     <a href="<?php echo base_url("akun/tambah"); ?>" class="btn icon icon-left btn-primary"><i data-feather="edit"></i>
         Tambah Akun</a>
-    <a href="<?php echo base_url("akun/tambah"); ?>" class="btn icon icon-left btn-success"><i data-feather="edit"></i>
-        Report</a>
     <section class="section" style="margin-top:20px;">
         <div class="card">
             <div class="card-header">Tabel Data Akun Pengguna</div>
@@ -56,9 +54,9 @@
                                     class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
                                 <a href="<?php echo base_url("akun/hapus/".$a->id_akun); ?>"
                                     class="btn icon btn-danger"><i class="bi bi-x"></i></a>
-                                <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
+                                <!-- <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
                                     data-bs-target="#akun"><i class="bi bi-info-circle"></i>
-                                </button>
+                                </button> -->
                             </td>
                         </tr>
                     </tbody>

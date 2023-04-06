@@ -13,10 +13,9 @@
 
 <nav class="navbar navbar-light">
     <div class="container d-block">
-        <a href="<?php echo base_url("kecamatan") ?>"><i class="bi bi-chevron-left"></i></a>
-        <a class="navbar-brand ms-4" href="<?php echo base_url("kecamatan") ?>">
-            <img src="<?php echo base_url("") ?>assets/images/logo/logo.svg" />
-        </a>
+        <a class="btn icon btn-outline-warning" href="<?php echo base_url("kecamatan") ?>"><i
+                class="bi bi-arrow-left-square-fill"
+                style="margin-right:10px;margin-top:20px;font-weight:bold;"></i>Kembali</a>
     </div>
 </nav>
 

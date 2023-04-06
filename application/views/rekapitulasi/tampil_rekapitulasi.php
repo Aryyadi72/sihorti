@@ -73,8 +73,7 @@
                                     class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
                                 <a href="<?php echo base_url("rekapitulasi/hapus"); ?>" class="btn icon btn-danger"><i
                                         class="bi bi-x"></i></a>
-                                <a href="<?php echo base_url("rekapitulasi/detail"); ?>" class="btn icon btn-light"><i
-                                        class="bi bi-info-circle"></i></a>
+
                             </td>
                         </tr>
                     </tbody>

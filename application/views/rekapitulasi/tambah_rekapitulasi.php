@@ -1,4 +1,12 @@
 <!-- // Basic multiple Column Form section start -->
+<nav class="navbar navbar-light">
+    <div class="container d-block">
+        <a class="btn icon btn-outline-warning" href="<?php echo base_url("rekapitulasi") ?>"><i
+                class="bi bi-arrow-left-square-fill"
+                style="margin-right:10px;margin-top:20px;font-weight:bold;"></i>Kembali</a>
+    </div>
+</nav>
+
 <section id="multiple-column-form">
     <div class="row match-height">
         <div class="col-12">

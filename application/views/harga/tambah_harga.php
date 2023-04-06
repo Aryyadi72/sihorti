@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layout Vertical 1 Column - Mazer</title>
+    <title><?php echo $title ?></title>
     <link rel="stylesheet" href="<?php echo base_url("") ?>assets/css/main/app.css" />
     <link rel="stylesheet" href="<?php echo base_url("") ?>assets/css/main/app-dark.css" />
     <link rel="shortcut icon" href="<?php echo base_url("") ?>assets/images/logo/favicon.svg" type="image/x-icon" />
@@ -13,10 +13,9 @@
 
 <nav class="navbar navbar-light">
     <div class="container d-block">
-        <a href="<?php echo base_url("harga") ?>"><i class="bi bi-chevron-left"></i></a>
-        <a class="navbar-brand ms-4" href="<?php echo base_url("harga") ?>">
-            <img src="<?php echo base_url("") ?>assets/images/logo/logo.svg" />
-        </a>
+        <a class="btn icon btn-outline-warning" href="<?php echo base_url("harga") ?>"><i
+                class="bi bi-arrow-left-square-fill"
+                style="margin-right:10px;margin-top:20px;font-weight:bold;"></i>Kembali</a>
     </div>
 </nav>
 
@@ -57,7 +56,7 @@
                                     Submit
                                 </button>
                                 <button type="reset" class="btn btn-light-secondary me-1 mb-1">
-                                    Reset
+                                    Batal
                                 </button>
                             </div>
                         </div>

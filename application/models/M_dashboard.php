@@ -21,8 +21,6 @@ class M_dashboard extends CI_Model
         return $this->db->query('SELECT COUNT(id_pegawai) FROM pegawai');
     }
 
-
-
     // // menampilkan data level
     // public function tampil_komoditas()
     // {
