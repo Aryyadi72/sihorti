@@ -13,9 +13,8 @@
 	"require": {
 		"php": ">=5.3.7",
 		"hulang/php-zip": "^1.0",
-		"phpoffice/phpspreadsheet": "*",
 		"rector/rector": "*",
-		"roromix/spreadsheetbundle": "*"
+		"phpoffice/phpspreadsheet": "^1.19"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

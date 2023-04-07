@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <a href="<?php echo base_url("laporan_mingguan"); ?>" class="btn icon icon-left btn-success"><i
+    <a href="<?php echo base_url("laporan_mingguan/export"); ?>" class="btn icon icon-left btn-success"><i
             data-feather="edit"></i>
         Report Harga Mingguan</a>
 

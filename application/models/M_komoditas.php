@@ -19,6 +19,11 @@
              return  $this->db->query("SELECT * FROM kategori");
         }
 
+        public function kategori_cetak()
+        {
+             return  $this->db->query("SELECT kategori FROM kategori");
+        }
+
         public function update_data($table, $data, $where)
         {
            $this->db->update($table,$data, $where);

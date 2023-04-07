@@ -61,5 +61,17 @@
             $this->db->or_like('kerusakan', $keyword);
             return $this->db->get()->result();
         }
+
+        public function cetakexcel()
+        {
+            return $this->db->query('SELECT kategori, nama, harga_produsen, harga_eceran, harga_grosir FROM harga_mingguan JOIN kategori ON harga_mingguan.id_kategori=kategori.id_kategori JOIN harga ON harga_mingguan.id_harga=harga.id_harga JOIN komoditas ON harga_mingguan.id_komoditas=komoditas.id_komoditas');
+
+        }
+
+        public function counttotalharga()
+        {
+            return $this->db->query('SELECT COUNT(id_komoditas) FROM komoditas');
+
+        }
     } 
 ?>
