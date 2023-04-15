@@ -20,6 +20,9 @@ class Landing extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('landing_page');
+		$data['kecamatan'] = $this->M_kecamatan->get_data('kecamatan')->result();
+		$data['lokasi'] = $this->M_komoditas->tampil_lokasi_komoditas()->result();
+
+		$this->load->view('landing_page',$data);
 	}
 }

@@ -94,6 +94,154 @@
             </div>
         </section><!-- End Cliens Section -->
 
+                
+                <div class="section-title">
+                    <h2 style="text-align:center;margin-top:50px;">Peta Persebaran Komoditas Hortikultura Kabupaten Tapin</h2>
+                </div>
+                        <!-- Leaflet Map -->
+            <style>
+            #map {
+                height: 720px;
+                width: 1600px;
+                margin-top: 50px;
+                margin-bottom: 100px;
+                margin-right: 50px;
+                margin-left: 150px;
+                border-radius: 20px;
+            }
+            </style>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+                integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+            <!-- Make sure you put this AFTER Leaflet's CSS -->
+            <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+                integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+            <!-- Fullscreen Map -->
+            <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'>
+            </script>
+            <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+                rel='stylesheet' />
+
+            <!-- Legend -->
+            <link rel="stylesheet" href="<?php echo base_url("") ?>assets/legend/leaflet.legend.css">
+            <script src="<?php echo base_url("") ?>assets/legend/leaflet.legend.js"></script>
+
+            <div id="map"></div>
+
+            <script>
+            var map = L.map('map', {
+                fullscreenControl: true,
+            }).setView([-2.9858420039986195, 115.21446939378636], 11);
+
+            // Icon Kecamatan
+            const kecamatanIcon = new L.icon({
+                iconUrl: "./assets/legend/marker/kecamatan.png"
+            });
+
+            // // Icon Tapin Utara
+            // const tapinUtaraIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/tapin_utara.png"
+            // });
+
+            // // Icon Tapin Selatan
+            // const tapinSelatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/tapin_selatan.png"
+            // });
+
+            // // Icon Tapin Tengah
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/tapin_tengah.png"
+            // });
+
+            // // Icon Bakarangan
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/bakarangan.png"
+            // });
+
+            // // Icon Salam Babaris
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/salam_babaris.png"
+            // });
+
+            // // Icon Binuang
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/binuang.png"
+            // });
+
+            // // Icon Hatungun
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/hatungun.png"
+            // });
+
+            // // Icon Piani
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/piani.png"
+            // });
+
+            // // Icon Lokapaikat
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/lokpaikat.png"
+            // });
+
+            // // Icon Bungur
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/bungur.png"
+            // });
+
+            // // Icon Candi Laras Selatan
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/cls.png"
+            // });
+
+            // // Icon Candi Laras Utara
+            // const kecamatanIcon = new L.icon({
+            //     iconUrl: "./assets/legend/marker/clu.png"
+            // });
+
+            <?php foreach($kecamatan as $k) { ?>
+
+            L.marker([<?= $k->latitude ?>, <?= $k->longitude ?>], {
+                    icon: kecamatanIcon
+                }).bindPopup(
+                    "<h5><?= $k->nama ?></h5>")
+                .addTo(map);
+            
+            <?php } ?>
+
+            // Icon Komoditas
+            const komoditasIcon = new L.icon({
+                iconUrl: "./assets/legend/marker/komoditas.png"
+            });
+            <?php foreach($lokasi as $l) { ?>
+            L.marker([<?= $l->latitude ?>, <?= $l->longitude ?>], {
+                    icon: komoditasIcon
+                }).bindPopup(
+                    "<h5><?= $l->nama ?></h5>")
+                .addTo(map);
+            <?php } ?>
+
+            L.control.Legend({
+                position: "bottomleft",
+                legends: [{
+                    label: "Kecamatan",
+                    type: "image",
+                    url: "<?php echo base_url("") ?>assets/legend/marker/kecamatan.png",
+                }, {
+                    label: "Komoditas",
+                    type: "image",
+                    url: "<?php echo base_url("") ?>assets/legend/marker/komoditas.png",
+                }]
+            }).addTo(map);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href=" http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+            </script>
+            <!-- Leaflet Map -->
+                </div>
+       
         <!-- ======= About Us Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">

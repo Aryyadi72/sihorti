@@ -1,3 +1,15 @@
+<?php
+    if ($this->session->flashdata('sukses')) {
+?>
+<div class="callout callout-success">
+    <p style="font-size:14px">
+        <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
+    </p>
+</div>
+<?php
+    }
+?>
+
 <nav class="navbar navbar-light">
     <div class="container d-block">
         <a class="btn icon btn-outline-warning" href="<?php echo base_url("rekapitulasi") ?>"><i

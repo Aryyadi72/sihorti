@@ -31,7 +31,8 @@ class Kecamatan extends CI_Controller {
 
     public function tambah()
 	{
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Tambah Kecamatan";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('kecamatan/tambah_kecamatan');
         $this->load->view('templates/footer');
@@ -78,7 +79,8 @@ class Kecamatan extends CI_Controller {
 	{
 		$where = array('id_kecamatan' => $id);
 		$data['kecamatan'] = $this->db->query("SELECT * FROM kecamatan WHERE id_kecamatan = '$id'")->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Ubah Kecamatan";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('kecamatan/ubah_kecamatan', $data);
         $this->load->view('templates/footer');

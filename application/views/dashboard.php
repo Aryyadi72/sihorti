@@ -1,3 +1,15 @@
+<?php
+    if ($this->session->flashdata('sukses')) {
+?>
+<div class="callout callout-success">
+    <p style="font-size:14px">
+        <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
+    </p>
+</div>
+<?php
+    }
+?>
+
 <div class="page-heading">
     <marquee>
         <h3>SIHORTI Statistics</h3>
@@ -212,7 +224,7 @@
                     </div>
                     <div class="px-4">
                         <a class="btn btn-block btn-xl btn-outline-primary font-bold mt-3"
-                            href="<?= base_url("") ?>">Logout</a>
+                            href="<?= base_url("logout") ?>">Logout</a>
                     </div>
                 </div>
             </div>

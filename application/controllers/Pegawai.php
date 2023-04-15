@@ -40,7 +40,8 @@ class Pegawai extends CI_Controller {
 
     public function tambah()
 	{
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Tambah Pegawai";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('pegawai/tambah_pegawai');
         $this->load->view('templates/footer');
@@ -85,7 +86,8 @@ class Pegawai extends CI_Controller {
 	{
 		$where = array('id_pegawai' => $id);
 		$data['pegawai'] = $this->db->query("SELECT * FROM pegawai WHERE id_pegawai= '$id'")->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Ubah Pegawai";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('pegawai/ubah_pegawai',$data);
         $this->load->view('templates/footer');

@@ -32,7 +32,8 @@ class Harga extends CI_Controller {
     public function tambah()
 	{
 		
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Tambah Harga";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('harga/tambah_harga');
         $this->load->view('templates/footer');
@@ -78,7 +79,8 @@ class Harga extends CI_Controller {
 	{
 		$where = array('id_harga' => $id);
 		$data['harga'] = $this->db->query("SELECT * FROM harga WHERE id_harga= '$id'")->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Ubah Harga";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('harga/ubah_harga', $data);
         $this->load->view('templates/footer');
