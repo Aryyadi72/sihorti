@@ -34,7 +34,8 @@ class Lokasi_Komoditas extends CI_Controller {
 	{
 		$data['komoditas'] = $this->M_lokasi->tampil_komoditas()->result();
 		$data['kecamatan'] = $this->M_lokasi->tampil_kecamatan()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Tambah Lokasi Komoditas";
+		$this->load->view('templates/header', $title);
 		$this->load->view('templates/sidebar');
 		$this->load->view('lokasi_komoditas/tambah_lokasi',$data);
 		$this->load->view('templates/footer');
@@ -84,7 +85,8 @@ class Lokasi_Komoditas extends CI_Controller {
 		$data['lokasi_komoditas'] = $this->db->query("SELECT * FROM lokasi_komoditas WHERE id_lokasi= '$id'")->result();
 		$data['komoditas'] = $this->M_lokasi->tampil_komoditas()->result();
 		$data['kecamatan'] = $this->M_lokasi->tampil_kecamatan()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Ubah Lokasi Komoditas";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('lokasi_komoditas/ubah_lokasi', $data);
 		$this->load->view('templates/footer');

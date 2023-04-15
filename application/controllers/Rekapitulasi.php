@@ -33,7 +33,8 @@ class Rekapitulasi extends CI_Controller {
 	{
 		$data['komoditas'] = $this->M_rekapitulasi->tampil_komoditas()->result();
 		$data['kategori'] = $this->M_rekapitulasi->tampil_kategori()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Tambah Rekapitulasi";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('rekapitulasi/tambah_rekapitulasi',$data);
         $this->load->view('templates/footer');
@@ -114,7 +115,8 @@ class Rekapitulasi extends CI_Controller {
 		$data['rekapitulasi'] = $this->db->query("SELECT * FROM rekapitulasi WHERE id_rekapitulasi = '$id'")->result();
 		$data['komoditas'] = $this->M_rekapitulasi->tampil_komoditas()->result();
 		$data['kategori'] = $this->M_rekapitulasi->tampil_kategori()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Ubah Rekapitulasi";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('rekapitulasi/ubah_rekapitulasi', $data);
         $this->load->view('templates/footer');

@@ -33,7 +33,8 @@ class Akun extends CI_Controller {
 	{
 		$data['level'] = $this->M_akun->tampil_level()->result();
 		$data['pegawai'] = $this->M_akun->tampil_pegawai()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Tambah Akun";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('akun/tambah_akun',$data);
         $this->load->view('templates/footer');
@@ -118,7 +119,8 @@ if ($cek->num_rows()>=1){
 		// $this->load->model('m_akun');
 		// $data['akun'] = $this->m_akun->update_data($id);
 		
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Ubah Akun";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('akun/ubah_akun', $data);
         $this->load->view('templates/footer');

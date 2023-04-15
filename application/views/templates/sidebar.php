@@ -48,6 +48,8 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
+
+                        <?php if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 || $this->session->userdata('id_level') == 3 || $this->session->userdata('id_level') == 4) { ?>
                         <!-- Menu -->
                         <li class="sidebar-title">Menu</li>
 
@@ -59,7 +61,9 @@
                             </a>
                         </li>
                         <!-- Dashboard -->
+                        <?php } 
 
+                        if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 || $this->session->userdata('id_level') == 3) { ?>
                         <!-- Data Rekapitulasi -->
                         <li class="sidebar-item">
                             <a href="<?php echo base_url("rekapitulasi"); ?>" class="sidebar-link">
@@ -68,6 +72,10 @@
                             </a>
                         </li>
                         <!-- Data Rekapitulasi -->
+
+                        <?php } 
+
+                        if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 || $this->session->userdata('id_level') == 3 || $this->session->userdata('id_level') == 4) { ?>
 
                         <!-- Data Kecamatan -->
                         <li class="sidebar-item">
@@ -78,6 +86,10 @@
                         </li>
                         <!-- Data Kecamatan -->
                         <!-- Menu -->
+
+                        <?php } 
+
+                        if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 || $this->session->userdata('id_level') == 3 || $this->session->userdata('id_level') == 4) { ?>
 
                         <!-- Komoditas -->
                         <li class="sidebar-title">Komoditas</li>
@@ -91,6 +103,10 @@
                         </li>
                         <!-- Data Komoditas -->
 
+                        <?php } 
+
+                        if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 || $this->session->userdata('id_level') == 3 || $this->session->userdata('id_level') == 4) { ?>
+
                         <!-- Lokasi Komoditas -->
                         <li class="sidebar-item">
                             <a href="<?php echo base_url("lokasi_komoditas"); ?>" class="sidebar-link">
@@ -100,6 +116,10 @@
                         </li>
                         <!-- Lokasi Komoditas -->
                         <!-- Komoditas -->
+
+                        <?php } 
+
+                        if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 || $this->session->userdata('id_level') == 3 || $this->session->userdata('id_level') == 4) { ?>
 
                         <!-- Harga -->
                         <li class="sidebar-title">Harga</li>
@@ -113,6 +133,10 @@
                         </li>
                         <!-- Harga -->
 
+                        <?php } 
+
+                        if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 || $this->session->userdata('id_level') == 3) { ?>
+
                         <!-- Harga Mingguan -->
                         <li class="sidebar-item">
                             <a href="<?php echo base_url("harga/harga_mingguan"); ?>" class="sidebar-link">
@@ -122,6 +146,10 @@
                         </li>
                         <!-- Harga Mingguan -->
                         <!-- Harga -->
+
+                        <?php } 
+
+                        if ($this->session->userdata('id_level') == 1) { ?>
 
                         <!-- User -->
                         <li class="sidebar-title">User</li>
@@ -136,6 +164,10 @@
                         </li>
                         <!-- Data Pegawai -->
 
+                        <?php } 
+
+                        if ($this->session->userdata('id_level') == 1) { ?>
+
                         <!-- Data Akun -->
                         <li class="sidebar-item">
                             <a href="<?php echo base_url("akun"); ?>" class="sidebar-link">
@@ -145,6 +177,7 @@
                         </li>
                         <!-- Data Akun -->
                         <!-- User -->
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

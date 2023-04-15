@@ -18,6 +18,22 @@ class Dashboard extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+	// public function __construct()
+    // {
+    //     parent::__construct();
+    //     if ($this->session->userdata('login') == FALSE) {
+    //         redirect(base_url("login"));
+    //     }
+    // }
+
+	public function __construct()
+    {
+        parent::__construct();
+        if ($this->session->userdata('login') == FALSE) {
+            redirect(base_url("login"));
+        }
+    }
+	
 	public function index()
 	{
 		$tk = $this->db->query("SELECT * FROM komoditas");
@@ -46,7 +62,7 @@ class Dashboard extends CI_Controller {
 		// $data['lokasi'] = $this->M_lokasi->show_data()->result();
 		$data['lokasi'] = $this->M_komoditas->tampil_lokasi_komoditas()->result();
 		$this->load->view('templates/header',$title);
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar',$ta);
         $this->load->view('dashboard',$data);
         $this->load->view('templates/footer');
 	}

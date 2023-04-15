@@ -32,7 +32,20 @@
                         Masukkan Username dan Password untuk Login SIHORTI.
                     </p>
 
-                    <form class="form-login user" method="POST" action="<?php echo base_url('login') ?> ">
+                    <form class="form-login user" method="POST" action="<?php echo base_url('login/auth') ?> ">
+
+                    <?php
+                    if ($this->session->flashdata('gagal')) {
+                    ?>
+                    <div class="callout callout-danger">
+                        <p style="font-size:15px">
+                            <i class="fa fa-warning"></i> <?php echo $this->session->flashdata('gagal'); ?>
+                        </p>
+                    </div>
+                    <?php
+                    }
+                    ?>
+
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" class="form-control form-control-xl" placeholder="Username"
                                 name="username" required />
@@ -49,7 +62,7 @@
                         </div>
                         <button type="submit" style="margin-top:10px;"
                             class="btn btn-lg btn-success btn-block shake-hard"
-                            href="<?php echo site_url("login"); ?>">Login</button>
+                            name="submit">Login</button>
                     </form>
                     <button style="margin-top:10px;" class="btn btn-lg btn-warning btn-block text-light shake-hard"
                         onclick="history.back()">Kembali</button>

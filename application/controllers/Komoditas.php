@@ -32,7 +32,8 @@ class Komoditas extends CI_Controller {
     public function tambah()
 	{
 		$data['kategori'] = $this->M_komoditas->tampil_kategori()->result();
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Tambah Komoditas";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('komoditas/tambah_komoditas',$data);
         $this->load->view('templates/footer');
@@ -81,7 +82,8 @@ class Komoditas extends CI_Controller {
 		$where = array('id_komoditas' => $id);
 		$data['komoditas'] = $this->db->query("SELECT * FROM komoditas WHERE id_komoditas = '$id'")->result();
 		$data['kategori'] = $this->M_komoditas->tampil_kategori()->result(); 
-		$this->load->view('templates/header');
+		$title['title'] = "SIHORTI - Ubah Komoditas";
+		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
         $this->load->view('komoditas/ubah_komoditas',$data);
         $this->load->view('templates/footer');

@@ -1,6 +1,12 @@
 <?php
 class M_akun extends CI_Model
 {
+
+    public function login($data)
+    {
+        return $this->db->get_where('akun', $data);
+    }
+
     public function show_data()
     {
         return $this->db->query('SELECT * FROM akun');

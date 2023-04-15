@@ -1,3 +1,15 @@
+<?php
+    if ($this->session->flashdata('sukses')) {
+?>
+<div class="callout callout-success">
+    <p style="font-size:14px">
+        <i class="fa fa-check"></i> <?php echo $this->session->flashdata('sukses'); ?>
+    </p>
+</div>
+<?php
+    }
+?>
+
 <div class="page-heading">
     <div class="page-title">
         <div class="row">

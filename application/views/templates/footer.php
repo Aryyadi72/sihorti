@@ -2,10 +2,7 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-none fs-4" style="text-align:center;text-size:50px;margin-top:30px;">
-            <div class="shake-hard">
-                <marquee>2023 &copy; SIHORTI LANJUTKAN BRO SISA REPORT EXCEL + OLAHKAN AKU MODUL JOIN KOMODITAS LWN
-                    LOKASI KOMODITAS.</marquee>
-            </div>
+                <marquee>2023 &copy; SIHORTI</marquee>
         </div>
     </div>
 </footer>
