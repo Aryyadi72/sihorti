@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?php echo base_url(""); ?>assets/extensions/simple-datatables/style.css" />
     <link rel="stylesheet" href="<?php echo base_url(""); ?>assets/css/pages/simple-datatables.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css"> -->
 </head>
 
 <div id="main">

@@ -30,7 +30,7 @@
     <!-- Template Main CSS File -->
     <link href="<?php echo base_url() ?>assets2/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets2/css/style2.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>./assets/hover/css/hover.css">
 
     <!-- =======================================================

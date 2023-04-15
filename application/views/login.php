@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/pages/auth.css" />
     <link rel="shortcut icon" href="assets/images/logo/logo_holti.svg" type="image/x-icon" />
     <link rel="shortcut icon" href="assets/images/logo/logo_holti.png" type="image/png" />
-    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>./assets/hover/css/hover.css">
 </head>
 

@@ -26,14 +26,14 @@
                 <h4 class="card-title">Tambah Data Komoditas</h4>
             </div>
             <div class="card-body">
-                <form class="form form-horizontal" method="POST"
-                    action="<?php echo base_url('komoditas/tambah_data_aksi')?>">
+                <form class="form form-horizontal" method="POST" action="<?php echo base_url('komoditas/tambah_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <label>Nama Komoditas</label>
                             </div>
                             <div class="col-md-8 form-group">
+                                <input type="hidden" id="first-name" class="form-control" name="id_komoditas"/>
                                 <input type="text" id="first-name" class="form-control" name="nama"
                                     placeholder="Nama Komoditas" />
                             </div>
@@ -41,8 +41,7 @@
                                 <label>Kode Komoditas</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="kode"
-                                    placeholder="Kode Komoditas" />
+                                <input type="text" id="first-name" class="form-control" name="kode" placeholder="Kode Komoditas" />
                             </div>
                             <div class="col-md-4">
                                 <label>Kode Kategori</label>
