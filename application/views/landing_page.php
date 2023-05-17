@@ -96,17 +96,17 @@
 
                 
                 <div class="section-title">
-                    <h2 style="text-align:center;margin-top:50px;">Peta Persebaran Komoditas Hortikultura Kabupaten Tapin</h2>
+                    <h2 style="text-align:center;margin-top:50px;">Peta Persebaran <br> Komoditas Hortikultura Kabupaten Tapin</h2>
                 </div>
                         <!-- Leaflet Map -->
             <style>
             #map {
                 height: 720px;
-                width: 1600px;
+                width: 1200px;
                 margin-top: 50px;
                 margin-bottom: 100px;
                 margin-right: 50px;
-                margin-left: 150px;
+                margin-left: 60px;
                 border-radius: 20px;
             }
             </style>
@@ -127,17 +127,42 @@
             <link rel="stylesheet" href="<?php echo base_url("") ?>assets/legend/leaflet.legend.css">
             <script src="<?php echo base_url("") ?>assets/legend/leaflet.legend.js"></script>
 
-            <div id="map"></div>
-
-            <script>
-            var map = L.map('map', {
-                fullscreenControl: true,
-            }).setView([-2.9858420039986195, 115.21446939378636], 11);
-
-            // Icon Kecamatan
-            const kecamatanIcon = new L.icon({
-                iconUrl: "./assets/legend/marker/kecamatan.png"
-            });
+            <div class="row">
+                
+                <div class="col">
+                    <div id="map"></div>
+                </div>
+                <div class="col">
+                    <div class="p-lg-5">
+                        <h3>Legenda</h3>
+                        <div id="legend"></div>
+                        <!-- <ul class=""> -->
+                            <img src="./assets/legend/marker/kecamatan.png" alt=""> Kecamatan
+                            <br>
+                            <img src="./assets/legend/marker/tapin_utara.png" alt=""> Tapin Utara
+                            <br>
+                            <img src="./assets/legend/marker/tapin_selatan.png" alt=""> Tapin Selatan
+                            <br>
+                            <img src="./assets/legend/marker/tapin_tengah.png" alt=""> Tapin Tengah
+                            <br>
+                            <img src="./assets/legend/marker/tapin_tengah.png" alt=""> Tapin Barat
+                            <br>
+                            <img src="./assets/legend/marker/tapin_utara.png" alt=""> Tapin Timur
+                            <br>
+                        <!-- </ul> -->
+                    </div>
+                </div>
+            </div>
+                
+                <script>
+                    var map = L.map('map', {
+                        fullscreenControl: true,
+                    }).setView([-2.9858420039986195, 115.21446939378636], 11);
+                    
+                    // Icon Kecamatan
+                    const kecamatanIcon = new L.icon({
+                        iconUrl: "./assets/legend/marker/kecamatan.png"
+                    });
 
             // // Icon Tapin Utara
             // const tapinUtaraIcon = new L.icon({
