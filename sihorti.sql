@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 06, 2023 at 06:41 AM
+-- Generation Time: May 24, 2023 at 03:23 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -43,7 +43,10 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id_akun`, `id_level`, `id_pegawai`, `nama`, `nip`, `foto`, `username`, `password`) VALUES
-(1, 1, 1, 'Haywood Mertinab', '804962809', '', 'admin', '202cb962ac59075b964b07152d234b70');
+(1, 1, 1, 'Haywood Mertinab', '804962809', '', 'admin', '81dc9bdb52d04dc20036dbd8313ed055'),
+(2, 2, 3, 'Korella Playle', '9286397968', '', 'korella', 'f2223e647a4e3f96b4d176befaa3ece5'),
+(3, 3, 4, 'Caitrin Brotherwood', '9559118013', '', 'caitrin', '1bb5247f2775346c8a9f6c8e2f0a3bef'),
+(4, 4, 5, 'Colly Ilyushkin', '4902803917', '', 'colly', '186533be596c4016bec487d98a6ed213');
 
 -- --------------------------------------------------------
 
@@ -55,15 +58,16 @@ CREATE TABLE `harga` (
   `id_harga` int NOT NULL,
   `harga_produsen` int NOT NULL,
   `harga_grosir` int NOT NULL,
-  `harga_eceran` int NOT NULL
+  `harga_eceran` int NOT NULL,
+  `id_komoditas` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `harga`
 --
 
-INSERT INTO `harga` (`id_harga`, `harga_produsen`, `harga_grosir`, `harga_eceran`) VALUES
-(1, 100002, 12000, 15000);
+INSERT INTO `harga` (`id_harga`, `harga_produsen`, `harga_grosir`, `harga_eceran`, `id_komoditas`) VALUES
+(2, 18000, 20000, 25000, 1);
 
 -- --------------------------------------------------------
 
@@ -106,15 +110,27 @@ CREATE TABLE `kecamatan` (
   `id_kecamatan` int NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `latitude` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `longitude` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `longitude` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `marker` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kecamatan`
 --
 
-INSERT INTO `kecamatan` (`id_kecamatan`, `nama`, `latitude`, `longitude`) VALUES
-(630102, 'Binuang', '-3.1169048570257702', '115.05106482230144');
+INSERT INTO `kecamatan` (`id_kecamatan`, `nama`, `latitude`, `longitude`, `marker`) VALUES
+(630102, 'Binuang', '-3.1169048570257702', '115.05106482230144', 'binuang.png'),
+(630502, 'Tapin Selatan', '-2.987462607985986', '115.14716915958073', ''),
+(630503, 'Tapin Tengah', '-2.8937764133820156', '115.0538061946745', ''),
+(630504, 'Tapin Utara', '-2.910867392627011', '115.15082188683336', ''),
+(630505, 'Candi Laras Selatan', '-2.8501805686926556', '115.00244295315545', ''),
+(630506, 'Candi Laras Utara', '-2.8501805686926556', '115.00244295315545', ''),
+(630507, 'Bakarangan', '-2.900793716383624', '115.11981164010216', ''),
+(630508, 'Piani', '-2.959176027887351', '115.27795636250369', ''),
+(630509, 'Bungur', '-2.972385949735965', '115.14653084898667', ''),
+(630510, 'Lokpaikat', '-2.926218178389669', '115.17739219167134', ''),
+(630511, 'Salam Babaris', '-3.078176278942407', '115.17842241263631', ''),
+(630512, 'Hatungun', '-3.1344668589106837', '115.20728517934917', '');
 
 -- --------------------------------------------------------
 
@@ -152,7 +168,10 @@ CREATE TABLE `level` (
 --
 
 INSERT INTO `level` (`id_level`, `level`) VALUES
-(1, 'Admin');
+(1, 'Admin'),
+(2, 'Kepala Dinas'),
+(3, 'Kepala Bidang'),
+(4, 'Pegawai');
 
 -- --------------------------------------------------------
 
@@ -197,7 +216,10 @@ CREATE TABLE `pegawai` (
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama_pegawai`, `nip_pegawai`, `tanggal_lahir`, `tempat_lahir`, `foto`, `jenis_kelamin`) VALUES
 (1, 'Haywood Mertinab', '804962809', '2022-04-06', 'General Pinedo', '', 'pria'),
-(2, 'Haywood Mertina12', '12312457689708', '2023-04-07', 'Karawaci', '', 'pria');
+(2, 'Haywood Mertina12', '12312457689708', '2023-04-07', 'Karawaci', '', 'pria'),
+(3, 'Korella Playle', '9286397968	', '2023-04-20', 'Ravne na Koroškem', NULL, 'wanita\r\n'),
+(4, 'Caitrin Brotherwood', '9559118013', '2023-04-22', 'High River', NULL, 'wanita'),
+(5, 'Colly Ilyushkin', '4902803917', '2023-04-30', 'Alcaria', NULL, 'pria');
 
 -- --------------------------------------------------------
 
@@ -246,7 +268,8 @@ ALTER TABLE `akun`
 -- Indexes for table `harga`
 --
 ALTER TABLE `harga`
-  ADD PRIMARY KEY (`id_harga`);
+  ADD PRIMARY KEY (`id_harga`),
+  ADD KEY `fk_harga_komoditas` (`id_komoditas`);
 
 --
 -- Indexes for table `harga_mingguan`
@@ -312,13 +335,13 @@ ALTER TABLE `rekapitulasi`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id_akun` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_akun` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `harga`
 --
 ALTER TABLE `harga`
-  MODIFY `id_harga` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_harga` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `harga_mingguan`
@@ -342,7 +365,7 @@ ALTER TABLE `komoditas`
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
-  MODIFY `id_level` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_level` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `lokasi_komoditas`
@@ -354,7 +377,7 @@ ALTER TABLE `lokasi_komoditas`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pegawai` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rekapitulasi`
@@ -372,6 +395,12 @@ ALTER TABLE `rekapitulasi`
 ALTER TABLE `akun`
   ADD CONSTRAINT `akun_ibfk_1` FOREIGN KEY (`id_level`) REFERENCES `level` (`id_level`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `akun_ibfk_2` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `harga`
+--
+ALTER TABLE `harga`
+  ADD CONSTRAINT `fk_harga_komoditas` FOREIGN KEY (`id_komoditas`) REFERENCES `komoditas` (`id_komoditas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `harga_mingguan`
