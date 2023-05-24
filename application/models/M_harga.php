@@ -73,5 +73,14 @@
             return $this->db->query('SELECT COUNT(id_komoditas) FROM komoditas');
 
         }
+
+        public function show_data_baru()
+        {
+            $this->db->select('*');
+            $this->db->from('harga');
+            $this->db->join('komoditas','komoditas.id_komoditas = harga.id_komoditas');
+            $query = $this->db->get();
+            return $query;
+        }
     } 
 ?>

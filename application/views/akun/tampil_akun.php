@@ -54,8 +54,8 @@
                         <?php $no=1; foreach($akun as $a) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
-                            <td><?php echo $a->id_level?></td>
-                            <td><?php echo $a->id_pegawai?></td>
+                            <td><?php echo $a->level?></td>
+                            <td><?php echo $a->nama_pegawai?></td>
                             <td><?php echo $a->nama?></td>
                             <td><?php echo $a->nip?></td>
                             <td><?php echo $a->foto?></td>

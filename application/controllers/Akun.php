@@ -21,7 +21,7 @@ class Akun extends CI_Controller {
 	public function index()
 	{
 		$data['akun'] = $this->M_akun->get_data('akun')->result();
-		$data['akun'] = $this->M_akun->show_data()->result();
+		$data['akun'] = $this->M_akun->show_data_baru()->result();
 		$title['title'] = "SIHORTI - Akun";
 		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');

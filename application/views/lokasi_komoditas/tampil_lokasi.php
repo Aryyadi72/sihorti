@@ -53,8 +53,8 @@
                         <?php $no=1; foreach($lokasi as $l) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
-                            <td><?php echo $l->id_kecamatan?></td>
-                            <td><?php echo $l->id_komoditas?></td>
+                            <td><?php echo $l->nama?></td>
+                            <td><?php echo $l->nama?></td>
                             <td><?php echo $l->latitude?></td>
                             <td><?php echo $l->longitude?></td>
                             <td>

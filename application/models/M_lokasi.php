@@ -61,5 +61,15 @@
             $this->db->or_like('kerusakan', $keyword);
             return $this->db->get()->result();
         }
+
+        public function show_data_baru()
+        {
+            $this->db->select('*');
+            $this->db->from('lokasi_komoditas', 'kecamatan');
+            $this->db->join('komoditas','komoditas.id_komoditas = lokasi_komoditas.id_komoditas');
+            $this->db->join('kecamatan','kecamatan.id_kecamatan = lokasi_komoditas.id_kecamatan');
+            $query = $this->db->get();
+            return $query;
+        }
     } 
 ?>

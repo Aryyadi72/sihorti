@@ -44,6 +44,7 @@
                             <th>Harga Produsen</th>
                             <th>Harga Grosir</th>
                             <th>Harga Eceran</th>
+                            <th>Komoditas</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -54,6 +55,7 @@
                             <td><?php echo $h->harga_produsen; ?></td>
                             <td><?php echo $h->harga_grosir; ?></td>
                             <td><?php echo $h->harga_eceran; ?></td>
+                            <td><?php echo $h->nama; ?></td>
                             <td>
                                 <a href="<?php echo base_url("harga/ubah/".$h->id_harga); ?>"
                                     class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
