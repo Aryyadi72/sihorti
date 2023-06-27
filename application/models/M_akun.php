@@ -102,4 +102,14 @@ class M_akun extends CI_Model
         $this->db->or_like('username', $keyword);
         return $this->db->get()->result();
     }
+
+    public function show_data_baru()
+    {
+        $this->db->select('*');
+        $this->db->from('akun', 'pegawai');
+        $this->db->join('level','level.id_level = akun.id_level');
+        $this->db->join('pegawai','pegawai.id_pegawai = akun.id_pegawai');
+        $query = $this->db->get();
+        return $query;
+    }
 }

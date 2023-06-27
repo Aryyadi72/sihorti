@@ -21,7 +21,7 @@ class Harga extends CI_Controller {
 	public function index()
 	{
 		$data['harga'] = $this->M_harga->get_data('harga')->result();
-		$data['harga'] = $this->M_harga->show_data()->result();
+		$data['harga'] = $this->M_harga->show_data_baru()->result();
 		$title['title'] = "SIHORTI - Harga";
 		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
@@ -31,7 +31,6 @@ class Harga extends CI_Controller {
 
     public function tambah()
 	{
-		
 		$title['title'] = "SIHORTI - Tambah Harga";
 		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
@@ -57,11 +56,13 @@ class Harga extends CI_Controller {
 			$harga_produsen  	  = $this->input->post('harga_produsen');
 			$harga_grosir 		  = $this->input->post('harga_grosir');
 			$harga_eceran   	  = $this->input->post('harga_eceran');
+			$id_komoditas   	  = $this->input->post('id_komoditas');
 
 			$data = array(
 				'harga_produsen'	=> $harga_produsen,
 				'harga_grosir'		=> $harga_grosir,
 				'harga_eceran'		=> $harga_eceran,
+				'id_komoditas'		=> $id_komoditas,
 			);
 
 			$this->M_harga->insert_data($data, 'harga');
@@ -89,16 +90,18 @@ class Harga extends CI_Controller {
 	public function update_data_aksi()
 	{
 		$this->_rules();
-	  	$id	  	      = $this->input->post('id_harga');
+	  	$id	  	      		  = $this->input->post('id_harga');
 		$harga_produsen  	  = $this->input->post('harga_produsen');
 		$harga_grosir 		  = $this->input->post('harga_grosir');
 		$harga_eceran   	  = $this->input->post('harga_eceran');
+		$id_komoditas   	  = $this->input->post('id_komoditas');
 
 			$data = array(
 				'id_harga'			=> $id,
 				'harga_produsen'	=> $harga_produsen,
 				'harga_grosir'		=> $harga_grosir,
 				'harga_eceran'		=> $harga_eceran,
+				'id_komoditas'		=> $id_komoditas,
 			);
 			
 			$where = array(

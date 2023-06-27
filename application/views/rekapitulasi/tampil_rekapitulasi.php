@@ -46,8 +46,8 @@
                         <tr>
                             <th>No</th>
                             <th>Kode</th>
-                            <th colspan="3">ID Komoditas</th>
-                            <th>ID Kategori</th>
+                            <th colspan="3">Komoditas</th>
+                            <th>Kategori</th>
                             <th>Hasil Produksi</th>
                             <th>Luas Tanaman</th>
                             <th>Luas Panen Habis</th>
@@ -67,8 +67,8 @@
                         <tr>
                             <th><?php echo $no++ ?></td>
                             <th><?php echo $r->kode?></td>
-                            <th colspan="3"><?php echo $r->id_komoditas?></td>
-                            <th><?php echo $r->id_kategori?></td>
+                            <th colspan="3"><?php echo $r->nama?></td>
+                            <th><?php echo $r->kategori?></td>
                             <th><?php echo $r->hasil_produksi?></td>
                             <th><?php echo $r->luas_tanaman?></td>
                             <th><?php echo $r->luas_panen_habis?></td>

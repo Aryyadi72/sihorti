@@ -42,7 +42,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID Kategori</th>
+                            <th>Kategori</th>
                             <th>Kode</th>
                             <th>Nama Komoditas</th>
                             <th>Status</th>
@@ -52,7 +52,7 @@
                         <?php $no=1; foreach($komoditas as $k) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
-                            <td><?php echo $k->id_kategori?></td>
+                            <td><?php echo $k->kategori?></td>
                             <td><?php echo $k->kode?></td>
                             <td><?php echo $k->nama?></td>
                             <td>

@@ -6,7 +6,6 @@ class M_rekapitulasi extends CI_Model
         return $this->db->query('SELECT * FROM rekapitulasi');
     }
 
-    // menampilkan data level
     public function tampil_komoditas()
     {
         return  $this->db->query("SELECT * FROM komoditas");
@@ -85,5 +84,15 @@ class M_rekapitulasi extends CI_Model
         $this->db->or_like('akun.nip', $keyword);
         $this->db->or_like('username', $keyword);
         return $this->db->get()->result();
+    }
+
+    public function show_data_baru()
+    {
+        $this->db->select('*');
+        $this->db->from('rekapitulasi', 'komoditas');
+        $this->db->join('kategori','kategori.id_kategori = rekapitulasi.id_kategori');
+        $this->db->join('komoditas','komoditas.id_komoditas = rekapitulasi.id_komoditas');
+        $query = $this->db->get();
+        return $query;
     }
 }

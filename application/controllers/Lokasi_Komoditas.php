@@ -21,8 +21,8 @@ class Lokasi_Komoditas extends CI_Controller {
 	
     public function index()
 	{
-		$data['lokasi'] = $this->M_lokasi->show_data()->result();
-		$data['lokasi'] = $this->M_lokasi->get_data('lokasi_komoditas')->result();
+		$data['lokasi'] = $this->M_lokasi->show_data_baru()->result();
+		// $data['lokasi'] = $this->M_lokasi->get_data('lokasi_komoditas')->result();
 		$title['title'] = "SIHORTI - Lokasi Komoditas";
 		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
