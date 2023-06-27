@@ -40,7 +40,7 @@
             </div>
             <div class="card-body">
                 <form class="form form-horizontal" method="POST"
-                    action="<?php echo base_url('akun/tambah_data_aksi/')?>">
+                    action="<?php echo base_url('akun/tambah_data_aksi/')?>" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">

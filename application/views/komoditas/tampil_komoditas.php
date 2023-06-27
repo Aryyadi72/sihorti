@@ -54,7 +54,7 @@
                             <td><?php echo $no++ ?></td>
                             <td><?php echo $k->kategori?></td>
                             <td><?php echo $k->kode?></td>
-                            <td><?php echo $k->nama?></td>
+                            <td><?php echo $k->kecamatan?></td>
                             <td>
                                 <a href="<?php echo base_url('komoditas/ubah/'.$k-> id_komoditas)?>"
                                     class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>

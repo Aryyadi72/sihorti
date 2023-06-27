@@ -53,7 +53,7 @@
                                 <label>Nama Kecamatan</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="nama"
+                                <input type="text" id="first-name" class="form-control" name="kecamatan"
                                     placeholder="Nama Kecamatan" />
                             </div>
                             <div class="col-md-4">

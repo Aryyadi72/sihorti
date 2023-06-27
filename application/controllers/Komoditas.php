@@ -44,7 +44,6 @@ class Komoditas extends CI_Controller {
 		$this->form_validation->set_rules('kode','kode','required');
 		$this->form_validation->set_rules('id_kategori','id_kategori','required');
 		$this->form_validation->set_rules('nama','nama','required');
-		$this->form_validation->set_rules('id_komoditas','id_komoditas','required');
 	}
 
 	public function tambah_data_aksi()

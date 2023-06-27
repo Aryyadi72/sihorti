@@ -37,43 +37,40 @@
         <div class="card">
             <div class="card-header">Tabel Data Akun Pengguna</div>
             <div class="card-body">
-                <table class="table table-striped" id="table1">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>ID Level</th>
-                            <th>ID Pegawai</th>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>Foto</th>
-                            <th>Username</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no=1; foreach($akun as $a) : ?>
-                        <tr>
-                            <td><?php echo $no++ ?></td>
-                            <td><?php echo $a->level?></td>
-                            <td><?php echo $a->nama_pegawai?></td>
-                            <td><?php echo $a->nama?></td>
-                            <td><?php echo $a->nip?></td>
-                            <td><?php echo $a->foto?></td>
-                            <td><?php echo $a->username?></td>
-                            <td>
+               <table class="table table-striped" id="table1">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>ID Level</th>
+            <th>ID Pegawai</th>
+            <th>Nama</th>
+            <th>NIP</th>
+            <th>Foto</th>
+            <th>Username</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $no = 1; foreach($akun as $a) : ?>
+        <tr>
+            <td><?php echo $no++ ?></td>
+            <td><?php echo $a->level ?></td>
+            <td><?php echo $a->nama_pegawai ?></td>
+            <td><?php echo $a->nama ?></td>
+            <td><?php echo $a->nip ?></td>
+         <td><img src="<?php echo base_url('../assets/foto/' . $a->foto) ?>" alt="Foto" width="100"></td>
 
-                                <a href="<?php echo base_url('akun/ubah/'.$a->id_akun)?>"
-                                    class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url("akun/hapus/".$a->id_akun); ?>"
-                                    class="btn icon btn-danger"><i class="bi bi-x"></i></a>
-                                <!-- <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#akun"><i class="bi bi-info-circle"></i>
-                                </button> -->
-                            </td>
-                        </tr>
-                    </tbody>
-                    <?php endforeach; ?>
-                </table>
+            <td><?php echo $a->username ?></td>
+            <td>
+                <a href="<?php echo base_url('akun/ubah/'.$a->id_akun) ?>" class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
+                <a href="<?php echo base_url('akun/hapus/'.$a->id_akun) ?>" class="btn icon btn-danger"><i class="bi bi-x"></i></a>
+                <!-- <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#akun"><i class="bi bi-info-circle"></i></button> -->
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
             </div>
         </div>
     </section>

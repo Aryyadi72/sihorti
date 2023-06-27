@@ -89,8 +89,8 @@
                             </td>
                         </tr>
                     </tbody>
+                    <?php endforeach; ?>
                 </table>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>

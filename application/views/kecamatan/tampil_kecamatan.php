@@ -54,7 +54,7 @@
                         <tr>
                             <td><?php echo $no++ ?></td>
                             <td>0<?php echo $k->id_kecamatan?></td>
-                            <td><?php echo $k->nama?></td>
+                            <td><?php echo $k->kecamatan?></td>
                             <td><?php echo $k->latitude?></td>
                             <td><?php echo $k->longitude?></td>
                             <td>

@@ -53,7 +53,7 @@
                         <?php $no=1; foreach($lokasi as $l) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
-                            <td><?php echo $l->nama?></td>
+                            <td><?php echo $l->kecamatan?></td>
                             <td><?php echo $l->nama?></td>
                             <td><?php echo $l->latitude?></td>
                             <td><?php echo $l->longitude?></td>
@@ -68,8 +68,8 @@
                             </td>
                         </tr>
                     </tbody>
+                    <?php endforeach; ?>
                 </table>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>
