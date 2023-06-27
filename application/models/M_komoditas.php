@@ -19,6 +19,11 @@
              return  $this->db->query("SELECT * FROM kategori");
         }
 
+        public function tampil_komoditas()
+        {
+             return  $this->db->query("SELECT * FROM komoditas");
+        }
+
         public function kategori_cetak()
         {
              return  $this->db->query("SELECT kategori FROM kategori");

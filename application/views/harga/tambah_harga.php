@@ -67,8 +67,14 @@
                                 <label>Komoditas</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="first-name" class="form-control" name="id_komoditas"
-                                    placeholder="Komoditas" />
+                                <div class="col">
+                                    <select class="form-select" name="id_komoditas">
+                                        <option selected disabled>Pilih Komoditas</option>
+                                        <?php foreach($harga as $h) { ?>
+                                        <option value="<?= $h->id_komoditas; ?>"><?= $h->nama; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">

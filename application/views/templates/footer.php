@@ -18,6 +18,11 @@
 
 <script src="<?php echo base_url(""); ?>assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
 <script src="<?php echo base_url(""); ?>assets/js/pages/simple-datatables.js"></script>
+<script>
+		$(document).ready(function () {
+			$('#table1').DataTable();
+		});
+	</script>
 </body>
 
 </html>

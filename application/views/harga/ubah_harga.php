@@ -43,8 +43,9 @@
                     action="<?php echo base_url('harga/update_data_aksi')?>">
                     <div class="form-body">
                         <div class="row">
-                            <input type="hidden" id="first-name" class="form-control" name="id_harga"
-                                value="<?php echo $h->id_harga; ?>" />
+
+                            <input type="hidden" id="first-name" class="form-control" name="id_harga" value="<?php echo $h->id_harga; ?>" />
+                            
                             <div class="col-md-4">
                                 <label>Harga Produsen</label>
                             </div>
@@ -54,6 +55,7 @@
                                 <input type="text" id="first-name" class="form-control" name="harga_produsen"
                                     placeholder="Harga Produsen" value="<?php echo $h->harga_produsen ?>" />
                             </div>
+
                             <div class="col-md-4">
                                 <label>Harga Grosir</label>
                             </div>
@@ -61,6 +63,7 @@
                                 <input type="text" id="first-name" class="form-control" name="harga_grosir"
                                     placeholder="Harga Grosir" value="<?php echo $h->harga_grosir ?>" />
                             </div>
+
                             <div class="col-md-4">
                                 <label>Harga Eceran</label>
                             </div>
@@ -68,6 +71,9 @@
                                 <input type="text" id="first-name" class="form-control" name="harga_eceran"
                                     placeholder="Harga Eceran" value="<?php echo $h->harga_eceran ?>" />
                             </div>
+
+                            <input type="hidden" id="first-name" class="form-control" name="id_komoditas" value="<?php echo $h->id_komoditas ?>" />
+
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">
                                     Submit

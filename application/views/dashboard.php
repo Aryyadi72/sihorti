@@ -139,15 +139,18 @@
             L.marker([<?= $k->latitude ?>, <?= $k->longitude ?>], {
                     icon: kecamatanIcon
                 }).bindPopup(
-                    "<h5><?= $k->nama ?></h5>")
+                    "<h5><?= $k->kecamatan ?></h5>")
                 .addTo(map);
             <?php } ?>
 
             // Icon Komoditas
-            const komoditasIcon = new L.icon({
-                iconUrl: "./assets/legend/marker/komoditas.png"
-            });
+            
+            
             <?php foreach($lokasi as $l) { ?>
+            var komoditasIcon = new L.icon({
+                iconUrl: "<?php echo base_url("") ?>assets/legend/marker/<?= $l->nama ?>.png"
+            });
+
             L.marker([<?= $l->latitude ?>, <?= $l->longitude ?>], {
                     icon: komoditasIcon
                 }).bindPopup(

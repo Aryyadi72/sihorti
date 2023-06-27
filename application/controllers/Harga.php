@@ -32,9 +32,10 @@ class Harga extends CI_Controller {
     public function tambah()
 	{
 		$title['title'] = "SIHORTI - Tambah Harga";
+		$data['harga'] = $this->M_harga->get_data_komoditas();
 		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
-        $this->load->view('harga/tambah_harga');
+        $this->load->view('harga/tambah_harga', $data);
         $this->load->view('templates/footer');
 	}
 
@@ -69,10 +70,10 @@ class Harga extends CI_Controller {
 			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
 			<strong>Data berhasil ditambahkan !</strong>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
+				<span aria-hidden="true">&times;</span>
 			</button>
-		  </div>');
-		  redirect('harga');
+			</div>');
+		redirect('harga');
 		}
 	}
 

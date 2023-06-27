@@ -82,5 +82,11 @@
             $query = $this->db->get();
             return $query;
         }
+
+        public function get_data_komoditas()
+        {
+            $query = $this->db->get('komoditas');
+            return $query->result();
+        }
     } 
 ?>

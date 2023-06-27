@@ -155,90 +155,31 @@
             </div>
                 
                 <script>
-                    var map = L.map('map', {
-                        fullscreenControl: true,
-                    }).setView([-2.9858420039986195, 115.21446939378636], 11);
-                    
-                    // Icon Kecamatan
-                    const kecamatanIcon = new L.icon({
-                        iconUrl: "./assets/legend/marker/kecamatan.png"
-                    });
+            var map = L.map('map', {
+                fullscreenControl: true,
+            }).setView([-3.1150193736068035, 115.05569967955239], 12);
 
-            // // Icon Tapin Utara
-            // const tapinUtaraIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/tapin_utara.png"
-            // });
-
-            // // Icon Tapin Selatan
-            // const tapinSelatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/tapin_selatan.png"
-            // });
-
-            // // Icon Tapin Tengah
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/tapin_tengah.png"
-            // });
-
-            // // Icon Bakarangan
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/bakarangan.png"
-            // });
-
-            // // Icon Salam Babaris
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/salam_babaris.png"
-            // });
-
-            // // Icon Binuang
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/binuang.png"
-            // });
-
-            // // Icon Hatungun
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/hatungun.png"
-            // });
-
-            // // Icon Piani
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/piani.png"
-            // });
-
-            // // Icon Lokapaikat
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/lokpaikat.png"
-            // });
-
-            // // Icon Bungur
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/bungur.png"
-            // });
-
-            // // Icon Candi Laras Selatan
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/cls.png"
-            // });
-
-            // // Icon Candi Laras Utara
-            // const kecamatanIcon = new L.icon({
-            //     iconUrl: "./assets/legend/marker/clu.png"
-            // });
+            // Icon Kecamatan
+            const kecamatanIcon = new L.icon({
+                iconUrl: "./assets/legend/marker/kecamatan.png"
+            });
 
             <?php foreach($kecamatan as $k) { ?>
-
             L.marker([<?= $k->latitude ?>, <?= $k->longitude ?>], {
                     icon: kecamatanIcon
                 }).bindPopup(
-                    "<h5><?= $k->nama ?></h5>")
+                    "<h5><?= $k->kecamatan ?></h5>")
                 .addTo(map);
-            
             <?php } ?>
 
             // Icon Komoditas
-            const komoditasIcon = new L.icon({
-                iconUrl: "./assets/legend/marker/komoditas.png"
-            });
+            
+            
             <?php foreach($lokasi as $l) { ?>
+            var komoditasIcon = new L.icon({
+                iconUrl: "<?php echo base_url("") ?>assets/legend/marker/<?= $l->nama ?>.png"
+            });
+
             L.marker([<?= $l->latitude ?>, <?= $l->longitude ?>], {
                     icon: komoditasIcon
                 }).bindPopup(
