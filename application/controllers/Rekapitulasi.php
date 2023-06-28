@@ -122,60 +122,59 @@ class Rekapitulasi extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
-	public function ubah_data_aksi()
-	{
-		$this->_rules();
-		if($this->form_validation->run() == FALSE){
-			$this->ubah();
-		}else{
-			$id			  		= $this->input->post('id_rekapitulasi');
-			$kode 		  		= $this->input->post('kode');
-			$id_komoditas  		= $this->input->post('id_komoditas');
-			$id_kategori  		= $this->input->post('id_kategori');
-			$hasil_produksi     = $this->input->post('hasil_produksi');
-			$luas_tanaman  	  	= $this->input->post('luas_tanaman');
-			$luas_panen_habis	= $this->input->post('luas_panen_habis');
-			$luas_panen_sisa   	= $this->input->post('luas_panen_sisa');
-			$luas_rusak   	  	= $this->input->post('luas_rusak');
-			$luas_tambah_tanam  = $this->input->post('luas_tambah_tanam');
-			$luas_laporan   	= $this->input->post('luas_laporan');
-			$produksi_habis   	= $this->input->post('produksi_habis');
-			$produksi_sisa   	= $this->input->post('produksi_sisa');
-			$harga_jual   	  	= $this->input->post('harga_jual');
-			$keterangan   	  	= $this->input->post('keterangan');
+public function ubah_data_aksi()
+{
+    $this->_rules();
+    if ($this->form_validation->run() == FALSE) {
+        $this->ubah();
+    } else {
+        $id = $this->input->post('id_rekapitulasi');
+        $kode = $this->input->post('kode');
+        $id_komoditas = $this->input->post('id_komoditas');
+        $id_kategori = $this->input->post('id_kategori');
+        $hasil_produksi = $this->input->post('hasil_produksi');
+        $luas_tanaman = $this->input->post('luas_tanaman');
+        $luas_panen_habis = $this->input->post('luas_panen_habis');
+        $luas_panen_sisa = $this->input->post('luas_panen_sisa');
+        $luas_rusak = $this->input->post('luas_rusak');
+        $luas_tambah_tanam = $this->input->post('luas_tambah_tanam');
+        $luas_laporan = $this->input->post('luas_laporan');
+        $produksi_habis = $this->input->post('produksi_habis');
+        $produksi_sisa = $this->input->post('produksi_sisa');
+        $harga_jual = $this->input->post('harga_jual');
+        $keterangan = $this->input->post('keterangan');
 
-			$data = array(
-				'kode' => $kode,
-    			'id_komoditas' => $id_komoditas,
-				'id_kategori' => $id_kategori,
-    			'hasil_produksi' => $hasil_produksi,
-    			'luas_tanaman' => $luas_tanaman,
-    			'luas_panen_habis' => $luas_panen_habis,
-    			'luas_panen_sisa' => $luas_panen_sisa,
-    			'luas_rusak' => $luas_rusak,
-    			'luas_tambah_tanam' => $luas_tambah_tanam,
-    			'luas_laporan' => $luas_laporan,
-    			'produksi_habis' => $produksi_habis,
-    			'produksi_sisa' => $produksi_sisa,
-    			'harga_jual' => $harga_jual,
-    			'keterangan' => $keterangan
-			);
-			
-			
-			$where = array(
-				'id_rekapitulasi' => $id
-			);
-			
-			$this->M_rekapitulasi->update_data('rekapitulasi', $data, $where);
-			$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<strong>Data berhasil diupdate !</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			  </button>
-			  </div>');
-			  redirect('rekapitulasi');
-			}
-	}
+        $data = array(
+            'kode' => $kode,
+            'id_komoditas' => $id_komoditas,
+            'id_kategori' => $id_kategori,
+            'hasil_produksi' => $hasil_produksi,
+            'luas_tanaman' => $luas_tanaman,
+            'luas_panen_habis' => $luas_panen_habis,
+            'luas_panen_sisa' => $luas_panen_sisa,
+            'luas_rusak' => $luas_rusak,
+            'luas_tambah_tanam' => $luas_tambah_tanam,
+            'luas_laporan' => $luas_laporan,
+            'produksi_habis' => $produksi_habis,
+            'produksi_sisa' => $produksi_sisa,
+            'harga_jual' => $harga_jual,
+            'keterangan' => $keterangan
+        );
+
+        $where = array(
+            'id_rekapitulasi' => $id
+        );
+
+        $this->M_rekapitulasi->update_data('rekapitulasi', $data, $where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Data berhasil diupdate !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+        redirect('rekapitulasi');
+    }
+}
 
 	public function hapus($id = null)
 	{

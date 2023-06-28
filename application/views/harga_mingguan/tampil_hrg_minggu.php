@@ -52,13 +52,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no=1; foreach($harga as $h) : ?>
+                        <?php $no=1; foreach($harga_mingguan as $h) : ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
                             <td><?php echo $h->id_kategori; ?></td>
                             <td><?php echo $h->id_komoditas; ?></td>
                             <td><?php echo $h->id_harga; ?></td>
-                            <td><?php echo $h->minggu; ?></td>
+                            <td>1</td>
+                            <!-- <td><?php echo $h->minggu; ?></td> -->
                             <td>
                                 <a href="<?php echo base_url("harga/ubah"); ?>" class="btn icon btn-warning"><i
                                         class="bi bi-pencil"></i></a>

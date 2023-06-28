@@ -6,21 +6,11 @@
             return $this->db->query('SELECT * FROM harga');
         }
 
-        public function show_data_mingguan()
+         public function show_data_mingguan()
         {
             return $this->db->query('SELECT * FROM harga_mingguan');
         }
-
-        // public function tampil_ruangan()
-        // {
-        //   return  $this->db->query("SELECT * FROM tb_ruangan");
-        // }
-
-        // public function tampil_barang()
-        // {
-        //   return  $this->db->query("SELECT * FROM tb_barang");
-        // }
-
+      
         public function get_data($table){
             return $this->db->get($table);
         }

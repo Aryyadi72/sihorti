@@ -144,11 +144,9 @@
             <?php } ?>
 
             // Icon Komoditas
-            
-            
             <?php foreach($lokasi as $l) { ?>
             var komoditasIcon = new L.icon({
-                iconUrl: "<?php echo base_url("") ?>assets/legend/marker/<?= $l->nama ?>.png"
+                iconUrl: "<?php echo base_url("") ?>assets/legend/marker/komoditas.png"
             });
 
             L.marker([<?= $l->latitude ?>, <?= $l->longitude ?>], {
