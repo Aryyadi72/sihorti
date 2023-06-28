@@ -54,16 +54,16 @@
                             <td><?php echo $no++ ?></td>
                             <td><?php echo $k->kategori?></td>
                             <td><?php echo $k->kode?></td>
-                            <td><?php echo $k->kecamatan?></td>
-                            <td>
-                                <a href="<?php echo base_url('komoditas/ubah/'.$k-> id_komoditas)?>"
-                                    class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
-                                <a href="<?php echo base_url('komoditas/hapus/'.$k-> id_komoditas)?>"
-                                    class="btn icon btn-danger"><i class="bi bi-x"></i></a>
-                                <!-- <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
-                                    data-bs-target="#komoditas"><i class="bi bi-info-circle"></i>
-                                </button> -->
-                            </td>
+                            <td><?php echo $k->nama?></td>
+                                <td>
+                                    <a href="<?php echo base_url('komoditas/ubah/'.$k-> id_komoditas)?>"
+                                        class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>
+                                    <a href="<?php echo base_url('komoditas/hapus/'.$k-> id_komoditas)?>"
+                                        class="btn icon btn-danger"><i class="bi bi-x"></i></a>
+                                    <!-- <button type="button" class="btn icon btn-light" data-bs-toggle="modal"
+                                        data-bs-target="#komoditas"><i class="bi bi-info-circle"></i>
+                                    </button> -->
+                                </td>
                         </tr>
                     </tbody>
                     <?php endforeach; ?>
