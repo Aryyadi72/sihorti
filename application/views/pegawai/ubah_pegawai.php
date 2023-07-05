@@ -40,7 +40,7 @@
             <div class="card-body">
                 <?php foreach ($pegawai as $p) : ?>
                 <form class="form form-horizontal" method="POST"
-                    action="<?php echo base_url('pegawai/update_data_aksi')?>">
+                    action="<?php echo base_url('pegawai/update_data_aksi')?>" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -88,10 +88,11 @@
                             <div class="col-md-4">
                                 <label for="formFile" class="form-label">File Foto</label>
                             </div>
-                            <div class="col-md-8 mb-4">
-                                <input class="form-control" type="file" id="formFile" name="foto"
-                                    value="<?php echo $p->foto?>" />
-                            </div>
+                         <div class="col-md-8 mb-4">
+    <input class="form-control" type="file" id="formFile" name="foto" />
+    <img src="<?= base_url('assets/images/' . $p->foto) ?>" style="width:100%;max-width:100px">
+</div>
+
                         </div>
                         <div class="col-sm-12 d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary me-1 mb-1">

@@ -101,77 +101,105 @@ class Pegawai extends CI_Controller {
 	// 	// $this->form_validation->set_rules('id_komoditas','id_komoditas','required');
 	// }
 
-	public function tambah_data_aksi()
-	{
-		$this->_rules();
-		if($this->form_validation->run() == FALSE){
-			$this->tambah();
-		}else{
-			$id	  	      = $this->input->post('id_pegawai');
-			$nama_pegawai  	  = $this->input->post('nama_pegawai');
-			$nip_pegawai 		  = $this->input->post('nip_pegawai');
-			$tanggal_lahir   	  = $this->input->post('tanggal_lahir');
-			$tempat_lahir   	  = $this->input->post('tempat_lahir');
-			$foto   	  = $this->input->post('foto');
-			$jenis_kelamin   	  = $this->input->post('jenis_kelamin');
+public function tambah_data_aksi()
+{
+    $this->_rules();
+    if ($this->form_validation->run() == FALSE) {
+        $this->tambah();
+    } else {
+        $config['upload_path'] = './assets/images/';
+        $config['allowed_types'] = 'gif|jpg|png|PNG';
+        $config['max_size'] = 10000;
+        $config['max_width'] = 10000;
+        $config['max_height'] = 10000;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('foto')) {
+            echo "Gagal Tambah";
+        } else {
+            $foto = $this->upload->data('file_name');
+            $id = $this->input->post('id_pegawai');
+            $nama_pegawai = $this->input->post('nama_pegawai');
+            $nip_pegawai = $this->input->post('nip_pegawai');
+            $tanggal_lahir = $this->input->post('tanggal_lahir');
+            $tempat_lahir = $this->input->post('tempat_lahir');
+            $jenis_kelamin = $this->input->post('jenis_kelamin');
+
+            $data = array(
+                'id_pegawai' => $id,
+                'nama_pegawai' => $nama_pegawai,
+                'nip_pegawai' => $nip_pegawai,
+                'tanggal_lahir' => $tanggal_lahir,
+                'tempat_lahir' => $tempat_lahir,
+                'foto' => $foto,
+                'jenis_kelamin' => $jenis_kelamin,
+            );
+
+            $this->M_pegawai->insert_data($data, 'pegawai');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Data berhasil ditambahkan !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>');
+            redirect('pegawai');
+        }
+    }
+}
 
 
-			$data = array(
-			'id_pegawai' =>	$id,	  
-			'nama_pegawai' =>	$nama_pegawai,
-			'nip_pegawai' =>	$nip_pegawai, 	
-			'tanggal_lahir' =>	$tanggal_lahir,
-			'tempat_lahir' =>	$tempat_lahir, 
-			'foto' =>	$foto,   	  
-			'jenis_kelamin' =>	$jenis_kelamin,
-			);
+public function update_data_aksi()
+{
+    $this->_rules();
+    if ($this->form_validation->run() == FALSE) {
+        $this->edit();
+    } else {
+        $config['upload_path'] = './assets/images/';
+        $config['allowed_types'] = 'gif|jpg|png|PNG';
+        $config['max_size'] = 10000;
+        $config['max_width'] = 10000;
+        $config['max_height'] = 10000;
 
-			$this->M_pegawai->insert_data($data, 'pegawai');
-			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-			<strong>Data berhasil ditambahkan !</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>');
-		  redirect('pegawai');
-		}
-	}
+        $this->load->library('upload', $config);
 
-	public function update_data_aksi()
-	{
-			$this->_rules();
-	  		$id	  	      = $this->input->post('id_pegawai');
-			$nama_pegawai  	  = $this->input->post('nama_pegawai');
-			$nip_pegawai 		  = $this->input->post('nip_pegawai');
-			$tanggal_lahir   	  = $this->input->post('tanggal_lahir');
-			$tempat_lahir   	  = $this->input->post('tempat_lahir');
-			$foto   	  = $this->input->post('foto');
-			$jenis_kelamin   	  = $this->input->post('jenis_kelamin');
+        if (!$this->upload->do_upload('foto')) {
+            echo "Gagal Update";
+        } else {
+            $foto = $this->upload->data('file_name');
+            $id = $this->input->post('id_pegawai');
+            $nama_pegawai = $this->input->post('nama_pegawai');
+            $nip_pegawai = $this->input->post('nip_pegawai');
+            $tanggal_lahir = $this->input->post('tanggal_lahir');
+            $tempat_lahir = $this->input->post('tempat_lahir');
+            $jenis_kelamin = $this->input->post('jenis_kelamin');
 
-			$data = array(
-			'id_pegawai' =>	$id,	  
-			'nama_pegawai' =>	$nama_pegawai,
-			'nip_pegawai' =>	$nip_pegawai, 	
-			'tanggal_lahir' =>	$tanggal_lahir,
-			'tempat_lahir' =>	$tempat_lahir, 
-			'foto' =>	$foto,   	  
-			'jenis_kelamin' =>	$jenis_kelamin,
-			);
+            $data = array(
+                'nama_pegawai' => $nama_pegawai,
+                'nip_pegawai' => $nip_pegawai,
+                'tanggal_lahir' => $tanggal_lahir,
+                'tempat_lahir' => $tempat_lahir,
+                'foto' => $foto,
+                'jenis_kelamin' => $jenis_kelamin,
+            );
 
-			
-			$where = array(
-				'id_pegawai' => $id
-			);
+            $where = array(
+                'id_pegawai' => $id
+            );
 
-			$this->M_pegawai->update_data('pegawai', $data, $where);
-			$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<strong>Data berhasil diupdate !</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>');
-		  redirect('pegawai');
-	}
+            $this->M_pegawai->update_data('pegawai', $data, $where);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Data berhasil diupdate!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>');
+            redirect('pegawai');
+        }
+    }
+}
+
+
 
 	public function hapus($id = null)
 	{

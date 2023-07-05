@@ -51,8 +51,7 @@ class Akun extends CI_Controller {
 		$this->form_validation->set_rules('password','password','required');
 		// $this->form_validation->set_rules('nip','nip','required');
 	}
-
-	public function tambah_data_aksi()
+public function tambah_data_aksi()
 {
     $this->_rules();
     if ($this->form_validation->run() == FALSE) {
@@ -68,7 +67,7 @@ class Akun extends CI_Controller {
         $foto = $_FILES['foto']['name'];
 
         // Konfigurasi upload
-        $config['upload_path'] = '../assets/images/';
+        $config['upload_path'] = './assets/images/';
         $config['allowed_types'] = 'jpg|jpeg|png|tiff';
         $config['max_size'] = 4096; // Ukuran file dalam kilobytes (KB)
 
@@ -114,7 +113,6 @@ class Akun extends CI_Controller {
     }
 }
 
-
     public function ubah($id)
 	{
 		$where = array('id_akun' => $id);
@@ -132,143 +130,71 @@ class Akun extends CI_Controller {
 	}
 
 	public function update_data_aksi()
-	{
-			$this->_rules();
-	  		$id   			= $this->input->post('id_akun');
-			$id_level    	= $this->input->post('id_level');
-        	$id_pegawai   	= $this->input->post('id_pegawai');
-        	$nip            = $this->input->post('nip');
-        	$nama           = $this->input->post('nama');
-        	$username       = $this->input->post('username');
-        	$password       = $this->input->post('password');
-			$foto		  		= $_FILES['foto']['name'];
-			if($password == NULL){
-				if ($foto = '') {
-				} else {
-					$config['upload_path']			= './assets/foto';
-					$config['allowed_types']		= 'jpg|jpeg|png|tiff';
-					$this->load->library('upload', $config);
-	
-					if (!$this->upload->do_upload('foto')) {
-						 $data = array(
-        				    'id_level'  	=> $id_level,
-        				    'id_pegawai'  	=> $id_pegawai,
-        				    'nip'           => $nip,
-        				    'nama'          => $nama,
-        				    'username'      => $username,
-        				    'password'      => md5($password),
-        				    'foto'          => $foto,
-        				);
+{
+    $this->_rules();
+    $id = $this->input->post('id_akun');
+    $id_level = $this->input->post('id_level');
+    $id_pegawai = $this->input->post('id_pegawai');
+    $nip = $this->input->post('nip');
+    $nama = $this->input->post('nama');
+    $username = $this->input->post('username');
+    $password = $this->input->post('password');
+    $foto = $_FILES['foto']['name'];
 
-						$where = array(
-							'id_akun' => $id
-						);
+    // Check if password is provided
+    if ($password != NULL) {
+        $password = md5($password);
+    }
 
-						$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<strong>Data berhasil diupdate !</strong>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-						</div>');
-						redirect('akun');
-					} else {
-						 $foto = $this->upload->data('file_name');
-						 $data = array(
-        				    'id_level'  	=> $id_level,
-        				    'id_pegawai'  	=> $id_pegawai,
-        				    'nip'           => $nip,
-        				    'nama'          => $nama,
-        				    'username'      => $username,
-        				    'password'      => md5($password),
-        				    'foto'          => $foto,
-        				);
-	
-						$where = array(
-							'id_akun' => $id
-						);
+    // Check if a file is uploaded
+    if ($_FILES['foto']['size'] > 0) {
+        $config['upload_path'] = './assets/images/';
+        $config['allowed_types'] = 'jpg|jpeg|png|tiff';
+        $this->load->library('upload', $config);
 
-	
-						$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-							<strong>Data berhasil diupdate !</strong>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>');
-						redirect('akun');
-					}
-				}
-			}else{
-				if ($foto = '') {
-				} else {
-					$config['upload_path']		= './assets/foto';
-					$config['allowed_types']		= 'jpg|jpeg|png|tiff';
-					$this->load->library('upload', $config);
+        if (!$this->upload->do_upload('foto')) {
+            $error = $this->upload->display_errors();
+            echo "Foto Gagal diupload: " . $error;
+            return;
+        } else {
+            $foto = $this->upload->data('file_name');
+        }
+    }
 
-					if (!$this->upload->do_upload('foto')) {
-						 $data = array(
-        				    'id_level'  	=> $id_level,
-        				    'id_pegawai'  	=> $id_pegawai,
-        				    'nip'           => $nip,
-        				    'nama'          => $nama,
-        				    'username'      => $username,
-        				    'password'      => md5($password),
-        				    'foto'          => $foto,
-        				);
+    $data = array(
+        'id_level' => $id_level,
+        'id_pegawai' => $id_pegawai,
+        'nip' => $nip,
+        'nama' => $nama,
+        'username' => $username,
+        'password' => $password,
+        'foto' => $foto,
+    );
 
-						$where = array(
-							'id_akun' => $id
-						);
+    $where = array('id_akun' => $id);
 
+    $cek = $this->db->query("SELECT * FROM akun WHERE username='" . $this->input->post('username') . "'");
 
-						$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<strong>Data berhasil diupdate !</strong>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-					</div>');
-						redirect('akun');
-					} else {
-						$foto = $this->upload->data('file_name');
-						 $data = array(
-       						'id_level' 		=> $id_level,
-       						'id_pegawai'  	=> $id_pegawai,
-       						'nip'           => $nip,
-       						'nama'          => $nama,
-       						'username'      => $username,
-       						'password'      => md5($password),
-       						'foto'          => $foto,
-       					 );
-						$where = array(
-							'id_akun' => $id
-						);
+    if ($cek->num_rows() >= 1) {
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Data gagal diupdate!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>');
+        redirect('akun');
+    } else {
+        $this->M_akun->update_data('akun', $data, $where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Data berhasil diupdate!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>');
+        redirect('akun');
+    }
+}
 
-						$cek = $this->db->query("SELECT * FROM akun where username='".$this->input->post('username')."'");
-				if ($cek->num_rows()>=1){
-				  $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Data gagal ditambahkan !</strong>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-				</button>
-				</div>');
-				redirect('akun');
-				}else{
-					$this->M_akun->update_data('akun', $data, $where);
-						$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-							<strong>Data berhasil diupdate !</strong>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>');
-						redirect('akun');
-				}
-			}
-			}
-			
-		}
-	}
 
 	public function hapus($id = null)
 	{

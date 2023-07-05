@@ -58,8 +58,7 @@
             <td><?php echo $a->nama_pegawai ?></td>
             <td><?php echo $a->nama ?></td>
             <td><?php echo $a->nip ?></td>
-         <td><img src="<?php echo base_url('../assets/foto/' . $a->foto) ?>" alt="Foto" width="100"></td>
-
+           <td><img src='<?= base_url() ?>./assets/images/<?php echo $a->foto?>' width ="100" height="130"></td>
             <td><?php echo $a->username ?></td>
             <td>
                 <a href="<?php echo base_url('akun/ubah/'.$a->id_akun) ?>" class="btn icon btn-warning"><i class="bi bi-pencil"></i></a>

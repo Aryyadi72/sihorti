@@ -59,7 +59,7 @@
                             <td><?php echo $p->nama_pegawai?></td>
                             <td><?php echo $p->tempat_lahir?></td>
                             <td><?php echo $p->tanggal_lahir?></td>
-                            <td><?php echo $p->foto?></td>
+                            <td><img src='<?= base_url() ?>./assets/images/<?php echo $p->foto?>' width ="100" height="130"></td>
                             <td><?php echo $p->jenis_kelamin?></td>
                             <td>
                                 <a href="<?php echo base_url("pegawai/ubah/".$p->id_pegawai)?>"

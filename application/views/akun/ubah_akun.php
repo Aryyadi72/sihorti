@@ -97,9 +97,13 @@
                                 <label for="formFile" class="form-label">File Foto</label>
                             </div>
                             <div class="col-md-8 mb-3">
-                                <input class="form-control" type="file" id="formFile" name="foto"
-                                    value="<?php echo $a->foto?>" />
-                            </div>
+    <input class="form-control" type="file" id="formFile" name="foto" />
+    <br>
+    <?php if ($a->foto): ?>
+        <img src="<?= base_url('./assets/images/' . $a->foto) ?>" style="width:100%;max-width:100px">
+    <?php endif; ?>
+</div>
+
                             <div class="col-md-4">
                                 <label>Username</label>
                             </div>

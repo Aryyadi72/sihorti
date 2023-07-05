@@ -39,7 +39,7 @@
             </div>
             <div class="card-body">
                 <form class="form form-horizontal" method="POST"
-                    action="<?php echo base_url('pegawai/tambah_data_aksi')?>">
+                    action="<?php echo base_url('pegawai/tambah_data_aksi')?>" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -77,12 +77,8 @@
                             <div class="col-md-8 mb-4">
                                 <div class="form-group">
                                     <select class="choices form-select" name="jenis_kelamin">
-                                        <<<<<<< HEAD <option value="pria">Pria</option>
-                                            <option value="wanita">Wanita</option>
-                                            =======
                                             <option value="Pria">Pria</option>
                                             <option value="Wanita">Wanita</option>
-                                            >>>>>>> f009c2e448f861646d586d62a7dbf79e6b72b38e
                                     </select>
                                 </div>
                             </div>
@@ -90,7 +86,7 @@
                                 <label for="formFile" class="form-label">File Foto</label>
                             </div>
                             <div class="col-md-8 mb-4">
-                                <input class="form-control" type="file" id="formFile" name="foto" />
+                                <input class="form-control" type="file" id="formFile" name="foto"  accept="/image/*" />
                             </div>
                         </div>
                         <div class="col-sm-12 d-flex justify-content-end">
