@@ -20,8 +20,11 @@ class Rekapitulasi extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['rekapitulasi'] = $this->M_rekapitulasi->get_data('rekapitulasi')->result();
-		$data['rekapitulasi'] = $this->M_rekapitulasi->show_data_baru()->result();
+		// $data['rekapitulasi'] = $this->M_rekapitulasi->show_data();
+		$data['rekapitulasi'] = $this->M_rekapitulasi->show_data_semua();
+		$data['kecamatan'] = $this->M_rekapitulasi->show_data_kecamatan()->result();
+		$data['tanggal'] = $this->M_rekapitulasi->show_data_tanggal()->result();
+		$data['bulan'] = $this->M_rekapitulasi->show_data_bulan()->result();
 		$title['title'] = "SIHORTI - Rekapitulasi";
 		$this->load->view('templates/header',$title);
         $this->load->view('templates/sidebar');
@@ -33,6 +36,7 @@ class Rekapitulasi extends CI_Controller {
 	{
 		$data['komoditas'] = $this->M_rekapitulasi->tampil_komoditas()->result();
 		$data['kategori'] = $this->M_rekapitulasi->tampil_kategori()->result();
+		$data['kecamatan'] = $this->M_rekapitulasi->show_data_kecamatan()->result();
 		$title['title'] = "SIHORTI - Tambah Rekapitulasi";
 		$this->load->view('templates/header', $title);
         $this->load->view('templates/sidebar');
@@ -68,6 +72,7 @@ class Rekapitulasi extends CI_Controller {
 			$kode 		  = $this->input->post('kode');
 			$id_komoditas  = $this->input->post('id_komoditas');
 			$id_kategori  = $this->input->post('id_kategori');
+			$id_kecamatan  = $this->input->post('id_kecamatan');
 			$hasil_produksi   	  = $this->input->post('hasil_produksi');
 			$luas_tanaman   	  = $this->input->post('luas_tanaman');
 			$luas_panen_habis   	  = $this->input->post('luas_panen_habis');
@@ -79,11 +84,13 @@ class Rekapitulasi extends CI_Controller {
 			$produksi_sisa   	  = $this->input->post('produksi_sisa');
 			$harga_jual   	  = $this->input->post('harga_jual');
 			$keterangan   	  = $this->input->post('keterangan');
+			$tanggal = date('Y-m-d');
 
 			$data = array(
 				'kode' => $kode,
     			'id_komoditas' => $id_komoditas,
 				'id_kategori' => $id_kategori,
+				'id_kecamatan' => $id_kecamatan,
     			'hasil_produksi' => $hasil_produksi,
     			'luas_tanaman' => $luas_tanaman,
     			'luas_panen_habis' => $luas_panen_habis,
@@ -94,7 +101,9 @@ class Rekapitulasi extends CI_Controller {
     			'produksi_habis' => $produksi_habis,
     			'produksi_sisa' => $produksi_sisa,
     			'harga_jual' => $harga_jual,
-    			'keterangan' => $keterangan
+    			'keterangan' => $keterangan,
+				'tanggal' => $tanggal
+
 			);
 
 			$this->M_komoditas->insert_data($data, 'rekapitulasi');
@@ -200,5 +209,17 @@ public function ubah_data_aksi()
         $this->load->view('templates/footer');
 	}
 
+	public function filter_data()
+{
+		$data['rekapitulasi'] = $this->M_rekapitulasi->show_data_baru();
+   		$data['kecamatan'] = $this->M_rekapitulasi->show_data_kecamatan()->result();
+		$data['tanggal'] = $this->M_rekapitulasi->show_data_tanggal()->result();
+		$data['bulan'] = $this->M_rekapitulasi->show_data_bulan()->result();
+		$title['title'] = "SIHORTI - Rekapitulasi";
+		$this->load->view('templates/header',$title);
+        $this->load->view('templates/sidebar');
+        $this->load->view('rekapitulasi/tampil_rekapitulasi',$data);
+        $this->load->view('templates/footer');
+}
 
 }

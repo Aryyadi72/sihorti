@@ -23,6 +23,14 @@
 			$('#table1').DataTable();
 		});
 	</script>
+
+<script>
+    document.getElementById('exportBtn').addEventListener('click', function() {
+        var exportURL = "<?php echo base_url("laporan_mingguan/exportrekap"); ?>";
+        window.location.href = exportURL;
+    });
+</script>
+
 </body>
 
 </html>

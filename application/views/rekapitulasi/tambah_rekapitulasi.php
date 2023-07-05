@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="last-name-column">ID Komoditas</label>
+                                        <label for="last-name-column">Komoditas</label>
                                         <!-- <input type="text" id="last-name-column" class="form-control"
                                             placeholder="ID Komoditas" name="id_komoditas" /> -->
                                         <div class="form-group">
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="last-name-column">ID Kategori</label>
+                                        <label for="last-name-column">Kategori</label>
                                         <!-- <input type="text" id="last-name-column" class="form-control"
                                             placeholder="ID Komoditas" name="id_komoditas" /> -->
                                         <div class="form-group">
@@ -67,6 +67,24 @@
                                                 foreach ($kategori as $ka) { ?>
                                                 <option value="<?php echo $ka->id_kategori ?>">
                                                     <?php echo $ka->kategori ?>
+                                                </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="last-name-column">Kecamatan</label>
+                                        <!-- <input type="text" id="last-name-column" class="form-control"
+                                            placeholder="ID Komoditas" name="id_komoditas" /> -->
+                                        <div class="form-group">
+                                            <select class="choices form-select" name="id_kecamatan">
+                                                <option value="">--- Pilih Kecamatan ---</option>
+                                                <?php
+                                                foreach ($kecamatan as $ke) { ?>
+                                                <option value="<?php echo $ke->id_kecamatan ?>">
+                                                    <?php echo $ke->nama ?>
                                                 </option>
                                                 <?php } ?>
                                             </select>
